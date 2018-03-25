@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Framework.Events
 {
-    [CreateAssetMenu(menuName = "Events/Undoable event")]
+    [CreateAssetMenu(menuName = "Framework/Events/Undoable event")]
     public class UndoableGameEvent : GameEvent<IUndoable>
     {
         

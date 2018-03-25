@@ -3,7 +3,7 @@ using UnityEngine.Events;
 
 namespace Framework.UI
 {
-    [CreateAssetMenu(menuName = "UI/Window descriptor")]
+    [CreateAssetMenu(menuName = "Framework/UI/Window descriptor")]
     public class WindowDescriptor : ScriptableObject
     {
         public GameObject windowPrefab;

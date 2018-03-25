@@ -5,7 +5,7 @@ using Framework.EventListeners;
 
 namespace Framework.Events
 {
-    [CreateAssetMenu(menuName = "Events/Default event")]
+    [CreateAssetMenu(menuName = "Framework/Events/Default event")]
     public class GameEvent : ScriptableObject
     {
         private readonly HashSet<IEventListener> listeners = 

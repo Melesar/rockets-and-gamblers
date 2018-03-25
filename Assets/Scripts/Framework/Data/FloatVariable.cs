@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Framework.Data
 {
-    [CreateAssetMenu(menuName = "Variables/Float variable")]
+    [CreateAssetMenu(menuName = "Framework/Variables/Float variable")]
     public class FloatVariable : Variable<float>
     {
         

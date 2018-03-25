@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RocketsAndGamblers.Database;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -35,9 +36,26 @@ namespace RocketsAndGamblers.Data
         public int omoniumVeinsMax;
         public int omoniumVeinsLeft;
 
+        public string bundleName;
+
         /// <summary>
         /// Timestamp of the omonium mining start time
         /// </summary>
         public long omoniumMiningStarted;
+
+        public void AddToLayout (ObjectIdentity objectId)
+        {
+            layout.Add(new PositionData {
+                id = objectId.Id,
+                position = objectId.transform.position,
+                rotation = objectId.transform.rotation
+            });
+        }
+
+        public BaseDescription ()
+        {
+            layout = new List<PositionData>();
+            upgrades = new List<UpgradeData>();
+        }
     }
 }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Framework.Data
 {
-    [CreateAssetMenu(menuName = "Variables/Integer")]
+    [CreateAssetMenu(menuName = "Framework/Variables/Integer")]
     public class IntVariable : Variable<int>
     {
         
