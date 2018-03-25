@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e561cfba2006b409ce1e68f6772cc5, type: 3}
+  m_Name: PlayerBaseProperties
+  m_EditorClassIdentifier: 
+  playerId: 1
+  goldMiningLimit: 4000
+  omoniumVeinsMax: 3
+  availableDefenses: d1070000d2070000d3070000
+  provider: {fileID: 11400000, guid: 1df52b76dc25d1c44b7459b528e3984e, type: 2}

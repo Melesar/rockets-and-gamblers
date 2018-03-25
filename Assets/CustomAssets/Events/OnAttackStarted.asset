@@ -8,7 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c6504a000c7734285276379abf3aab, type: 3}
-  m_Name: FileBaseProvider
+  m_Script: {fileID: 11500000, guid: 36cb489ca7780db49a4fefff4a0acb18, type: 3}
+  m_Name: OnAttackStarted
   m_EditorClassIdentifier: 
-  fileNameFormat: base_player{0}.json

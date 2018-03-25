@@ -44,3 +44,6 @@ TagManager:
   - name: Objects
     uniqueID: 514595039
     locked: 0
+  - name: Interactive
+    uniqueID: 42247703
+    locked: 0

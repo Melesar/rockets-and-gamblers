@@ -36,6 +36,8 @@ namespace RocketsAndGamblers.Data
         public int omoniumVeinsMax;
         public int omoniumVeinsLeft;
 
+        public int[] availableDefenses;
+
         public string bundleName;
 
         /// <summary>

@@ -8,3 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main.unity
     guid: f92cfb5173b5f0f4e88c40dddd4a4ee5
+  - enabled: 1
+    path: Assets/Scenes/PlayersBase.unity
+    guid: 7ae132c62ccbc6243b9e932eb6067e99
+  - enabled: 1
+    path: Assets/Scenes/AttackScene.unity
+    guid: 51a7e93b0ac7e7d4fbaa1e3108fea3ba

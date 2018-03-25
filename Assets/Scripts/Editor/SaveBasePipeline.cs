@@ -2,6 +2,7 @@
 using UnityEditor;
 using RocketsAndGamblers.Data;
 using System;
+using RocketsAndGamblers.Database;
 
 namespace RocketsAndGamblers.Edior
 {
@@ -11,6 +12,31 @@ namespace RocketsAndGamblers.Edior
         public static void BuildBase ()
         {
             var baseDescription = new BaseDescription();
+            BaseProperties baseProperties = FromProperties(baseDescription);
+
+            //TODO populate layout and upgrades
+            WriteDefensesLayout(baseDescription);
+
+            //TODO populate asset bundle names automatically
+            var manifest = BuildPipeline.BuildAssetBundles(Constants.AssetBundlesPath, BuildAssetBundleOptions.None, BuildTarget.Android);
+            var bundleName = manifest.GetAllAssetBundles()[0];
+
+            baseDescription.bundleName = bundleName;
+
+            baseProperties.provider.UpdatePlayerBase(baseProperties.playerId, baseDescription);
+        }
+
+        public static void WriteDefensesLayout (BaseDescription baseDesription)
+        {
+            var defenses = UnityEngine.Object.FindObjectsOfType<Defense>();
+            foreach (var def in defenses) {
+                baseDesription.AddToLayout(def.GetComponent<ObjectIdentity>());
+                UnityEngine.Object.DestroyImmediate(def.gameObject);
+            }
+        }
+
+        private static BaseProperties FromProperties (BaseDescription baseDescription)
+        {
             var baseProperties = Selection.activeObject as BaseProperties;
 
             baseDescription.goldMiningLimit = baseProperties.goldMiningLimit;
@@ -20,15 +46,8 @@ namespace RocketsAndGamblers.Edior
             baseDescription.omoniumVeinsLeft = baseProperties.omoniumVeinsMax;
             baseDescription.omoniumMiningStarted = DateTime.MinValue.ToBinary();
 
-            //TODO populate layout and upgrades
-
-            //TODO populate asset bundle names automatically
-            var manifest = BuildPipeline.BuildAssetBundles(Constants.AssetBundlesPath, BuildAssetBundleOptions.None, BuildTarget.Android);
-            var bundleName = manifest.GetAllAssetBundles()[0];
-
-            baseDescription.bundleName = bundleName;
-
-            baseProperties.provider.UpdatePlayerBase(Constants.PlayerId, baseDescription);
+            baseDescription.availableDefenses = baseProperties.availableDefenses.ToArray();
+            return baseProperties;
         }
 
         [MenuItem("Assets/Build base", validate = true)]

@@ -20,6 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4435034740677774}
   - component: {fileID: 212733795211994824}
+  - component: {fileID: 114250132218767518}
+  - component: {fileID: 114176073231968572}
   m_Layer: 0
   m_Name: planet
   m_TagString: Untagged
@@ -40,6 +42,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114176073231968572
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508053455170482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc6e5e8f4e4a34c87fd2ef78b951bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
+--- !u!114 &114250132218767518
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508053455170482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f025f98458d26a54a894c5b89a8b75a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: {fileID: 11400000, guid: 9fce7d15b7998924b81e26742b0e7408, type: 2}
 --- !u!212 &212733795211994824
 SpriteRenderer:
   m_ObjectHideFlags: 1
