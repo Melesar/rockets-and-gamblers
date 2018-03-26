@@ -13,7 +13,12 @@ namespace RocketsAndGamblers
     public class AttackSystem : ScriptableObject
     {
         public AttackTargetProvider targetProvider;
-        public BaseDescriptionProvider baseDescriptionProvider;
+
+        //Workaround only before cloud implementation
+        //Then only one field should stay
+        public BaseDescriptionProvider enemyBaseProvider;
+        public BaseDescriptionProvider playerBaseProvider;
+
         public BaseBuilder baseBuilder;
 
         public GameEvent attackStarted;
@@ -25,6 +30,11 @@ namespace RocketsAndGamblers
                 .WrapErrors();
         }
 
+        public void ReturnToBase ()
+        {
+            ReturnToBaseAsync().WrapErrors();
+        }
+
         public async Task AttackAsync ()
         {
             attackStarted.Raise();
@@ -33,11 +43,28 @@ namespace RocketsAndGamblers
 
             var targetId = await targetProvider.GetAttackTargetId();
 
-            var baseDescription = await baseDescriptionProvider.GetPlayerBase(targetId);
+            var baseDescription = await enemyBaseProvider.GetPlayerBase(targetId);
 
             await Scenes.UnloadScenes();
 
             await Scenes.LoadAttackScene();
+
+            await baseBuilder.BuildBase(baseDescription);
+
+            attackFinished.Raise();
+        }
+
+        public async Task ReturnToBaseAsync ()
+        {
+            attackStarted.Raise();
+
+            await new WaitForSeconds(2f);
+
+            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId);
+
+            await Scenes.UnloadScenes();
+
+            await Scenes.LoadPlayerScene();
 
             await baseBuilder.BuildBase(baseDescription);
 
