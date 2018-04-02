@@ -3,15 +3,14 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Collections;
+using RocketsAndGamblers.Data;
 
 namespace RocketsAndGamblers.Database
 {
     [CreateAssetMenu(menuName = "R&G/Objects database")]
-    public class ObjectsDatabase : ScriptableObject, IEnumerable<ObjectIdentity>
+    public class ObjectsDatabase : ObjectsSet
     {
         [SerializeField] private List<ObjectId> objectIds;
-
-        private List<ObjectIdentity> instances;
 
         public ObjectIdentity Instantiate (int id, Vector3 position, Quaternion rotation)
         {
@@ -22,24 +21,27 @@ namespace RocketsAndGamblers.Database
             }
 
             var instance = Instantiate(identity.prefab, position, rotation);
-            instances.Add(instance);
+
+            ClearNulls();
+            Add (instance);
 
             return instance;
         }
 
+        public ObjectIdentity Instantiate (ObjectId id, Vector3 position, Quaternion rotation)
+        {
+            return Instantiate(id.id, position, rotation);
+        }
+
         public ObjectIdentity GetById (int id)
         {
-            return instances.Find(i => i.Id == id);
+            ClearNulls();
+            return objects.Find(i => i.Id == id);
         }
 
-        IEnumerator IEnumerable.GetEnumerator ()
+        private void ClearNulls ()
         {
-            return GetEnumerator();
-        }
-
-        public IEnumerator<ObjectIdentity> GetEnumerator ()
-        {
-            return instances.GetEnumerator();
+            objects.RemoveAll(o => o == null);
         }
     }
 }

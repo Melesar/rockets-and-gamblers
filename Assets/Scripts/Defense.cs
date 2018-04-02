@@ -3,7 +3,7 @@ using System.Collections;
 
 namespace RocketsAndGamblers
 {
-    public class Defense : MonoBehaviour
+    public class Defense : LayoutObject
     {
 
     }

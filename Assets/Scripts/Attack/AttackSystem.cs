@@ -43,7 +43,7 @@ namespace RocketsAndGamblers
 
             var targetId = await targetProvider.GetAttackTargetId();
 
-            var baseDescription = await enemyBaseProvider.GetPlayerBase(targetId);
+            var baseDescription = await enemyBaseProvider.GetPlayerBase(targetId, true);
 
             await Scenes.UnloadScenes();
 
@@ -60,7 +60,7 @@ namespace RocketsAndGamblers
 
             await new WaitForSeconds(2f);
 
-            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId);
+            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId, false);
 
             await Scenes.UnloadScenes();
 

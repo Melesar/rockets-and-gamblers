@@ -11,4 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43e6b49c1c059a743aadac8b784a6e27, type: 3}
   m_Name: BaseBuilder
   m_EditorClassIdentifier: 
+  spawnPointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
+  playerPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968,
+    type: 2}
   database: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}

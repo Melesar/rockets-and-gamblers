@@ -13,7 +13,7 @@ namespace RocketsAndGamblers.Data
 
         public string FileName => Path.Combine(Application.streamingAssetsPath, fileNameFormat);
 
-        public override async Task<BaseDescription> GetPlayerBase (int playerId)
+        public override async Task<BaseDescription> GetPlayerBase (int playerId, bool isAttacking)
         {
             var filePath = GetFilePath(playerId);
 
@@ -23,7 +23,10 @@ namespace RocketsAndGamblers.Data
 
             using (var reader = new StreamReader(new FileStream(filePath, FileMode.OpenOrCreate))) {
                 var json = await reader.ReadToEndAsync();
-                return JsonUtility.FromJson<BaseDescription>(json);
+                var baseDescription = JsonUtility.FromJson<BaseDescription>(json);
+                baseDescription.isAttacking = isAttacking;
+
+                return baseDescription;
             }
         }
 

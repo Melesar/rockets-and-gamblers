@@ -1,11 +1,7 @@
 ﻿using Framework.Data;
 using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Database;
-using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -15,7 +11,10 @@ namespace RocketsAndGamblers
     [CreateAssetMenu(menuName = "R&G/Base builder")]
     public class BaseBuilder : ScriptableObject
     {
-        public ObjectsDatabase database;
+        [SerializeField] private ObjectId spawnPointId;
+        [SerializeField] private GameObject playerPrefab;
+
+        [SerializeField] private ObjectsDatabase database;
 
         public async Task BuildBase (BaseDescription baseDescription)
         {
@@ -26,9 +25,32 @@ namespace RocketsAndGamblers
 
                 await Scenes.LoadBaseScene(sceneName);
 
-                foreach (var obj in baseDescription.layout) {
-                    database.Instantiate(obj.id, obj.position, obj.rotation);
+                SetupBaseLayout(baseDescription);
+                SetupBaseDefenses(baseDescription);
+
+                if (baseDescription.isAttacking) {
+                    SpawnPlayerSpaceship();
                 }
+            }
+        }
+
+        private void SetupBaseLayout (BaseDescription baseDescription)
+        {
+            foreach (var obj in baseDescription.layout) {
+                database.Instantiate(obj.id, obj.position, obj.rotation);
+            }
+        }
+
+        private void SetupBaseDefenses (BaseDescription baseDescription)
+        {
+
+        }
+
+        private void SpawnPlayerSpaceship ()
+        {
+            var spawnPoint = database.GetById(spawnPointId.id)?.GetComponent<SpawnPoint>();
+            if (spawnPoint) {
+                spawnPoint.Spawn(playerPrefab);
             }
         }
     }

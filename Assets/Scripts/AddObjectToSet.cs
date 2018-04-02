@@ -10,16 +10,10 @@ namespace RocketsAndGamblers
     {
         public ObjectsSet set;
 
-        private ObjectIdentity identity;
-
-        private void Start ()
-        {
-            set.Add(identity);
-        }
-
         private void Awake ()
         {
-            identity = GetComponent<ObjectIdentity>();
+            var identity = GetComponent<ObjectIdentity>();
+            set.Add(identity);
         }
     }
 }

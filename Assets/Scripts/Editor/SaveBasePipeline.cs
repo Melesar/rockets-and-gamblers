@@ -28,10 +28,10 @@ namespace RocketsAndGamblers.Edior
 
         public static void WriteDefensesLayout (BaseDescription baseDesription)
         {
-            var defenses = UnityEngine.Object.FindObjectsOfType<Defense>();
-            foreach (var def in defenses) {
-                baseDesription.AddToLayout(def.GetComponent<ObjectIdentity>());
-                UnityEngine.Object.DestroyImmediate(def.gameObject);
+            var layoutObjects = UnityEngine.Object.FindObjectsOfType<LayoutObject>();
+            foreach (var obj in layoutObjects) {
+                baseDesription.AddToLayout(obj.GetComponent<ObjectIdentity>());
+                UnityEngine.Object.DestroyImmediate(obj.gameObject);
             }
         }
 

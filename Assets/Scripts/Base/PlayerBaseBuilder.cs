@@ -15,7 +15,7 @@ namespace RocketsAndGamblers
 
         private async void Start ()
         {
-            var baseDescription = await baseProvider.GetPlayerBase(Constants.PlayerId);
+            var baseDescription = await baseProvider.GetPlayerBase(Constants.PlayerId, false);
 
             await Scenes.LoadPlayerScene();
 

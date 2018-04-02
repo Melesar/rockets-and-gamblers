@@ -45,6 +45,8 @@ namespace RocketsAndGamblers.Data
         /// </summary>
         public long omoniumMiningStarted;
 
+        [NonSerialized] public bool isAttacking;
+
         public void AddToLayout (ObjectIdentity objectId)
         {
             layout.Add(new PositionData {
