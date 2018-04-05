@@ -1,50 +1,54 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
-public class ShipMovement : MonoBehaviour
+namespace RocketsAndGamblers
 {
-    public float speed;
-
-    public PlanetOrbit CurrentOrbit { get; set; }
-
-    private Vector3 velocity;
-
-    private Rigidbody2D rb;
-
-    private void FixedUpdate ()
+    [RequireComponent(typeof(ShipPhysics))]
+    public class ShipMovement : MonoBehaviour
     {
-        CalculateVelocity();
+        public float burstForce;
 
-        rb.velocity = velocity;
+        public PlanetOrbit CurrentOrbit
+        {
+            get; set;
+        }
 
-        //if (!IsMatchVelocity()) {
-        //    rb.AddForce(velocity);
-        //}
+        private ShipPhysics physics;
 
-        var angle = Vector2.Angle(Vector2.right, rb.velocity);
-        angle = rb.velocity.y < 0 ? -angle : angle;
-        rb.rotation = angle;
+        public void Burst (Vector2 to)
+        {
+            var direction = (to - physics.Position).normalized;
+            physics.AddImpulseForce(direction * burstForce);
+
+            CurrentOrbit.Deattach();
+            CurrentOrbit = null;
+        }
+
+        private void FixedUpdate ()
+        {
+            var velocity = CalculateVelocity();
+            physics.Move(velocity);
+        }
+
+        private bool previousOption = false;
+
+        private Vector2 CalculateVelocity ()
+        {
+            var option = CurrentOrbit != null;
+
+            //NOT XOR
+            //if ((!option || !previousOption) && (option || previousOption)) {
+            //    Debug.Log("Shifted options");
+            //}
+
+            previousOption = option;
+            return option ? CurrentOrbit.GetShipDirection(physics.Position) : physics.ForwardDirection;
+        }
+
+        private void Awake ()
+        {
+            physics = GetComponent<ShipPhysics>();
+        }
     }
 
-    private void CalculateVelocity ()
-    {
-        var direction = CurrentOrbit?.GetShipDirection(rb.position) ?? rb.GetRelativeVector(Vector3.right);
-
-        velocity = direction.normalized * speed;
-    }
-
-    private bool IsMatchVelocity ()
-    {
-        var targetSpeed = velocity.magnitude;
-        var currentSpeed = rb.velocity.magnitude;
-
-        var isSpeedMatch = Mathf.Abs(targetSpeed - currentSpeed) < 0.01;
-        var isDirectionMatch = Vector2.Dot(velocity, rb.velocity) / targetSpeed / currentSpeed < 0.05f;
-
-        return isSpeedMatch && isDirectionMatch;
-    }
-
-    private void Awake ()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
 }
