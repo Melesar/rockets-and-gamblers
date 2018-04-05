@@ -34,8 +34,6 @@ namespace RocketsAndGamblers
             } else {
                 rb.velocity = direction.normalized * maxSpeed;
             }
-
-            //Debug.Log(Vector2.Dot(rb.velocity.normalized, direction.normalized));
         }
 
         private void RotateShip ()

@@ -30,19 +30,9 @@ namespace RocketsAndGamblers
             physics.Move(velocity);
         }
 
-        private bool previousOption = false;
-
         private Vector2 CalculateVelocity ()
         {
-            var option = CurrentOrbit != null;
-
-            //NOT XOR
-            //if ((!option || !previousOption) && (option || previousOption)) {
-            //    Debug.Log("Shifted options");
-            //}
-
-            previousOption = option;
-            return option ? CurrentOrbit.GetShipDirection(physics.Position) : physics.ForwardDirection;
+            return CurrentOrbit?.GetShipDirection() ?? physics.ForwardDirection;
         }
 
         private void Awake ()

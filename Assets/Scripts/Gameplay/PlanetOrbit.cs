@@ -6,15 +6,11 @@ namespace RocketsAndGamblers
     [RequireComponent(typeof(PlanetGravityField))]
     public class PlanetOrbit : MonoBehaviour
     {
-        public LayerMask layerMask;
-        public float jointBreakForce;
-
-        private CircleCollider2D orbitCollider;
         private DistanceJoint2D joint;
         private Rigidbody2D rb;
         private Rigidbody2D shipRb;
 
-        public Vector2 GetShipDirection (Vector2 shipPosition)
+        public Vector2 GetShipDirection ()
         {
             var toAnchor = rb.position - shipRb.position;
             var forceDirection = Vector3.Cross(toAnchor, -Vector3.forward).normalized;
@@ -42,7 +38,6 @@ namespace RocketsAndGamblers
 
         private void Awake ()
         {
-            orbitCollider = GetComponents<CircleCollider2D>().FirstOrDefault(c => c.isTrigger);
             rb = GetComponent<Rigidbody2D>();
             joint = GetComponent<DistanceJoint2D>();
 
@@ -54,14 +49,6 @@ namespace RocketsAndGamblers
         {
             var gravityField = GetComponent<PlanetGravityField>();
             gravityField.Enter -= OnGravityFieldEnter;
-        }
-
-        private void AddJoint ()
-        {
-            joint = gameObject.AddComponent<DistanceJoint2D>();
-            joint.breakForce = jointBreakForce;
-            joint.distance = orbitCollider.radius;
-            joint.maxDistanceOnly = true;
         }
     }
 
