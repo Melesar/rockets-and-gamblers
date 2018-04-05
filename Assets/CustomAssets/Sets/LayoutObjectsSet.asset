@@ -8,8 +8,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5a30585e365e74694a9138882d87bd, type: 3}
-  m_Name: Planet
+  m_Script: {fileID: 11500000, guid: 8a6511bf00c6a824da41e25e6c26cce3, type: 3}
+  m_Name: LayoutObjectsSet
   m_EditorClassIdentifier: 
-  id: 1001
-  prefab: {fileID: 114250132218767518, guid: 8d939be6c6164ac4d973516ebe95f6c8, type: 2}

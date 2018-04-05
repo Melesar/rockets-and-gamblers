@@ -313,6 +313,11 @@ Prefab:
       propertyPath: m_Name
       value: planet (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 232435298170976862, guid: 8d939be6c6164ac4d973516ebe95f6c8,
+        type: 2}
+      propertyPath: m_Distance
+      value: 7.5999537
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d939be6c6164ac4d973516ebe95f6c8, type: 2}
   m_IsPrefabParent: 0
@@ -358,6 +363,11 @@ Prefab:
     - target: {fileID: 1508053455170482, guid: 8d939be6c6164ac4d973516ebe95f6c8, type: 2}
       propertyPath: m_Name
       value: planet (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 232435298170976862, guid: 8d939be6c6164ac4d973516ebe95f6c8,
+        type: 2}
+      propertyPath: m_Distance
+      value: 5.708275
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d939be6c6164ac4d973516ebe95f6c8, type: 2}

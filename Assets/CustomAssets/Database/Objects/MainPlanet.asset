@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: MainPlanet
   m_EditorClassIdentifier: 
   id: 1007
-  prefab: {fileID: 114366341179885670, guid: 371ab475d3bf92640b2e8b2f0b16d11f, type: 2}
+  prefab: {fileID: 114676889160859632, guid: 371ab475d3bf92640b2e8b2f0b16d11f, type: 2}

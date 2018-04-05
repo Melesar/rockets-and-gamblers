@@ -7,7 +7,6 @@ using UnityEngine;
 
 namespace RocketsAndGamblers
 {
-
     [CreateAssetMenu(menuName = "R&G/Base builder")]
     public class BaseBuilder : ScriptableObject
     {
@@ -15,6 +14,7 @@ namespace RocketsAndGamblers
         [SerializeField] private GameObject playerPrefab;
 
         [SerializeField] private ObjectsDatabase database;
+        [SerializeField] private BaseDescriptionEvent onBaseBuilt;
 
         public async Task BuildBase (BaseDescription baseDescription)
         {
@@ -26,11 +26,13 @@ namespace RocketsAndGamblers
                 await Scenes.LoadBaseScene(sceneName);
 
                 SetupBaseLayout(baseDescription);
-                SetupBaseDefenses(baseDescription);
+                SetupUpgrades(baseDescription);
 
                 if (baseDescription.isAttacking) {
                     SpawnPlayerSpaceship();
                 }
+
+                onBaseBuilt.Raise(baseDescription);
             }
         }
 
@@ -41,7 +43,7 @@ namespace RocketsAndGamblers
             }
         }
 
-        private void SetupBaseDefenses (BaseDescription baseDescription)
+        private void SetupUpgrades (BaseDescription baseDescription)
         {
 
         }

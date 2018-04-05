@@ -38,7 +38,7 @@ namespace RocketsAndGamblers.Data
 
             var json = JsonUtility.ToJson(newDescription);
 
-            using (var writer = new StreamWriter(new FileStream(filePath, FileMode.OpenOrCreate))) {
+            using (var writer = new StreamWriter(filePath, false)) {
                 await writer.WriteAsync(json);
             }
         }

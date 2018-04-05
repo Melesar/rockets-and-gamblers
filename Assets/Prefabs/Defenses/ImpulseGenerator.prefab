@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212390977712742054}
   - component: {fileID: 114395779606787680}
   - component: {fileID: 114742605173640886}
+  - component: {fileID: 114498016372646030}
+  - component: {fileID: 114808752856478772}
   m_Layer: 0
   m_Name: ImpulseGenerator
   m_TagString: Untagged
@@ -54,6 +56,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: 9ce5f593c91abe34a80b176d232a554f, type: 2}
+--- !u!114 &114498016372646030
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417694330916882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0396ee98425474eb717f638b6ee73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEditingBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
 --- !u!114 &114742605173640886
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,6 +82,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfd2c00abfa438458eded41b01ae793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114808752856478772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417694330916882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc6e5e8f4e4a34c87fd2ef78b951bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
 --- !u!212 &212390977712742054
 SpriteRenderer:
   m_ObjectHideFlags: 1
