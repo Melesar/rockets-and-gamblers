@@ -6,12 +6,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 using System.Linq;
+using Framework.References;
 
 namespace RocketsAndGamblers
 {
     public class DefenceLayoutSnapping : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public ObjectsSet objectsToSnap;
+        public BoolReference isEditing;
 
         [Tooltip("Sprite to be rendered with low opacity while not poining to any object to snap")]
         public Sprite mockupSprite;
@@ -26,12 +28,20 @@ namespace RocketsAndGamblers
 
         public void OnBeginDrag (PointerEventData eventData)
         {
+            if (!isEditing) {
+                return;
+            }
+
             SetActiveMockup(true);
             SetActiveObjects(true);
         }
 
         public void OnDrag (PointerEventData eventData)
         {
+            if (!isEditing) {
+                return;
+            }
+
             var pointPosition = ScreenToWorldPoint(eventData.position);
             mockupTransform.position = pointPosition;;
 
@@ -47,6 +57,10 @@ namespace RocketsAndGamblers
 
         public void OnEndDrag (PointerEventData eventData)
         {
+            if (!isEditing) {
+                return;
+            }
+
             if (isSnapped) {
                 ApplySnapping();
             } else {

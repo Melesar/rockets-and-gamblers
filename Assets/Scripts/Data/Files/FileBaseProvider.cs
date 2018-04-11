@@ -17,16 +17,17 @@ namespace RocketsAndGamblers.Data
         {
             var filePath = GetFilePath(playerId);
 
-            if (!File.Exists(filePath)) {
-                throw new InvalidOperationException("No base description found!");
-            }
+            using (var www = new WWW(filePath)) {
+                await www;
 
-            using (var reader = new StreamReader(new FileStream(filePath, FileMode.OpenOrCreate))) {
-                var json = await reader.ReadToEndAsync();
-                var baseDescription = JsonUtility.FromJson<BaseDescription>(json);
-                baseDescription.isAttacking = isAttacking;
+                if (www.error != null) {
+                    throw new InvalidOperationException("Error getting base description : " + www.error);
+                }
 
-                return baseDescription;
+                var description = JsonUtility.FromJson<BaseDescription>(www.text);
+                description.isAttacking = isAttacking;
+
+                return description;
             }
         }
 
