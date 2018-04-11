@@ -12,7 +12,12 @@ namespace RocketsAndGamblers
 
         public void OnEditingStateChanged (bool newState)
         {
-            var alfa = newState ? disabledRendererAlfa : 1f;
+            SetActive(!newState);
+        }
+
+        public void SetActive (bool newState)
+        {
+            var alfa = newState ? 1f : disabledRendererAlfa;
 
             var currentColor = spriteRenderer.color;
             currentColor.a = alfa;
