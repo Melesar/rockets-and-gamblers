@@ -3,7 +3,7 @@ using Framework.References;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.PropertyDrawers
+namespace Framework.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(StringReference))]
     public class StringReferenceDrawer : DataReferenceDrawer

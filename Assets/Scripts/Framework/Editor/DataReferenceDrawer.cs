@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
-namespace Editor.PropertyDrawers
+namespace Framework.Editor.PropertyDrawers
 {
     public abstract class DataReferenceDrawer : PropertyDrawer
     {

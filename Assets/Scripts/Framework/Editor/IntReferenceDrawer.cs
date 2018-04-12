@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace Framework.Editor.PropertyDrawers
 {
-    [CustomPropertyDrawer(typeof(BoolReference))]
-    public class BoolReferenceDrawer : DataReferenceDrawer
+    [CustomPropertyDrawer(typeof(IntReference))]
+    public class IntReferenceDrawer : DataReferenceDrawer
     {
         protected override void DrawConstantField (SerializedProperty property, Rect position)
         {
             var valueProperty = property.FindPropertyRelative("constantValue");
-            valueProperty.boolValue = EditorGUI.Toggle(position, valueProperty.boolValue);
+            valueProperty.intValue = EditorGUI.IntField(position, valueProperty.intValue);
         }
 
         protected override void DrawVariableField (SerializedProperty property, Rect position)

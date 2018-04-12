@@ -1,10 +1,11 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipPhysics))]
-    public class ShipMovement : MonoBehaviour
+    public class ShipMovement : MonoBehaviour, IDeathListener
     {
         public float burstForce;
 
@@ -20,12 +21,12 @@ namespace RocketsAndGamblers
             var direction = (to - physics.Position).normalized;
             physics.AddImpulseForce(direction * burstForce);
 
-            CurrentOrbit.Deattach();
-            CurrentOrbit = null;
+            Deattach();
         }
 
         private void FixedUpdate ()
         {
+            Debug.DrawLine(physics.Position, physics.Position + physics.ForwardDirection, Color.red);
             var velocity = CalculateVelocity();
             physics.Move(velocity);
         }
@@ -38,6 +39,17 @@ namespace RocketsAndGamblers
         private void Awake ()
         {
             physics = GetComponent<ShipPhysics>();
+        }
+
+        public void OnDeath ()
+        {
+            Deattach();
+        }
+
+        private void Deattach ()
+        {
+            CurrentOrbit?.Deattach();
+            CurrentOrbit = null;
         }
     }
 

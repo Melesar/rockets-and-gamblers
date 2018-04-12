@@ -10,7 +10,3 @@ namespace RocketsAndGamblers
         public const int PlayerId = 1;
     }
 }
-
-
-
-

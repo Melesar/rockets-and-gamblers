@@ -16,6 +16,10 @@ namespace RocketsAndGamblers
             var forceDirection = Vector3.Cross(toAnchor, -Vector3.forward).normalized;
             var shipDirection = shipRb.GetRelativeVector(Vector3.right);
 
+            //return (Mathf.Abs(Vector2.Dot(toAnchor, shipDirection)) < 0.03f)
+            //    ? 
+            //    :;
+
             return (Mathf.Abs(Vector2.Dot(forceDirection, shipDirection)) > 0.97f)
                 ? (Vector2)forceDirection
                 : shipDirection;

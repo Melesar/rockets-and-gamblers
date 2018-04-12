@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.Inspectors
+namespace Framework.Editor.Inspectors
 {
     [CustomEditor(typeof(GameEvent), true)]
     public class GameEventEditor : UnityEditor.Editor

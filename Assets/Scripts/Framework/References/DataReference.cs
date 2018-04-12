@@ -1,5 +1,5 @@
-using UnityEngine;
 using Framework.Data;
+using UnityEngine.Events;
 
 namespace Framework.References
 {
@@ -10,7 +10,35 @@ namespace Framework.References
 
         public abstract Variable<T> Variable { get; }
 
-        public T Value => useConstantValue ? constantValue : Variable.Value;
+        public T Value
+        {
+            get { return useConstantValue ? constantValue : Variable.Value; }
+
+            set
+            {
+                if (Variable != null) {
+                    Variable.Value = value;
+                } else {
+                    constantValue = value;
+                }
+            }
+        }
+
+        public event UnityAction<T, T> valueChanged
+        {
+            add
+            {
+                if (Variable != null) {
+                    Variable.valueChanged += value;
+                }
+            }
+            remove
+            {
+                if (Variable != null) {
+                    Variable.valueChanged -= value;
+                }
+            }
+        }
 
         public static implicit operator T (DataReference<T> reference)
         {

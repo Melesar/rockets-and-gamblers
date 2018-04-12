@@ -2,7 +2,7 @@ using Framework.References;
 using UnityEditor;
 using UnityEngine;
 
-namespace Editor.PropertyDrawers
+namespace Framework.Editor.PropertyDrawers
 {
     [CustomPropertyDrawer(typeof(FloatReference))]
     public class FloatReferenceDrawer : DataReferenceDrawer
