@@ -31,6 +31,6 @@ namespace Framework.UI
             invoked?.Invoke();
         }
 
-        //TODO Implement window spawnign in case of no subscribers
+        //TODO Implement window spawning in case of no subscribers
     }
 }

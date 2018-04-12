@@ -16,7 +16,6 @@ namespace RocketsAndGamblers
             if (actOnTrigger) {
                 Kill(collision.gameObject);
             }
-            
         }
 
         private void OnCollisionEnter2D (Collision2D collision)

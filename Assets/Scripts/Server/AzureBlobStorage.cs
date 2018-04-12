@@ -14,13 +14,12 @@ namespace RocketsAndGamblers.Server
     {
         private CloudBlobContainer container;
 
-
         public async Task<Stream> DownloadFile(string filename)
         {
-            CloudBlockBlob BlockBlob = container.GetBlockBlobReference(filename);
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(filename);
             Stream stream = new MemoryStream();
 
-            await BlockBlob.DownloadToStreamAsync(stream);
+            await blockBlob.DownloadToStreamAsync(stream);
 
             return stream;
         }
@@ -29,8 +28,8 @@ namespace RocketsAndGamblers.Server
         {
             if (File.Exists(filePath))
             {
-                CloudBlockBlob Blockblob = container.GetBlockBlobReference(cloudFilename);
-                await Blockblob.UploadFromFileAsync(filePath);
+                CloudBlockBlob blockBlob = container.GetBlockBlobReference(cloudFilename);
+                await blockBlob.UploadFromFileAsync(filePath);
             }
         }
 

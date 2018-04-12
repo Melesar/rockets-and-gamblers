@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
@@ -12,6 +13,7 @@ namespace RocketsAndGamblers
     {
         [SerializeField] private PositionEvent onTouch;
 
+        private EventSystem eventSystem;
         private Camera mainCamera;
 
         private void Update ()
@@ -21,7 +23,7 @@ namespace RocketsAndGamblers
 
         private void TrackTouch ()
         {
-            if (!Input.GetMouseButtonDown(0)) {
+            if (!Input.GetMouseButtonDown(0) || eventSystem.IsPointerOverGameObject()) {
                 return;
             }
 
@@ -32,6 +34,7 @@ namespace RocketsAndGamblers
         private void Awake ()
         {
             mainCamera = Camera.main;
+            eventSystem = EventSystem.current;
         }
     }
 }

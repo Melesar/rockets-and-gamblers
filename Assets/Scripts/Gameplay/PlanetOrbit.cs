@@ -33,8 +33,6 @@ namespace RocketsAndGamblers
 
         private void OnGravityFieldEnter (Rigidbody2D collision)
         {
-            Debug.Log("Gravity field enter");
-
             shipRb = collision;
             joint.connectedBody = shipRb;
             collision.GetComponent<ShipMovement>().CurrentOrbit = this;
