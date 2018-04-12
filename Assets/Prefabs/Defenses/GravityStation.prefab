@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212604025203257362}
   - component: {fileID: 114596635158993288}
   - component: {fileID: 114833665931707298}
+  - component: {fileID: 114026313344394204}
+  - component: {fileID: 114624098466173692}
+  - component: {fileID: 61796530766281906}
   m_Layer: 0
   m_Name: GravityStation
   m_TagString: Untagged
@@ -36,12 +39,49 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1651816683073850}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 0.23, z: 0}
+  m_LocalPosition: {x: 0.42558372, y: 4.385695, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61796530766281906
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1651816683073850}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.03, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.75, y: 1}
+    newSize: {x: 0.75, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.85}
+  m_EdgeRadius: 0
+--- !u!114 &114026313344394204
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1651816683073850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc6e5e8f4e4a34c87fd2ef78b951bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
 --- !u!114 &114596635158993288
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,6 +94,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: fab384581c075d446b03023994784b6c, type: 2}
+--- !u!114 &114624098466173692
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1651816683073850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 457c068ef77729f4693185e30786b8fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
+  mockupSprite: {fileID: 21300000, guid: d90128471c17cc94188f4ac97621603c, type: 3}
 --- !u!114 &114833665931707298
 MonoBehaviour:
   m_ObjectHideFlags: 1

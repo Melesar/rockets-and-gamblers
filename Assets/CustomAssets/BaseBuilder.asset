@@ -15,3 +15,4 @@ MonoBehaviour:
   playerPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968,
     type: 2}
   database: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
+  onBaseBuilt: {fileID: 11400000, guid: 7fd512a7fa0d0ca4c9d97138baae619f, type: 2}

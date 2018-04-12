@@ -22,6 +22,9 @@ GameObject:
   - component: {fileID: 212156287970576690}
   - component: {fileID: 114821006023253488}
   - component: {fileID: 114034632878752272}
+  - component: {fileID: 114644319357247624}
+  - component: {fileID: 114949945317245286}
+  - component: {fileID: 58984240943340830}
   m_Layer: 0
   m_Name: RocketLauncher
   m_TagString: Untagged
@@ -42,6 +45,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58984240943340830
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296891661440176}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.6666667
 --- !u!114 &114034632878752272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +71,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cfd2c00abfa438458eded41b01ae793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114644319357247624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296891661440176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0396ee98425474eb717f638b6ee73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEditingBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
 --- !u!114 &114821006023253488
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,6 +98,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: c74d4cd34ffd85c4b9ea0f55f58aeb9e, type: 2}
+--- !u!114 &114949945317245286
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1296891661440176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adfc6e5e8f4e4a34c87fd2ef78b951bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
 --- !u!212 &212156287970576690
 SpriteRenderer:
   m_ObjectHideFlags: 1

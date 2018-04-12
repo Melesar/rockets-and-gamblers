@@ -15,6 +15,13 @@ namespace RocketsAndGamblers.Data
         protected List<ObjectIdentity> objects
             = new List<ObjectIdentity>();
 
+        public new void Add (ObjectIdentity item)
+        {
+            //Workaround for Unity Edtor as it doesn't recreate list itself
+            objects.RemoveAll(i => i == null);
+            base.Add(item);
+        }
+
         protected override ICollection<ObjectIdentity> Collection => objects;
     }
 }
