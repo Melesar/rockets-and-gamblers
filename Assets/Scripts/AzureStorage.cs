@@ -5,7 +5,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using UnityEngine;
 using Random = System.Random;
-
+/*
 public class Class1
 {
     public string Block = "Blockname";
@@ -70,8 +70,9 @@ public class Class1
     public async Task DownloadFile(string path, string filename)
     {
         CloudBlobClient blobClient = StorageAccount.CreateCloudBlobClient();
-
-        Console.WriteLine.Format("Download Blob from {0}", blockBlob.Uri.AbsoluteUri);
+        CloudBlobContainer container = blobClient.GetContainerReference(containername);
+        CloudBlockBlob blockBlob = container.GetBlockBlobReference(filename);
+        Console.WriteLine(string.Format("Download Blob from {0}", blockBlob.Uri.AbsoluteUri));
         filename= string.Format("CopyOf{0}", filename);
 
 #if WINDOWS_UWP
@@ -91,6 +92,7 @@ public class Class1
 
     public async Task DeletFile(string file,string containername) {
         WriteLine("Deleting "+file+ "from"+containername);
+        CloudBlobClient blobClient = StorageAccount.CreateCloudBlobClient();
         CloudBlobContainer container = blobClient.GetContainerReference(containername);
         CloudBlockBlob blockBlob = container.GetBlockBlobReference(file);
         await blockBlob.DeleteAsync();
@@ -108,7 +110,7 @@ public class Class1
         WriteLine("Creating new Page blop "+PageBlopName+" in "+containername);
         await container.CreateIfNotExistsAsync();
         CloudPageBlob pageBlob = container.GetPageBlobReference(PageBlobName);
-        await pageBlob.CreateAsync(512 * 2 /*size*/); // size needs to be multiple of 512 bytes
+        await pageBlob.CreateAsync(512 * 2 /*size); // size needs to be multiple of 512 bytes
         WriteLine("Write to "+ PageBlopName);
         byte[] samplePagedata = new byte[512];
         Random random = new Random();
@@ -136,3 +138,4 @@ public class Class1
         Console.WriteLine(text);
     }
 }
+*/
