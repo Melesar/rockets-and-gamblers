@@ -14,9 +14,6 @@ namespace RocketsAndGamblers
         {
             transform.position = initialPosition;
             transform.rotation = initialRotation;
-
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
         }
 
         private void Start ()

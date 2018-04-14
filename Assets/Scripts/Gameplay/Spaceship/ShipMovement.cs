@@ -26,7 +26,6 @@ namespace RocketsAndGamblers
 
         private void FixedUpdate ()
         {
-            Debug.DrawLine(physics.Position, physics.Position + physics.ForwardDirection, Color.red);
             var velocity = CalculateVelocity();
             physics.Move(velocity);
         }
