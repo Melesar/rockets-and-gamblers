@@ -13,6 +13,8 @@ namespace RocketsAndGamblers.Database
 
         public int Id => id.id;
 
+
+
         private void Start ()
         {
             foreach (var id in FindObjectsOfType<ObjectId>()) {

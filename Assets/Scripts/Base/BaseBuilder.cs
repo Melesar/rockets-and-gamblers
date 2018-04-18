@@ -21,7 +21,7 @@ namespace RocketsAndGamblers
             var bundle = await AssetBundle.LoadFromFileAsync(Path.Combine(Constants.AssetBundlesPath, baseDescription.bundleName));
 
             using (var disposable = new DisposableBundle(bundle)) {
-                var sceneName = Path.GetFileNameWithoutExtension(bundle.GetAllScenePaths()[0]);
+                var sceneName = Path.GetFileNameWithoutExtension(disposable.GetAllScenePaths()[0]);
 
                 await Scenes.LoadBaseScene(sceneName);
 
