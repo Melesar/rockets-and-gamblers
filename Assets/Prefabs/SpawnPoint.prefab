@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 61723219854484998}
   - component: {fileID: 114142560665070444}
   - component: {fileID: 114514351853801340}
+  - component: {fileID: 114950595956373310}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -174,6 +175,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
+--- !u!114 &114950595956373310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857933707240470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 61723219854484998}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212442897296467782
 SpriteRenderer:
   m_ObjectHideFlags: 1
