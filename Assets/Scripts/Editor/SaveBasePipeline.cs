@@ -17,7 +17,8 @@ namespace RocketsAndGamblers.Edior
             //TODO populate layout and upgrades
             WriteDefensesLayout(baseDescription);
 
-            //TODO populate asset bundle names automatically
+            //TODO automatically assing asset bundle names to corresponding assets
+
             var manifest = BuildPipeline.BuildAssetBundles(Constants.AssetBundlesPath, BuildAssetBundleOptions.None, BuildTarget.Android);
             var bundleName = manifest.GetAllAssetBundles()[0];
 
@@ -29,9 +30,22 @@ namespace RocketsAndGamblers.Edior
         public static void WriteDefensesLayout (BaseDescription baseDesription)
         {
             var layoutObjects = UnityEngine.Object.FindObjectsOfType<LayoutObject>();
+            var objectId = 1;
             foreach (var obj in layoutObjects) {
-                baseDesription.AddToLayout(obj.GetComponent<ObjectIdentity>());
-                UnityEngine.Object.DestroyImmediate(obj.gameObject);
+                var objectIdentity = obj.GetComponent<ObjectIdentity>();
+                objectIdentity.RuntimeId = objectId++;
+
+                baseDesription.AddToLayout(objectIdentity);
+
+                var additionalData = obj.GetComponent<AdditionalDataProvider>();
+                if (additionalData != null) {
+                    baseDesription.AddAdditionalData(additionalData);
+                }
+            }
+
+            //In case some objects have dependencies on each other, destroy them afterwards
+            foreach (var layoutObject in layoutObjects) {
+                UnityEngine.Object.DestroyImmediate(layoutObject.gameObject);
             }
         }
 

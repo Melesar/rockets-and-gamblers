@@ -9,12 +9,14 @@ namespace RocketsAndGamblers
     {
     }
 
-    public class ShipControls : MonoBehaviour
+    public class ShipControls : MonoBehaviour, IStopListener, ILaunchListener
     {
         [SerializeField] private PositionEvent onTouch;
 
         private EventSystem eventSystem;
         private Camera mainCamera;
+
+        private bool isStopped;
 
         private void Update ()
         {
@@ -23,6 +25,10 @@ namespace RocketsAndGamblers
 
         private void TrackTouch ()
         {
+            if (isStopped) {
+                return;
+            }
+
             if (!Input.GetMouseButtonDown(0) || eventSystem.IsPointerOverGameObject()) {
                 return;
             }
@@ -35,6 +41,16 @@ namespace RocketsAndGamblers
         {
             mainCamera = Camera.main;
             eventSystem = EventSystem.current;
+        }
+
+        public void Stop()
+        {
+            isStopped = true;
+        }
+
+        public void Launch()
+        {
+            isStopped = false;
         }
     }
 }

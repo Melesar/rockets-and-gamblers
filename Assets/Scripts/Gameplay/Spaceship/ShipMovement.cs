@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
@@ -15,10 +16,11 @@ namespace RocketsAndGamblers
         }
 
         private ShipPhysics physics;
+        private bool isStopped;
 
         public void Burst (Vector2 to)
         {
-            if (CurrentOrbit == null) {
+            if (isStopped || CurrentOrbit == null) {
                 return;
             }
 
@@ -35,6 +37,10 @@ namespace RocketsAndGamblers
 
         private void FixedUpdate ()
         {
+            if (isStopped) {
+                return;
+            }
+
             var velocity = CalculateVelocity();
             physics.Move(velocity);
         }
@@ -42,6 +48,11 @@ namespace RocketsAndGamblers
         private Vector2 CalculateVelocity ()
         {
             return CurrentOrbit?.GetShipDirection() ?? physics.ForwardDirection;
+        }
+
+        private void Start()
+        {
+            Stop();
         }
 
         private void Awake ()
@@ -52,12 +63,27 @@ namespace RocketsAndGamblers
         public void OnDeath ()
         {
             Deattach();
+            Stop();
         }
 
         private void Deattach ()
         {
             CurrentOrbit?.Deattach();
             CurrentOrbit = null;
+        }
+
+        public void Launch()
+        {
+            isStopped = false;
+
+            ExecuteEvents.Execute<ILaunchListener>(gameObject, null, (handler, data) => handler.Launch());
+        }
+
+        public void Stop()
+        {
+            isStopped = true;
+
+            ExecuteEvents.Execute<IStopListener>(gameObject, null, (handler, data) => handler.Stop());
         }
     }
 

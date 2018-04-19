@@ -34,6 +34,11 @@ namespace RocketsAndGamblers
             currentBaseDescription.layout.Clear();
             foreach (var item in layoutObjects) {
                 currentBaseDescription.AddToLayout(item);
+
+                var additionalData = item.GetComponent<AdditionalDataProvider>();
+                if (additionalData != null) {
+                    currentBaseDescription.AddAdditionalData(additionalData);
+                }
             }
         }
     }

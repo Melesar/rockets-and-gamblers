@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RocketsAndGamblers
 {
-    public class AttackTarget : MonoBehaviour
+    public class PlayerTriggerHandler : MonoBehaviour
     {
         public GameEvent gameEvent;
 

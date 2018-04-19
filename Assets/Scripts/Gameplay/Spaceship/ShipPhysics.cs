@@ -4,7 +4,7 @@ using UnityEngine;
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    public class ShipPhysics : MonoBehaviour, IDeathListener
+    public class ShipPhysics : MonoBehaviour, IStopListener, ILaunchListener
     {
         public float maxSpeed;
 
@@ -25,12 +25,6 @@ namespace RocketsAndGamblers
         public void AddImpulseForce (Vector2 force)
         {
             rb.AddForce(force, ForceMode2D.Impulse);
-        }
-
-        public void Stop()
-        {
-            rb.velocity = Vector2.zero;
-            rb.angularVelocity = 0;
         }
 
         private void CalclulateVelocity (Vector2 direction)
@@ -56,9 +50,16 @@ namespace RocketsAndGamblers
             maxSpeedThreshold = maxSpeed + 0.4f;
         }
 
-        public void OnDeath ()
+        public void Launch()
         {
-            Stop();
+            rb.isKinematic = false;
+        }
+
+        public void Stop ()
+        {
+            rb.isKinematic = true;
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
         }
     }
 }

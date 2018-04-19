@@ -1,9 +1,6 @@
-﻿using UnityEngine;
+﻿using RocketsAndGamblers.Data;
 using System.Collections.Generic;
-using System;
-using System.Linq;
-using System.Collections;
-using RocketsAndGamblers.Data;
+using UnityEngine;
 
 namespace RocketsAndGamblers.Database
 {
@@ -28,6 +25,23 @@ namespace RocketsAndGamblers.Database
             return instance;
         }
 
+        public ObjectIdentity Instantiate(PositionData data)
+        {
+            var identity = objectIds.Find(o => o.id == data.id);
+
+            if (identity == null) {
+                return null;
+            }
+
+            var instance = Instantiate(identity.prefab, data.position, data.rotation);
+            instance.RuntimeId = data.runtimeId;
+
+            ClearNulls();
+            Add(instance);
+
+            return instance;
+        }
+
         public ObjectIdentity Instantiate (ObjectId id, Vector3 position, Quaternion rotation)
         {
             return Instantiate(id.id, position, rotation);
@@ -37,6 +51,12 @@ namespace RocketsAndGamblers.Database
         {
             ClearNulls();
             return objects.Find(i => i.Id == id);
+        }
+
+
+        public ObjectIdentity GetByRuntimeId(int runtimeId)
+        {
+            return objects.Find(i => i.RuntimeId == runtimeId);
         }
 
         private void ClearNulls ()

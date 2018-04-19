@@ -27,6 +27,7 @@ namespace RocketsAndGamblers
 
                 SetupBaseLayout(baseDescription);
                 SetupUpgrades(baseDescription);
+                SetupAdditionalData(baseDescription);
 
                 if (baseDescription.isAttacking) {
                     SpawnPlayerSpaceship();
@@ -39,13 +40,23 @@ namespace RocketsAndGamblers
         private void SetupBaseLayout (BaseDescription baseDescription)
         {
             foreach (var obj in baseDescription.layout) {
-                database.Instantiate(obj.id, obj.position, obj.rotation);
+                database.Instantiate(obj);
             }
         }
 
         private void SetupUpgrades (BaseDescription baseDescription)
         {
 
+        }
+
+        private void SetupAdditionalData(BaseDescription baseDescription)
+        {
+            foreach (var data in baseDescription.additionalData) {
+                var obj = database.GetByRuntimeId(data.objectRuntimeId);
+                var additionalData = obj.GetComponent<AdditionalDataProvider>();
+
+                additionalData.InitFromString(data.data);
+            }
         }
 
         private void SpawnPlayerSpaceship ()

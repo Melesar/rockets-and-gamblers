@@ -9,6 +9,7 @@ namespace RocketsAndGamblers.Data
     public class PositionData
     {
         public int id;
+        public int runtimeId;
         public Vector3 position;
         public Quaternion rotation;
     }
@@ -22,10 +23,18 @@ namespace RocketsAndGamblers.Data
     }
 
     [Serializable]
+    public class AdditionalData
+    {
+        public int objectRuntimeId;
+        public string data;
+    }
+
+    [Serializable]
     public class BaseDescription
     {
         public List<PositionData> layout;
         public List<UpgradeData> upgrades;
+        public List<AdditionalData> additionalData;
 
         /// <summary>
         /// Timestamp of the gold mining start time
@@ -51,14 +60,21 @@ namespace RocketsAndGamblers.Data
         {
             layout.Add(new PositionData {
                 id = objectId.Id,
+                runtimeId = objectId.RuntimeId,
                 position = objectId.transform.position,
                 rotation = objectId.transform.rotation
             });
         }
 
+        public void AddAdditionalData(AdditionalDataProvider dataProvider)
+        {
+            additionalData.Add(dataProvider.GetAdditionalData());
+        }
+
         public BaseDescription ()
         {
             layout = new List<PositionData>();
+            additionalData = new List<AdditionalData>();
             upgrades = new List<UpgradeData>();
         }
     }

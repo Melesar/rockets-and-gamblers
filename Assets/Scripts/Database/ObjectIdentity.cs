@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RocketsAndGamblers.Database
 {
@@ -13,13 +8,6 @@ namespace RocketsAndGamblers.Database
 
         public int Id => id.id;
 
-
-
-        private void Start ()
-        {
-            foreach (var id in FindObjectsOfType<ObjectId>()) {
-                Debug.Log(id.id);
-            }
-        }
+        public int RuntimeId { get; set; }
     }
 }

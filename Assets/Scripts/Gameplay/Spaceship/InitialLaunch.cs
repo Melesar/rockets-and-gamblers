@@ -6,6 +6,7 @@ namespace RocketsAndGamblers
     public class InitialLaunch : MonoBehaviour
     {
         private ShipPhysics physics;
+        private ShipMovement movement;
 
         private float burstForce;
 
@@ -18,6 +19,8 @@ namespace RocketsAndGamblers
 
         private void LaunchAndDisable()
         {
+            movement.Launch();
+
             var to = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             var direction = (to - physics.Position).normalized;
@@ -29,7 +32,9 @@ namespace RocketsAndGamblers
         private void Awake()
         {
             physics = GetComponent<ShipPhysics>();
-            burstForce = GetComponent<ShipMovement>().burstForce;
+            movement = GetComponent<ShipMovement>();
+
+            burstForce = movement.burstForce;
         }
     }
 }

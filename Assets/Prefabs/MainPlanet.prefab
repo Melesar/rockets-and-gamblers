@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114074198517834610}
   - component: {fileID: 58118222004088032}
   - component: {fileID: 114387869010007608}
+  - component: {fileID: 114839681894759656}
   m_Layer: 0
   m_Name: MainPlanet
   m_TagString: Untagged
@@ -41,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751025558411928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.4, y: -0.21, z: 0}
+  m_LocalPosition: {x: -5.540038, y: -1.6691338, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -61,7 +62,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.69
+  m_Radius: 0.98
 --- !u!114 &114074198517834610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,6 +150,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: {fileID: 11400000, guid: 6e8c210318d3eb14ea4433c69107085d, type: 2}
+--- !u!114 &114839681894759656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 340d1479331a28448b2481f2d68263b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
+  spawnPointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
 --- !u!212 &212388973820154816
 SpriteRenderer:
   m_ObjectHideFlags: 1

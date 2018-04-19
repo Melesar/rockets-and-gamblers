@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.Profiling;
 
 public class PlanetGravityField : MonoBehaviour
 {
@@ -13,9 +12,11 @@ public class PlanetGravityField : MonoBehaviour
     public event UnityAction<Rigidbody2D> Enter;
     public event UnityAction<Rigidbody2D> Exit;
 
+    public float Radius => radius;
+
     private void FixedUpdate ()
     {
-        var collidersHit = Physics2D.OverlapCircle(transform.position, radius, layers);
+        var collidersHit = Physics2D.OverlapCircle(transform.position, Radius, layers);
         if (!collidersHit && isSomethingInside) {
             Exit?.Invoke(objectInside);
             isSomethingInside = false;
@@ -30,6 +31,6 @@ public class PlanetGravityField : MonoBehaviour
     private void OnDrawGizmosSelected ()
     {
         Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, radius);
+        Gizmos.DrawWireSphere(transform.position, Radius);
     }
 }
