@@ -63,7 +63,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1853938967065950
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,10 +255,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateVariable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+  inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114548037431627032}
+        m_MethodName: OnEditStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114970192886855578}
         m_MethodName: OnEditStateChanged
         m_Mode: 0
         m_Arguments:
@@ -295,6 +307,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathObject: {fileID: 1601709703507744}
+  database: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
   planetFromSnapper: {fileID: 114094130408509878}
   planetToSnapper: {fileID: 114252598853275518}
 --- !u!114 &114577431086906224

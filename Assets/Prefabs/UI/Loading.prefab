@@ -38,7 +38,6 @@ GameObject:
   - component: {fileID: 224329096424399632}
   - component: {fileID: 222229621111814762}
   - component: {fileID: 114389506598450568}
-  - component: {fileID: 114065897033396030}
   m_Layer: 5
   m_Name: Loading
   m_TagString: Untagged
@@ -98,34 +97,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114065897033396030
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1519845561354922}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: ba10ca00ea62cd64abc5ca77f10f5615, type: 2}
-  onRaised:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1321473015856924}
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114389506598450568
 MonoBehaviour:
   m_ObjectHideFlags: 1

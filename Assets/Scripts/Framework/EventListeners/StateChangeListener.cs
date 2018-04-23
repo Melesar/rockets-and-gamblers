@@ -8,6 +8,8 @@ namespace Framework.EventListeners
     public class StateChangeListener : MonoBehaviour, IEventListener<bool>
     {
         public BoolVariable stateVariable;
+        public bool inverseValue;
+
         public BoolUnityEvent onStateChanged;
 
         public void OnEventRaised (bool newState)
@@ -27,7 +29,7 @@ namespace Framework.EventListeners
 
         private void VariableValueChanged (bool previousValue, bool newValue)
         {
-            OnEventRaised(newValue);
+            OnEventRaised(inverseValue ? !newValue : newValue);
         }
     }
 

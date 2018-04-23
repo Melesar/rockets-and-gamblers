@@ -11,5 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c92852952647dca120da3a846613dc, type: 3}
   m_Name: AttackFailed
   m_EditorClassIdentifier: 
-  windowPrefab: {fileID: 1695952861601390, guid: 2b85e946e32cc354f8146ff972063ec1,
+  windowPrefab: {fileID: 1920285106377270, guid: d1733e2a3789f4d4a98fdf9c5760812e,
     type: 2}

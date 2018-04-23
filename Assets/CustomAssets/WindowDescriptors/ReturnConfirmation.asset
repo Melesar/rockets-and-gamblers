@@ -11,4 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77c92852952647dca120da3a846613dc, type: 3}
   m_Name: ReturnConfirmation
   m_EditorClassIdentifier: 
-  windowPrefab: {fileID: 0}
+  windowPrefab: {fileID: 1421418703156040, guid: 28f9ae80a72ac4147b46c7553fb603ef,
+    type: 2}
