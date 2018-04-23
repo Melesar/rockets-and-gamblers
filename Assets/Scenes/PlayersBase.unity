@@ -972,7 +972,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11400000, guid: 223d3bc77d0aa3548991aba77eb2698b, type: 2}
-        m_MethodName: Attack
+        m_MethodName: TryToSaveBase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

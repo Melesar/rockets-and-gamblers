@@ -8,6 +8,7 @@ namespace RocketsAndGamblers
     {
         private const int PlayerSceneIndex = 1;
         private const int AttackSceneIndex = 2;
+        private const int SaveBaseSceneIndex = 3;
 
         public static async Task LoadPlayerBaseScene (string sceneName)
         {
@@ -40,6 +41,11 @@ namespace RocketsAndGamblers
         public static async Task LoadAttackScene ()
         {
             await LoadScene(AttackSceneIndex);
+        }
+
+        public static async Task LoadSaveBaseScene()
+        {
+            await LoadScene(SaveBaseSceneIndex);
         }
 
         public static async Task UnloadScenes ()

@@ -21,7 +21,7 @@ namespace RocketsAndGamblers.Data
 
         protected abstract string SerializeToString();
 
-        private void Awake()
+        protected virtual void Awake()
         {
             objectId = GetComponent<ObjectIdentity>();
         }

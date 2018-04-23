@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-using RocketsAndGamblers.Database;
+﻿using RocketsAndGamblers.Database;
 
 namespace RocketsAndGamblers.Defenses
 {

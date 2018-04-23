@@ -22,12 +22,11 @@ GameObject:
   - component: {fileID: 212388973820154816}
   - component: {fileID: 114676889160859632}
   - component: {fileID: 114460917290279840}
-  - component: {fileID: 114175054310395764}
-  - component: {fileID: 114482527088173984}
   - component: {fileID: 114074198517834610}
   - component: {fileID: 58118222004088032}
   - component: {fileID: 114387869010007608}
   - component: {fileID: 114839681894759656}
+  - component: {fileID: 114358505199664562}
   m_Layer: 0
   m_Name: MainPlanet
   m_TagString: Untagged
@@ -75,7 +74,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
---- !u!114 &114175054310395764
+--- !u!114 &114358505199664562
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -83,10 +82,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1751025558411928}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327bddfd9256e9a46a4f52bec6b3379d, type: 3}
+  m_Script: {fileID: 11500000, guid: fe0396ee98425474eb717f638b6ee73a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  disabledRendererAlfa: 0.5
+  isEditingBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
 --- !u!114 &114387869010007608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,34 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9382827052fd06842bc8df695bf56e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114482527088173984
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1751025558411928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-  onStateChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114175054310395764}
-        m_MethodName: OnEditingStateChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114676889160859632
 MonoBehaviour:
   m_ObjectHideFlags: 1

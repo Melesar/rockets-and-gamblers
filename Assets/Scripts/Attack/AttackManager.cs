@@ -1,7 +1,5 @@
 ﻿using Framework.Events;
 using Framework.References;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttackManager : MonoBehaviour
@@ -13,12 +11,14 @@ public class AttackManager : MonoBehaviour
 
     public void OnPlayerDeath ()
     {
-        if (attepmtsLeft.Value > 0) {
-            attepmtsLeft.Value -= 1;
+        if (attepmtsLeft.Value <= 0) {
+            return;
+        }
 
-            if (attepmtsLeft == 0) {
-                onAttackFailed?.Raise();
-            }
+        attepmtsLeft.Value -= 1;
+
+        if (attepmtsLeft == 0) {
+            onAttackFailed?.Raise();
         }
     }
 

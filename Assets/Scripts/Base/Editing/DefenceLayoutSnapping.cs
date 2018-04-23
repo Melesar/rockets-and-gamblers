@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 using System;
 using System.Linq;
 using Framework.References;
+using UnityEngine.Events;
 
 namespace RocketsAndGamblers
 {
@@ -24,7 +25,10 @@ namespace RocketsAndGamblers
         private Vector2 snapPosition;
 
         private Transform mockupTransform;
+        private ObjectIdentity snappedObject;
         private Camera mainCamera;
+
+        public event UnityAction<ObjectIdentity> snapped;
 
         public void OnBeginDrag (PointerEventData eventData)
         {
@@ -43,7 +47,7 @@ namespace RocketsAndGamblers
             }
 
             var pointPosition = ScreenToWorldPoint(eventData.position);
-            mockupTransform.position = pointPosition;;
+            mockupTransform.position = pointPosition;
 
             var objectPointed = RaycastAgainstObjects(pointPosition);
             if (objectPointed != null && !isSnapped) {
@@ -75,7 +79,8 @@ namespace RocketsAndGamblers
         {
             isSnapped = true;
 
-            var objectTransform = @object.transform;
+            snappedObject = @object;
+            var objectTransform = snappedObject.transform;
 
             snapPosition = objectTransform.position;
             transform.position = snapPosition;
@@ -86,12 +91,16 @@ namespace RocketsAndGamblers
             isSnapped = false;
             originalPosition = snapPosition;
             transform.position = snapPosition;
+
+            snapped?.Invoke(snappedObject);
+            snappedObject = null;
         }
 
         private void RevertSnapping ()
         {
             isSnapped = false;
             transform.position = originalPosition;
+            snappedObject = null;
         }
 
         private void SetActiveMockup (bool isActive)
@@ -107,7 +116,7 @@ namespace RocketsAndGamblers
             }
         }
 
-        private RaycastHit2D[] results = new RaycastHit2D[2];
+        private readonly RaycastHit2D[] results = new RaycastHit2D[2];
 
         private ObjectIdentity RaycastAgainstObjects (Vector2 origin)
         {

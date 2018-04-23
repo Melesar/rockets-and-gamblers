@@ -106,6 +106,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
+  isEditing:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
   mockupSprite: {fileID: 21300000, guid: d90128471c17cc94188f4ac97621603c, type: 3}
 --- !u!114 &114833665931707298
 MonoBehaviour:

@@ -1,36 +1,31 @@
 ﻿using System;
 using RocketsAndGamblers.Database;
-using RocketsAndGamblers.Defenses;
 using UnityEngine;
 
 namespace RocketsAndGamblers.Data
 {
-    [RequireComponent(typeof(RoamingDefense))]
     public class RoamingDefenceDataProvider : AdditionalDataProvider
     {
-
-        /*public ObjectIdentity planetFrom;
-        public ObjectIdentity planetTo;*/
-
-        private RoamingDefenceData data = new RoamingDefenceData();
-        private RoamingDefense defense;
+        public RoamingDefenceData Data { get; private set; } = new RoamingDefenceData();
 
         public override void InitFromString (string data)
         {
-            this.data = JsonUtility.FromJson<RoamingDefenceData>(data);
-            defense.Initialize(this.data);
+            Data = JsonUtility.FromJson<RoamingDefenceData>(data);
+        }
+
+        public void SetPlanetToId(ObjectIdentity planetTo)
+        {
+            Data.planetIdTo = planetTo.RuntimeId;
+        }
+
+        public void SetPlanetFromId(ObjectIdentity planetFrom)
+        {
+            Data.planetIdFrom = planetFrom.RuntimeId;
         }
 
         protected override string SerializeToString ()
         {
-            /*data.planetIdFrom = planetFrom.RuntimeId;
-            data.planetIdTo = planetTo.RuntimeId;*/
-            return JsonUtility.ToJson(data);
-        }
-
-        private void Awake()
-        {
-            defense = GetComponent<RoamingDefense>();
+            return JsonUtility.ToJson(Data);
         }
 
         [Serializable]

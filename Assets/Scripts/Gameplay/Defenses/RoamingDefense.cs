@@ -12,13 +12,38 @@ namespace RocketsAndGamblers.Defenses
         private Ellipse ellipseInstance;
 
         private float ellipseValue;
+        private bool isMoving = true;
 
+        private RoamingDefenceDataProvider dataProvider;
         private ObjectIdentity from;
         private ObjectIdentity to;
 
-        private void Update()
+        public void OnEditStateChanged(bool newState)
+        {
+            isMoving = !newState;
+        }
+
+        public void Initialize()
+        {
+            Initialize(dataProvider.Data);
+        }
+
+        private void Initialize (RoamingDefenceDataProvider.RoamingDefenceData data)
         {
             if (ellipseInstance == null) {
+                var ellipseObject = new GameObject("Roaming defence ellipse");
+                ellipseInstance = ellipseObject.AddComponent<Ellipse>();
+            }
+
+            from = database.GetByRuntimeId(data.planetIdFrom);
+            to = database.GetByRuntimeId(data.planetIdTo);
+
+            SetupEllipse();
+        }
+
+        private void Update()
+        {
+            if (ellipseInstance == null || !isMoving) {
                 return;
             }
 
@@ -30,18 +55,16 @@ namespace RocketsAndGamblers.Defenses
 
         private void Start()
         {
+            Initialize();
+
             transform.position = ellipseInstance.GetPoint(0f);
         }
 
-        public void Initialize(RoamingDefenceDataProvider.RoamingDefenceData data)
+        protected override void Awake()
         {
-            var ellipseObject = new GameObject("Roaming defence ellipse");
-            ellipseInstance = ellipseObject.AddComponent<Ellipse>();
+            base.Awake();
 
-            from = database.GetByRuntimeId(data.planetIdFrom);
-            to = database.GetByRuntimeId(data.planetIdTo);
-
-            SetupEllipse();
+            dataProvider = GetComponent<RoamingDefenceDataProvider>();
         }
 
         private void SetupEllipse()

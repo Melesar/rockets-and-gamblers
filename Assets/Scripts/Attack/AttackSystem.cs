@@ -35,6 +35,11 @@ namespace RocketsAndGamblers
             ReturnToBaseAsync().WrapErrors();
         }
 
+        public void TryToSaveBase()
+        {
+            TryToSaveBaseAsync().WrapErrors();
+        }
+
         public async Task AttackAsync ()
         {
             attackStarted.Raise();
@@ -65,6 +70,23 @@ namespace RocketsAndGamblers
             await Scenes.UnloadScenes();
 
             await Scenes.LoadPlayerScene();
+
+            await baseBuilder.BuildBase(baseDescription);
+
+            attackFinished.Raise();
+        }
+
+        private async Task TryToSaveBaseAsync()
+        {
+            attackStarted.Raise();
+
+            await new WaitForSeconds(2f);
+
+            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId, true);
+
+            await Scenes.UnloadScenes();
+
+            await Scenes.LoadSaveBaseScene();
 
             await baseBuilder.BuildBase(baseDescription);
 
