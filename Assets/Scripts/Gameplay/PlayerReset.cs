@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace RocketsAndGamblers
 {
-    public class PlayerReset : MonoBehaviour, IDeathListener
+    public class PlayerReset : MonoBehaviour, IDeathListener, ISuccessfullAttemptListener
     {
         private Vector2 initialPosition;
         private Quaternion initialRotation;
@@ -11,6 +11,16 @@ namespace RocketsAndGamblers
         private Rigidbody2D rb;
 
         public void OnDeath ()
+        {
+            ResetPlayer();
+        }
+
+        public void OnSuccessfullSavingAttempt ()
+        {
+            ResetPlayer();
+        }
+
+        private void ResetPlayer ()
         {
             transform.position = initialPosition;
             transform.rotation = initialRotation;

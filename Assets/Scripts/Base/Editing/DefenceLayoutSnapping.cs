@@ -1,13 +1,10 @@
-﻿using RocketsAndGamblers.Data;
+﻿using Framework.References;
+using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Database;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-using System;
 using System.Linq;
-using Framework.References;
+using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {

@@ -10,19 +10,12 @@ namespace RocketsAndGamblers
 
         private BaseDescription currentBaseDescription;
 
-        public void OnEditingStateChanged (bool newState)
-        {
-            if (!newState) {
-                OnFinishedEditing();
-            }
-        }
-
         public void OnBaseBuilt (BaseDescription baseDescription)
         {
             currentBaseDescription = baseDescription;
         }
 
-        private void OnFinishedEditing ()
+        public void OnFinishedEditing ()
         {
             UpdateBaseLayout();
 

@@ -27,6 +27,7 @@ GameObject:
   - component: {fileID: 114387869010007608}
   - component: {fileID: 114839681894759656}
   - component: {fileID: 114358505199664562}
+  - component: {fileID: 114295680183101698}
   m_Layer: 0
   m_Name: MainPlanet
   m_TagString: Untagged
@@ -74,6 +75,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
+--- !u!114 &114295680183101698
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: cfc681577b87239459d0ef3baafac2ad, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 58118222004088032}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114358505199664562
 MonoBehaviour:
   m_ObjectHideFlags: 1

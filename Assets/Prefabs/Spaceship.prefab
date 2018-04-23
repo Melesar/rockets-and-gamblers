@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 114659235495075386}
   - component: {fileID: 114893811807850270}
   - component: {fileID: 114233148770465404}
+  - component: {fileID: 114117836727153304}
   - component: {fileID: 114437553779108240}
   - component: {fileID: 114370277949645996}
   - component: {fileID: 114547200646028764}
@@ -135,6 +136,18 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114117836727153304
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455797122737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68cdd3646b3448346b30fe44c1f40996, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTryingToSaveBase: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
 --- !u!114 &114233148770465404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -205,6 +218,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114117836727153304}
+        m_MethodName: OnAttackSuccessfull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114540691742019430
@@ -244,7 +268,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114659235495075386

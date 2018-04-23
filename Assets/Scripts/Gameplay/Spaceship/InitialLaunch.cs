@@ -3,15 +3,25 @@
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
-    public class InitialLaunch : MonoBehaviour
+    public class InitialLaunch : MonoBehaviour, ISuccessfullAttemptListener, IDeathListener
     {
         private ShipPhysics physics;
         private ShipMovement movement;
 
         private float burstForce;
+        private bool isEnabled = true;
+
+        public void Enable()
+        {
+            isEnabled = true;
+        }
 
         private void Update()
         {
+            if (!isEnabled) {
+                return;
+            }
+
             if (Input.GetMouseButtonDown(0)) {
                 LaunchAndDisable();
             }
@@ -26,7 +36,17 @@ namespace RocketsAndGamblers
             var direction = (to - physics.Position).normalized;
             physics.AddImpulseForce(direction * burstForce);
 
-            enabled = false;
+            isEnabled = false;
+        }
+
+        public void OnSuccessfullSavingAttempt ()
+        {
+            Enable();
+        }
+
+        public void OnDeath ()
+        {
+            Enable();
         }
 
         private void Awake()

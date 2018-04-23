@@ -6,10 +6,10 @@ namespace RocketsAndGamblers
     [RequireComponent(typeof(ObjectIdentity))]
     public class SpawnPoint : MonoBehaviour
     {
-        public void Spawn (GameObject prefab)
+        public GameObject Spawn (GameObject prefab)
         {
             var t = transform;
-            Instantiate(prefab, t.position, t.rotation);
+            return Instantiate(prefab, t.position, t.rotation);
         }
     }
 }

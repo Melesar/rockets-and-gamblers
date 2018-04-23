@@ -38,9 +38,7 @@ namespace RocketsAndGamblers
             blinkAnimation?.Reappear();
 
             var initialLaunch = playerObject.GetComponent<InitialLaunch>();
-            if (initialLaunch != null) {
-                initialLaunch.enabled = true;
-            }
+            initialLaunch?.Enable();
         }
 
         private void RepositionPlayer(GameObject playerObject)
@@ -48,7 +46,6 @@ namespace RocketsAndGamblers
             playerObject.transform.position = transform.position;
 
             var spawnPointDirection = (spawnPointPosition - (Vector2)transform.position).normalized;
-            //playerObject.transform.up = Vector3.Cross(spawnPointDirection, -Vector3.forward);
             playerObject.transform.right = spawnPointDirection;
         }
 
