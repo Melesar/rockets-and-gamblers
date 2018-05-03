@@ -50,7 +50,7 @@ namespace RocketsAndGamblers
 
         public static async Task UnloadScenes ()
         {
-            while (SceneManager.sceneCount > 1) {
+            while (SceneManager.sceneCount > 0) {
                 var scene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
                 await SceneManager.UnloadSceneAsync(scene);
             }

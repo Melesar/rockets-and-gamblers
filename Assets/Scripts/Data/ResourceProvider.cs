@@ -10,7 +10,7 @@ using Framework.References;
 namespace RocketsAndGamblers.Data
 {
     [CreateAssetMenu(menuName = "R&G/Resource provider")]
-    public abstract class ResourceProvider : ScriptableObject, IResourceProvider
+    public class ResourceProvider : ScriptableObject, IResourceProvider
     {
         public IntVariable resourceVariable;
         public StringReference resourceName;

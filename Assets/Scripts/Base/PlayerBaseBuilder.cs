@@ -1,21 +1,21 @@
-﻿using RocketsAndGamblers.Data;
-using RocketsAndGamblers.Database;
-using System.Collections;
-using System.Collections.Generic;
+﻿using Framework.Events;
+using RocketsAndGamblers.Data;
+using RocketsAndGamblers.Player;
 using UnityEngine;
-using System.IO;
-using UnityEngine.SceneManagement;
 
 namespace RocketsAndGamblers
 {
     public class PlayerBaseBuilder : MonoBehaviour
     {
+        public PlayerData playerData;
         public BaseDescriptionProvider baseProvider;
         public BaseBuilder baseBuilder;
 
         private async void Start ()
         {
-            var baseDescription = await baseProvider.GetPlayerBase(Constants.PlayerId, false);
+            await playerData.Init();
+
+            var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
 
             await Scenes.LoadPlayerScene();
 
