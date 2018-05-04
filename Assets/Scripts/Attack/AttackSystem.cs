@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using RocketsAndGamblers.Player;
 using UnityEngine;
 
 namespace RocketsAndGamblers
@@ -14,10 +15,8 @@ namespace RocketsAndGamblers
     {
         public AttackTargetProvider targetProvider;
 
-        //Workaround only before cloud implementation
-        //Then only one field should stay
-        public BaseDescriptionProvider enemyBaseProvider;
-        public BaseDescriptionProvider playerBaseProvider;
+        public PlayerData playerData;
+        public BaseDescriptionProvider baseProvider;
 
         public BaseBuilder baseBuilder;
 
@@ -35,20 +34,15 @@ namespace RocketsAndGamblers
             ReturnToBaseAsync().WrapErrors();
         }
 
-        public void TryToSaveBase()
-        {
-            TryToSaveBaseAsync().WrapErrors();
-        }
-
         public async Task AttackAsync ()
         {
             attackStarted.Raise();
 
-            await new WaitForSeconds(2f);
+            //await new WaitForSeconds(2f);
 
             var targetId = await targetProvider.GetAttackTargetId();
 
-            var baseDescription = await enemyBaseProvider.GetPlayerBase(targetId, true);
+            var baseDescription = await baseProvider.GetPlayerBase(targetId, true);
 
             await Scenes.UnloadScenes();
 
@@ -63,30 +57,13 @@ namespace RocketsAndGamblers
         {
             attackStarted.Raise();
 
-            await new WaitForSeconds(2f);
+            //await new WaitForSeconds(2f);
 
-            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId, false);
+            var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
 
             await Scenes.UnloadScenes();
 
             await Scenes.LoadPlayerScene();
-
-            await baseBuilder.BuildBase(baseDescription);
-
-            attackFinished.Raise();
-        }
-
-        private async Task TryToSaveBaseAsync()
-        {
-            attackStarted.Raise();
-
-            await new WaitForSeconds(2f);
-
-            var baseDescription = await playerBaseProvider.GetPlayerBase(Constants.PlayerId, true);
-
-            await Scenes.UnloadScenes();
-
-            await Scenes.LoadSaveBaseScene();
 
             await baseBuilder.BuildBase(baseDescription);
 

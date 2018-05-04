@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -109,6 +110,8 @@ NavMeshSettings:
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
+    debug:
+      m_Flags: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &199038506
 GameObject:
@@ -537,11 +540,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!4 &345904739
 Transform:
   m_ObjectHideFlags: 0
@@ -772,8 +775,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1341252708}
   m_HandleRect: {fileID: 1341252707}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 0
+  m_Size: 0.9896479
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1047,7 +1050,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 657014825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87dd26c63fbfd6a49a2c32d4ca48a55c, type: 3}
   m_Name: 
@@ -1061,7 +1064,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 657014825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92884a950e70fa741bd709c6109a9436, type: 3}
   m_Name: 
@@ -1076,7 +1079,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 657014825}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 485356d9224f90a42888c194deb1bd99, type: 3}
   m_Name: 
@@ -1093,7 +1096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a6d115aedf02154aa54589c6be38957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ConnectionString: 
+  ConnectionString: DefaultEndpointsProtocol=http;AccountName=mobilki;AccountKey=epbpJ14tZLAw9mH0YGUlZkFaJiYHzqRsynCurIHCNKnAfJmayA6QBoUFlAC/ArnlGbffCkgapxYrKzxgtgzKBg==;EndpointSuffix=core.windows.net
   TableName: people
   DemoShare: demofileshare
   DemoDirectory: demofiledirectory
@@ -1617,7 +1620,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 456729184}
   m_Direction: 0
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.99142367
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

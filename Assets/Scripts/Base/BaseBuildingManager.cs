@@ -1,10 +1,12 @@
 ﻿using RocketsAndGamblers.Data;
+using RocketsAndGamblers.Player;
 using UnityEngine;
 
 namespace RocketsAndGamblers
 {
     public class BaseBuildingManager : MonoBehaviour
     {
+        [SerializeField] private PlayerData playerData;
         [SerializeField] private BaseDescriptionProvider baseProvider;
         [SerializeField] private ObjectsSet layoutObjects;
 
@@ -19,7 +21,7 @@ namespace RocketsAndGamblers
         {
             UpdateBaseLayout();
 
-            baseProvider.UpdatePlayerBase(Constants.PlayerId, currentBaseDescription);
+            baseProvider.UpdatePlayerBase(playerData.Id, currentBaseDescription);
         }
 
         private void UpdateBaseLayout ()
