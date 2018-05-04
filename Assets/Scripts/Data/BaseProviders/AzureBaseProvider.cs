@@ -40,6 +40,8 @@ namespace RocketsAndGamblers.Data
 
         public override async Task UpdatePlayerBase(string playerId, BaseDescription newDescription)
         {
+            newDescription.isPersistant = true;
+            
             var fileName = string.Format(baseFileNameFormat, playerId);
             var baseJson = JsonUtility.ToJson(newDescription);
 

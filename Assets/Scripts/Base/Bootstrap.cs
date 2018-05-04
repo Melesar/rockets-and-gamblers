@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace RocketsAndGamblers
 {
-    public class PlayerBaseBuilder : MonoBehaviour
+    public class Bootstrap : MonoBehaviour
     {
         public PlayerData playerData;
         public BaseDescriptionProvider baseProvider;
@@ -16,6 +16,11 @@ namespace RocketsAndGamblers
             await playerData.Init();
 
             var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
+
+            //If the user is new, we need to copy his layout as a new base
+            if (!baseDescription.isPersistant) {
+                await baseProvider.UpdatePlayerBase(playerData.Id, baseDescription);
+            }
 
             await Scenes.LoadPlayerScene();
 

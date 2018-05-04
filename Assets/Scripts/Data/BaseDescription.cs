@@ -49,6 +49,8 @@ namespace RocketsAndGamblers.Data
 
         public string bundleName;
 
+        public bool isPersistant;
+
         /// <summary>
         /// Timestamp of the omonium mining start time
         /// </summary>
