@@ -20,7 +20,7 @@ namespace RocketsAndGamblers.Data
         private AzureBlobContainer layoutsContainer;
         private AzureBlobContainer basesContainer;
         
-        public override async Task<BaseDescription> GetPlayerBase(int playerId, bool isAttacking)
+        public override async Task<BaseDescription> GetPlayerBase(string playerId, bool isAttacking)
         {
             var fileName = string.Format(baseFileNameFormat, playerId);
             using (var stream = new MemoryStream()) {
@@ -38,7 +38,7 @@ namespace RocketsAndGamblers.Data
             }
         }
 
-        public override async Task UpdatePlayerBase(int playerId, BaseDescription newDescription)
+        public override async Task UpdatePlayerBase(string playerId, BaseDescription newDescription)
         {
             var fileName = string.Format(baseFileNameFormat, playerId);
             var baseJson = JsonUtility.ToJson(newDescription);

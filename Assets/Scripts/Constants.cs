@@ -7,6 +7,6 @@ namespace RocketsAndGamblers
     {
         public static string AssetBundlesPath => $"{Application.streamingAssetsPath}/Bundles";
 
-        public const int PlayerId = 1;
+        public const string PlayerId = "1";
     }
 }

@@ -13,7 +13,7 @@ namespace RocketsAndGamblers.Data
 
         public string FileName => Path.Combine(Application.streamingAssetsPath, fileNameFormat);
 
-        public override async Task<BaseDescription> GetPlayerBase (int playerId, bool isAttacking)
+        public override async Task<BaseDescription> GetPlayerBase (string playerId, bool isAttacking)
         {
             var filePath = GetFilePath(playerId);
 
@@ -31,7 +31,7 @@ namespace RocketsAndGamblers.Data
             }
         }
 
-        public override async Task UpdatePlayerBase (int playerId, BaseDescription newDescription)
+        public override async Task UpdatePlayerBase (string playerId, BaseDescription newDescription)
         {
             var filePath = GetFilePath(playerId);
 
@@ -53,7 +53,7 @@ namespace RocketsAndGamblers.Data
             }
         }
 
-        public string GetFilePath (int playerId)
+        public string GetFilePath (string playerId)
         {
             var fileName = string.Format(fileNameFormat, playerId);
             return Path.Combine(Application.streamingAssetsPath, fileName);

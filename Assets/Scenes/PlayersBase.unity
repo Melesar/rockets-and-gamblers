@@ -537,6 +537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c90beef0d78de24b957316651fe53e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
   baseProvider: {fileID: 11400000, guid: ebcd8f626f27e224f9004c7fc2410966, type: 2}
   layoutObjects: {fileID: 11400000, guid: 8d068024a3976e64b955a62e0530991b, type: 2}
 --- !u!4 &623518977

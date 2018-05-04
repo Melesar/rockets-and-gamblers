@@ -9,6 +9,6 @@ namespace RocketsAndGamblers
 {
     public abstract class AttackTargetProvider : ScriptableObject
     {
-        public abstract Task<int> GetAttackTargetId ();
+        public abstract Task<string> GetAttackTargetId ();
     }
 }

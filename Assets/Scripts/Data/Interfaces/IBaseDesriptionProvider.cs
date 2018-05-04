@@ -8,8 +8,8 @@ namespace RocketsAndGamblers.Data.Interfaces
 {
     public interface IBaseDesriptionProvider
     {
-        Task<BaseDescription> GetPlayerBase (int playerId, bool isAttacking);
+        Task<BaseDescription> GetPlayerBase (string playerId, bool isAttacking);
 
-        Task UpdatePlayerBase (int playerId, BaseDescription newDescription);
+        Task UpdatePlayerBase (string playerId, BaseDescription newDescription);
     }
 }
