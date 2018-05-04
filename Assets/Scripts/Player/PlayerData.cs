@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Framework.Data;
 using RocketsAndGamblers.Server;
@@ -24,7 +25,8 @@ namespace RocketsAndGamblers.Player
             if (currentUserEntity != null) {
                 id = currentUserEntity.Id;
             } else {
-                var user = CreateNewUser();
+                var playerName = await GetPlayerNameInput();
+                var user = CreateNewUser(playerName);
                 await usersTable.InsertAsync(user);
                 id = user.Id;
             }
@@ -32,11 +34,31 @@ namespace RocketsAndGamblers.Player
             Debug.Log($"Initialization successfull. Current player id is: {id}");
         }
 
-        private User CreateNewUser()
+        private async Task<string> GetPlayerNameInput()
+        {
+            if (!TouchScreenKeyboard.isSupported) {
+                return "John from Unity";
+            }
+            
+            var keyboard = TouchScreenKeyboard.Open(string.Empty, TouchScreenKeyboardType.Default,
+                false, false, false, true, "Enter your player's name");
+
+            await new WaitUntil(() => keyboard.status != TouchScreenKeyboard.Status.Visible);
+
+            switch (keyboard.status) {
+                case TouchScreenKeyboard.Status.Canceled:
+                case TouchScreenKeyboard.Status.LostFocus:
+                    return await GetPlayerNameInput();
+                default:
+                    return keyboard.text;
+            }
+        }
+
+        private User CreateNewUser(string playerName)
         {
             return new User {
                 DeviceId = SystemInfo.deviceUniqueIdentifier,
-                Username = "Joe Johnson"
+                Username = playerName
             };
         }
     }

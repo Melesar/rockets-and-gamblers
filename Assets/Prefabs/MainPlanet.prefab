@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114839681894759656}
   - component: {fileID: 114358505199664562}
   - component: {fileID: 114295680183101698}
+  - component: {fileID: 114588772574090360}
   m_Layer: 0
   m_Name: MainPlanet
   m_TagString: Untagged
@@ -141,6 +142,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9382827052fd06842bc8df695bf56e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114588772574090360
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 58118222004088032}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114676889160859632
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,6 +208,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
