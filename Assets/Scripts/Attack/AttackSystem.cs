@@ -41,8 +41,6 @@ namespace RocketsAndGamblers
             //await new WaitForSeconds(2f);
 
             var targetId = await targetProvider.GetAttackTargetId();
-            
-            Debug.Log($"Attacking player {targetId}");
 
             var baseDescription = await baseProvider.GetPlayerBase(targetId, true);
 

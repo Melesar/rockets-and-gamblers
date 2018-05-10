@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Newtonsoft.Json.Serialization;
 using UnityEngine;
 
 namespace RocketsAndGamblers
@@ -9,21 +10,6 @@ namespace RocketsAndGamblers
         private DistanceJoint2D joint;
         private Rigidbody2D rb;
         private Rigidbody2D shipRb;
-
-        public Vector2 GetShipDirection ()
-        {
-            var toAnchor = rb.position - shipRb.position;
-            var forceDirection = Vector3.Cross(toAnchor, -Vector3.forward).normalized;
-            var shipDirection = shipRb.GetRelativeVector(Vector3.right);
-
-            //return (Mathf.Abs(Vector2.Dot(toAnchor, shipDirection)) < 0.03f)
-            //    ? 
-            //    :;
-
-            return (Mathf.Abs(Vector2.Dot(forceDirection, shipDirection)) > 0.97f)
-                ? (Vector2)forceDirection
-                : shipDirection;
-        }
 
         public void Deattach ()
         {

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace RocketsAndGamblers
 {
@@ -16,26 +15,31 @@ namespace RocketsAndGamblers
 
         private float maxSpeedThreshold;
 
-        public void Move (Vector2 direction)
+        public void Move ()
         {
-            CalclulateVelocity(direction);
+            CalclulateVelocity();
             RotateShip();
         }
 
         public void AddImpulseForce (Vector2 force)
         {
+            StopImmidiate();
             rb.AddForce(force, ForceMode2D.Impulse);
         }
 
-        private void CalclulateVelocity (Vector2 direction)
+        private void CalclulateVelocity ()
         {
             if (rb.velocity.magnitude > maxSpeedThreshold) {
                 var targetVelocity = rb.velocity.normalized * maxSpeed;
                 rb.velocity = Vector2.SmoothDamp(rb.velocity, targetVelocity, ref slowVelocity, 1f, 1000f, Time.deltaTime);
             } else {
-                rb.velocity = direction.normalized * maxSpeed;
+                rb.velocity = rb.velocity.normalized * maxSpeed;
             }
+            
+            Debug.DrawLine(rb.position, rb.position + rb.velocity.normalized, Color.green);
         }
+
+        private bool state;
 
         private void RotateShip ()
         {
@@ -58,6 +62,11 @@ namespace RocketsAndGamblers
         public void Stop ()
         {
             rb.isKinematic = true;
+            StopImmidiate();
+        }
+
+        private void StopImmidiate()
+        {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0;
         }

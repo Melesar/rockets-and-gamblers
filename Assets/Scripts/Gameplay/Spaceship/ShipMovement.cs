@@ -41,13 +41,7 @@ namespace RocketsAndGamblers
                 return;
             }
 
-            var velocity = CalculateVelocity();
-            physics.Move(velocity);
-        }
-
-        private Vector2 CalculateVelocity ()
-        {
-            return CurrentOrbit?.GetShipDirection() ?? physics.ForwardDirection;
+            physics.Move();
         }
 
         private void Start()
