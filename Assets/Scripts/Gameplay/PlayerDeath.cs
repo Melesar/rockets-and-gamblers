@@ -1,5 +1,6 @@
 ﻿using Framework.Events;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace RocketsAndGamblers
     public class PlayerDeath : MonoBehaviour
     {
         public GameEvent deathEvent;
-
+        
         public void Die ()
         {
             deathEvent.Raise();

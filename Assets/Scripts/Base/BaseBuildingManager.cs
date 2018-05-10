@@ -17,6 +17,7 @@ namespace RocketsAndGamblers
             currentBaseDescription = baseDescription;
         }
 
+        [ContextMenu("Save base")]
         public void OnFinishedEditing ()
         {
             UpdateBaseLayout();

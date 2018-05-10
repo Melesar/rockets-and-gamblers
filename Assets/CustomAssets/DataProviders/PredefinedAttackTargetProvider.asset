@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c695bacbffd348308674feece92d5d2a, type: 3}
+  m_Name: PredefinedAttackTargetProvider
+  m_EditorClassIdentifier: 
+  lastTargetId: {fileID: 0}
+  targetId:
+    useConstantValue: 1
+    constantValue: e83adad3-251f-4ba2-975d-d29cf12a1aa6
+    variable: {fileID: 0}
