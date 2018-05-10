@@ -11,5 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67bab823e3d747c3922912a5bb31d79a, type: 3}
   m_Name: RandomAttackTargetProvider
   m_EditorClassIdentifier: 
+  lastTargetId: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
   database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
   playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}

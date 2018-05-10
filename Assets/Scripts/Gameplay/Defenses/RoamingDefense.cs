@@ -23,6 +23,11 @@ namespace RocketsAndGamblers.Defenses
             isMoving = !newState;
         }
 
+        public void OnPlayerDeath()
+        {
+            ellipseValue = 0;
+        }
+
         public void Initialize()
         {
             Initialize(dataProvider.Data);

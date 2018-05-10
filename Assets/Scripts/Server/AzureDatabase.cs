@@ -29,7 +29,7 @@ namespace RocketsAndGamblers.Server
             var handler = new HttpClientHandler { AutomaticDecompression = DecompressionMethods.Deflate };
             Client = new MobileServiceClient(databaseUrl, handler);
 #else
-		    Client = new MobileServiceClient(MobileAppUri);
+		    Client = new MobileServiceClient(databaseUrl);
 #endif
         }
     }

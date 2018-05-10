@@ -17,10 +17,13 @@ namespace RocketsAndGamblers
             var playerId = playerData.Id;
             var usersTable = database.GetTable<User>();
 
-            //TODO figure out how not to query the whole table at once
+            //TODO query not the whole table, but a limited chunck of players selected randomly
             var otherPlayers = await usersTable.Where(u => u.Id != playerId).ToListAsync();
             
-            return otherPlayers[Random.Range(0, otherPlayers.Count)].Id;
+            var result = otherPlayers[Random.Range(0, otherPlayers.Count)].Id;
+            lastTargetId.Value = result;
+            
+            return result;
         }
     }
 }
