@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80949c1d93ba4a41bfeb9ede11e324c, type: 3}
   m_Name: AttackSystem
   m_EditorClassIdentifier: 
-  targetProvider: {fileID: 11400000, guid: f6fed98bc0d76084499b8c042c5d6277, type: 2}
+  targetProvider: {fileID: 11400000, guid: bce9c3e418c19a84f9c3ab2d32432a50, type: 2}
   playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
   baseProvider: {fileID: 11400000, guid: ebcd8f626f27e224f9004c7fc2410966, type: 2}
   baseBuilder: {fileID: 11400000, guid: c9fbda8843c0f7e419088f45a45f821c, type: 2}

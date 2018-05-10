@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using RocketsAndGamblers.Effects;
+using UnityEngine;
 
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
-    public class InitialLaunch : MonoBehaviour, ISuccessfullAttemptListener, IDeathListener
+    public class InitialLaunch : MonoBehaviour, IAfterVFXListener//, ISuccessfullAttemptListener, IDeathListener
     {
         private ShipPhysics physics;
         private ShipMovement movement;
@@ -55,6 +56,11 @@ namespace RocketsAndGamblers
             movement = GetComponent<ShipMovement>();
 
             burstForce = movement.burstForce;
+        }
+
+        public void AfterVFX()
+        {
+            Enable();
         }
     }
 }

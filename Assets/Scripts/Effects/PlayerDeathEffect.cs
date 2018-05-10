@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers.Effects
 {
@@ -25,6 +26,8 @@ namespace RocketsAndGamblers.Effects
 
             renderer.enabled = true;
             Destroy(vfxInstance);
+
+            ExecuteEvents.Execute<IAfterVFXListener>(gameObject, null, (handler, data) => handler.AfterVFX());
         }
         
         private void SpawnVFX()

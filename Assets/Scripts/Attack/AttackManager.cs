@@ -1,29 +1,49 @@
-﻿using Framework.Events;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Framework.Data;
 using Framework.References;
 using UnityEngine;
 
 public class AttackManager : MonoBehaviour
 {
-    public IntReference availableAttempts;
-    public IntReference attepmtsLeft;
+    [SerializeField] private IntVariable currentAttempts;
+    [SerializeField] private IntVariable currentStars;
 
-    public GameEvent onAttackFailed;
+    [SerializeField] private IntReference[] starsAttempts;
+
+    private List<int> sortedStarsAttempts;
 
     public void OnPlayerDeath ()
     {
-        if (attepmtsLeft.Value <= 0) {
-            return;
-        }
-
-        attepmtsLeft.Value -= 1;
-
-        if (attepmtsLeft == 0) {
-            onAttackFailed?.Raise();
-        }
+        currentAttempts.Value += 1;
+        
+        UpdateCurrentStarsValue();
     }
 
-    private void Start ()
+    private void UpdateCurrentStarsValue()
     {
-        attepmtsLeft.Value = availableAttempts.Value;
+        var maxStars = sortedStarsAttempts.Count;
+        
+        for (var index = 0; index < sortedStarsAttempts.Count; index++) {
+            var starAttemptsValue = sortedStarsAttempts[index];
+            
+            if (starAttemptsValue <= currentAttempts) {
+                currentStars.Value = maxStars - index;
+                return;
+            }
+        }
+
+        currentStars.Value = 0;
+    }
+
+    private void SortStarsAttempts()
+    {
+        sortedStarsAttempts = new List<int>(starsAttempts.Select(r => r.Value));
+        sortedStarsAttempts.Sort();
+    }
+    
+    private void Awake()
+    {
+        SortStarsAttempts();
     }
 }
