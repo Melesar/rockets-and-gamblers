@@ -17,16 +17,13 @@ namespace RocketsAndGamblers.Player
 
         private void Start()
         {
-            var table = database.GetTable<User>();
-            var usersTask = table.Where(u => u.Id == playerId)
-                .Take(1)
-                .ToEnumerableAsync();
+            StartAsync().WrapErrors();
+        }
 
-            usersTask.Wait();
-
-            var user = usersTask.Result.FirstOrDefault();
-
-            playerName.Value = user?.Username ?? "Unknown";
+        private async Task StartAsync()
+        {
+            var player = await database.GetPlayerAsync(playerId);
+            playerName.Value = player?.Username ?? "Unknown";
         }
     }
 }

@@ -13,25 +13,25 @@ namespace RocketsAndGamblers.Player
         [SerializeField] private AzureDatabase database;
         
         public string Id => id;
-
+        
         [SerializeField, HideInInspector] private string id;
 
         public async Task Init()
         {
-            var usersTable = database.GetTable<User>();
-            var userQuery = usersTable.Where(u => u.DeviceId == SystemInfo.deviceUniqueIdentifier);
-            var currentUserEntity = (await usersTable.ReadAsync(userQuery)).FirstOrDefault();
+            var playersTable = database.GetTable<Server.Player>();
+            var playerQuery = playersTable.Where(u => u.DeviceId == SystemInfo.deviceUniqueIdentifier);
+            var currentPlayerEntity = (await playersTable.ReadAsync(playerQuery)).FirstOrDefault();
             
-            if (currentUserEntity != null) {
-                id = currentUserEntity.Id;
+            if (currentPlayerEntity != null) {
+                id = currentPlayerEntity.Id;
             } else {
                 var playerName = await GetPlayerNameInput();
-                var user = CreateNewUser(playerName);
-                await usersTable.InsertAsync(user);
-                id = user.Id;
+                currentPlayerEntity = CreateNewUser(playerName);
+                await playersTable.InsertAsync(currentPlayerEntity);
+                id = currentPlayerEntity.Id;
             }
             
-            Debug.Log($"Initialization successfull. Current player id is: {id}");
+            database.CachePlayer(currentPlayerEntity);
         }
 
         private async Task<string> GetPlayerNameInput()
@@ -54,9 +54,9 @@ namespace RocketsAndGamblers.Player
             }
         }
 
-        private User CreateNewUser(string playerName)
+        private Server.Player CreateNewUser(string playerName)
         {
-            return new User {
+            return new Server.Player {
                 DeviceId = SystemInfo.deviceUniqueIdentifier,
                 Username = playerName
             };

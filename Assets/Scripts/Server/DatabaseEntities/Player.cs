@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 namespace RocketsAndGamblers.Server
 {
     [DataTable("users")]
-    public class User
+    public class Player
     {
         public string Id { get; set; }
         

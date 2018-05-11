@@ -12,16 +12,24 @@ namespace Framework.UI
         
         private Text text;
 
+        public string Text
+        {
+            set
+            {
+                text.text = !string.IsNullOrEmpty(format) 
+                    ? string.Format(format, value) 
+                    : value;
+            }
+        }
+
         private void OnStringUpdated(string oldValue, string newValue)
         {
-            text.text = !string.IsNullOrEmpty(format) 
-                ? string.Format(format, newValue) 
-                : newValue;
+            Text = newValue;
         }
 
         private void Start()
         {
-            OnStringUpdated(string.Empty, trackedString);
+            Text = trackedString;
         }
 
         private void Awake()
