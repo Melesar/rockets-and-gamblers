@@ -29,7 +29,11 @@ namespace RocketsAndGamblers
                 return;
             }
 
-            if (!Input.GetMouseButtonDown(0) || eventSystem.IsPointerOverGameObject()) {
+            if (!Input.GetMouseButtonDown(0)) {
+                return;
+            }
+
+            if (eventSystem.IsPointerOverGameObject()) {
                 return;
             }
 

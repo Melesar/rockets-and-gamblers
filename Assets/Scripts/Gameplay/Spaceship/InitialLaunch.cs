@@ -1,5 +1,6 @@
 ﻿using RocketsAndGamblers.Effects;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
@@ -11,6 +12,7 @@ namespace RocketsAndGamblers
 
         private float burstForce;
         private bool isEnabled = true;
+        private EventSystem eventSystem;
 
         public void Enable()
         {
@@ -23,7 +25,7 @@ namespace RocketsAndGamblers
                 return;
             }
 
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
                 LaunchAndDisable();
             }
         }
@@ -54,6 +56,7 @@ namespace RocketsAndGamblers
         {
             physics = GetComponent<ShipPhysics>();
             movement = GetComponent<ShipMovement>();
+            eventSystem = EventSystem.current;
 
             burstForce = movement.burstForce;
         }

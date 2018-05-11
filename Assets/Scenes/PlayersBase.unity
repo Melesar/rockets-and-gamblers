@@ -920,6 +920,7 @@ GameObject:
   - component: {fileID: 848885497}
   - component: {fileID: 848885499}
   - component: {fileID: 848885498}
+  - component: {fileID: 848885500}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1046,6 +1047,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: b956821320c6a384fa89b50c72f99dac, type: 2}
+--- !u!114 &848885500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 848885492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  inverseValue: 1
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 848885497}
+        m_MethodName: set_enabled
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &899525341
 GameObject:
   m_ObjectHideFlags: 0
