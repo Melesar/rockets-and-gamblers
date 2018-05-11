@@ -4,7 +4,7 @@ using UnityEngine;
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
-    public class InitialLaunch : MonoBehaviour, IAfterVFXListener//, ISuccessfullAttemptListener, IDeathListener
+    public class InitialLaunch : MonoBehaviour, IAfterVFXListener, ISuccessfullAttemptListener//, IDeathListener
     {
         private ShipPhysics physics;
         private ShipMovement movement;

@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 58077586955632554}
   - component: {fileID: 114058015166495432}
   - component: {fileID: 114733619445897140}
+  - component: {fileID: 114988813942886228}
   m_Layer: 0
   m_Name: planet
   m_TagString: Untagged
@@ -196,6 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateVariable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+  inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
@@ -212,6 +214,26 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114988813942886228
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508053455170482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdc71bf163913b4e840230dc797058b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  set: {fileID: 11400000, guid: b956821320c6a384fa89b50c72f99dac, type: 2}
+  mat: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  color: {r: 0.17497294, g: 0.9528302, b: 0.09438412, a: 0.4627451}
+  radius: 1.1
+  thickness: 0.03
+  segmentsCount: 7
+  gapLenght: 0.4
+  rotationSpeed: 0.3
+  angleStep: 0.01
 --- !u!212 &212733795211994824
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -225,6 +247,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

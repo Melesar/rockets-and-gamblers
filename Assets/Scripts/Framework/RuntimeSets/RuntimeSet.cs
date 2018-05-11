@@ -18,6 +18,11 @@ namespace Framework.RuntimeSets
             Collection.Remove(element);
         }
 
+        public void Clear()
+        {
+            Collection.Clear();
+        }
+
         public int Count => Collection.Count;
 
         public bool Contains(T element) => Collection.Contains(element);
