@@ -11,4 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 738d8ce227f77fe4a93863a7cbc50cdc, type: 3}
   m_Name: FirstStarAttackAttemts
   m_EditorClassIdentifier: 
-  value: 2
+  value: 7

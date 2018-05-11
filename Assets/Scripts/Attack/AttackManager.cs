@@ -2,6 +2,7 @@
 using System.Linq;
 using Framework.Data;
 using Framework.References;
+using RocketsAndGamblers;
 using UnityEngine;
 
 public class AttackManager : MonoBehaviour
@@ -27,7 +28,7 @@ public class AttackManager : MonoBehaviour
         for (var index = 0; index < sortedStarsAttempts.Count; index++) {
             var starAttemptsValue = sortedStarsAttempts[index];
             
-            if (starAttemptsValue <= currentAttempts) {
+            if (starAttemptsValue > currentAttempts) {
                 currentStars.Value = maxStars - index;
                 return;
             }
@@ -40,6 +41,12 @@ public class AttackManager : MonoBehaviour
     {
         sortedStarsAttempts = new List<int>(starsAttempts.Select(r => r.Value));
         sortedStarsAttempts.Sort();
+    }
+
+    private void Start()
+    {
+        currentAttempts.Value = 0;
+        currentStars.Value = Constants.MaximumStarsCount;
     }
     
     private void Awake()
