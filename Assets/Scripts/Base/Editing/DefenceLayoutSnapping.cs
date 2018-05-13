@@ -8,17 +8,16 @@ using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
-    public class DefenceLayoutSnapping : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class DefenceLayoutSnapping : DefenceLayoutBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         public ObjectsSet objectsToSnap;
-        public BoolReference isEditing;
 
         [Tooltip("Sprite to be rendered with low opacity while not poining to any object to snap")]
         public Sprite mockupSprite;
 
         private bool isSnapped;
 
-        private Vector2 originalPosition;
+        private Vector2 currentSnapPosition;
         private Vector2 snapPosition;
 
         private Transform mockupTransform;
@@ -29,7 +28,7 @@ namespace RocketsAndGamblers
 
         public void OnBeginDrag (PointerEventData eventData)
         {
-            if (!isEditing) {
+            if (!isEditingBase) {
                 return;
             }
 
@@ -39,7 +38,7 @@ namespace RocketsAndGamblers
 
         public void OnDrag (PointerEventData eventData)
         {
-            if (!isEditing) {
+            if (!isEditingBase) {
                 return;
             }
 
@@ -58,7 +57,7 @@ namespace RocketsAndGamblers
 
         public void OnEndDrag (PointerEventData eventData)
         {
-            if (!isEditing) {
+            if (!isEditingBase) {
                 return;
             }
 
@@ -85,8 +84,9 @@ namespace RocketsAndGamblers
 
         private void ApplySnapping ()
         {
+            IsDirty = true;
             isSnapped = false;
-            originalPosition = snapPosition;
+            currentSnapPosition = snapPosition;
             transform.position = snapPosition;
 
             snapped?.Invoke(snappedObject);
@@ -96,7 +96,7 @@ namespace RocketsAndGamblers
         private void RevertSnapping ()
         {
             isSnapped = false;
-            transform.position = originalPosition;
+            transform.position = currentSnapPosition;
             snappedObject = null;
         }
 
@@ -160,10 +160,13 @@ namespace RocketsAndGamblers
             CreateMockup();
         }
 
-        private void Awake ()
+        protected override void Awake ()
         {
+            base.Awake();
+            
             mainCamera = Camera.main;
-            originalPosition = transform.position;
+            currentSnapPosition = transform.position;
+            originalPosition = currentSnapPosition;
         }
     }
 }

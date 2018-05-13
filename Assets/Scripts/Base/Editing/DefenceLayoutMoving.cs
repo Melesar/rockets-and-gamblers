@@ -5,10 +5,8 @@ using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
-    public class DefenceLayoutMoving : MonoBehaviour, IDragHandler, IBeginDragHandler
+    public class DefenceLayoutMoving : DefenceLayoutBehaviour, IDragHandler, IBeginDragHandler
     {
-        public BoolReference isEditingBase;
-
         private Camera mainCamera;
         private Vector2 positionOffset;
 
@@ -37,8 +35,10 @@ namespace RocketsAndGamblers
             return mainCamera.ScreenToWorldPoint(screenPosition);
         }
 
-        private void Awake ()
+        protected override void Awake ()
         {
+            base.Awake();
+            
             mainCamera = Camera.main;
         }
     }
