@@ -26,16 +26,15 @@ namespace RocketsAndGamblers
         private IEnumerator PreparePlayerToReturn(GameObject playerObject)
         {
             var playerMovement = playerObject.GetComponent<ShipMovement>();
-            var blinkAnimation = playerObject.GetComponent<SpaceshipBlinkAnimation>();
-
+            var animation = playerObject.GetComponent<SpaceshipEntranceAnimation>();
+            
             playerMovement?.Stop();
-            blinkAnimation?.Blink();
 
-            yield return new WaitForSeconds(1f);
-
-            RepositionPlayer(playerObject);
-
-            blinkAnimation?.Reappear();
+            var targetPosition = GetTargetPosition();
+            var targetRotation = GetTargetRotation(playerObject.transform);
+            animation.Run(targetPosition, targetRotation);
+            
+            yield return new WaitUntil(animation.IsFinished);
 
             var initialLaunch = playerObject.GetComponent<InitialLaunch>();
             initialLaunch?.Enable();
@@ -47,6 +46,21 @@ namespace RocketsAndGamblers
 
             var spawnPointDirection = (spawnPointPosition - (Vector2)transform.position).normalized;
             playerObject.transform.right = spawnPointDirection;
+        }
+
+        private Vector3 GetTargetPosition()
+        {
+            return transform.position;
+        }
+
+        private float GetTargetRotation(Transform playerTransform)
+        {
+            var spawnPointDirection = (spawnPointPosition - (Vector2)transform.position).normalized;
+            var angle = Vector2.Angle(playerTransform.right, spawnPointDirection);
+
+            var totalAngle = angle + playerTransform.rotation.eulerAngles.z;
+            var fullCircles = (int) (totalAngle / 360f);
+            return totalAngle - fullCircles * 360;
         }
 
         private void Start()

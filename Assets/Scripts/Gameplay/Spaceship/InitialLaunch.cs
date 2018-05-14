@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
-    public class InitialLaunch : MonoBehaviour, IAfterVFXListener, ISuccessfullAttemptListener//, IDeathListener
+    public class InitialLaunch : MonoBehaviour, IAfterVFXListener, ISuccessfullAttemptListener
     {
         private ShipPhysics physics;
         private ShipMovement movement;
@@ -43,11 +43,6 @@ namespace RocketsAndGamblers
         }
 
         public void OnSuccessfullSavingAttempt ()
-        {
-            Enable();
-        }
-
-        public void OnDeath ()
         {
             Enable();
         }
