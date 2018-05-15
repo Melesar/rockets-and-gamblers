@@ -8,8 +8,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca1c6a3e3f846e41a41871fc76769bc, type: 3}
-  m_Name: CurrentPlayerData
+  m_Script: {fileID: 11500000, guid: 77c92852952647dca120da3a846613dc, type: 3}
+  m_Name: TutorialWindow
   m_EditorClassIdentifier: 
-  database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
-  id: 
+  windowPrefab: {fileID: 1201541077704876, guid: aca41c68bc3a10943907625c1abea64f,
+    type: 2}

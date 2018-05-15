@@ -21,6 +21,8 @@ namespace RocketsAndGamblers
             if (!baseDescription.isPersistant) {
                 await baseProvider.UpdatePlayerBase(playerData.Id, baseDescription);
             }
+            
+            Tutorials.TutorialUtility.SetTutorialRunning(true);
 
             await Scenes.LoadPlayerScene();
 

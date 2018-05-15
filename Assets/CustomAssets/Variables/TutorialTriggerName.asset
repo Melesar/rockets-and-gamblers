@@ -8,8 +8,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca1c6a3e3f846e41a41871fc76769bc, type: 3}
-  m_Name: CurrentPlayerData
+  m_Script: {fileID: 11500000, guid: b680ebde9fa146646a5790859e88b26f, type: 3}
+  m_Name: TutorialTriggerName
   m_EditorClassIdentifier: 
-  database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
-  id: 
+  value: Next

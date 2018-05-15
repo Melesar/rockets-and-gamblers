@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 114330658978855582}
   - component: {fileID: 114360164010937878}
   - component: {fileID: 114565817188889428}
+  - component: {fileID: 114496807303547496}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -303,6 +304,17 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114496807303547496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857933707240470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6139d6e94e1748b09bd561e21d42c317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114514351853801340
 MonoBehaviour:
   m_ObjectHideFlags: 1

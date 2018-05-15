@@ -38,8 +38,6 @@ namespace RocketsAndGamblers
         {
             attackStarted.Raise();
 
-            //await new WaitForSeconds(2f);
-
             var targetId = await targetProvider.GetAttackTargetId();
 
             var baseDescription = await baseProvider.GetPlayerBase(targetId, true);
@@ -56,8 +54,6 @@ namespace RocketsAndGamblers
         public async Task ReturnToBaseAsync ()
         {
             attackStarted.Raise();
-
-            //await new WaitForSeconds(2f);
 
             var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
 
