@@ -23,17 +23,16 @@ namespace RocketsAndGamblers.Tutorials
         private void OnEnter(Animator animator)
         {
             this.animator = animator;
+            
+            transition.RegisterOutput(TriggerAnimator);
             transition.OnInput();
         }
 
         private void TriggerAnimator()
         {
-            animator.SetTrigger(trigger);
-        }
-
-        private void OnEnable()
-        {
-            transition.RegisterOutput(TriggerAnimator);
+            if (animator != null) {
+                animator.SetTrigger(trigger);
+            }
         }
     }
 }

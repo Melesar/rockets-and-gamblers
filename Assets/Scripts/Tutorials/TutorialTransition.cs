@@ -19,6 +19,16 @@ namespace RocketsAndGamblers.Tutorials
             this.output = output;
         }
 
+        public void ClearInput()
+        {
+            input = null;
+        }
+
+        public void ClearOutput()
+        {
+            output = null;
+        }
+
         public void OnInput()
         {
             input?.Invoke();

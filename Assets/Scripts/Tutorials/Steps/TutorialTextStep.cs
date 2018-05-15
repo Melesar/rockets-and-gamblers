@@ -1,26 +1,17 @@
-﻿using Framework.UI;
+﻿using TMPro;
+using UnityEngine;
 
 namespace RocketsAndGamblers.Tutorials
 {
-    public class TutorialTextStep : TutorialStep
+    public class TutorialTextStep : TutorialSubstep
     {
-        private Window window;
+        [TextArea]
+        public string textToDisplay;
+        public TMP_Text textComponent;
 
-        public void OnTap()
+        public override void OnSubstep()
         {
-            window.Close();
-            NextStep();
-        }
-        
-        protected override void OnTutorialStep()
-        {
-            window.Open();        
-        }
-
-        protected override void Awake()
-        {
-            base.Awake();
-            window = GetComponent<Window>();
+            textComponent.text = textToDisplay;
         }
     }
 }

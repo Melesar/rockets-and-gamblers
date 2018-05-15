@@ -14,6 +14,7 @@ namespace RocketsAndGamblers.Tutorials
         public bool mockupClickAction;
         public UnityEvent mockupOnClick;
 
+        private bool isActive;
         private TutorialDisabler disabler;
         private GameObject arrowInstance;
         
@@ -23,15 +24,20 @@ namespace RocketsAndGamblers.Tutorials
                 disabler.IsDisabled = true;
             }
 
+            isActive = false;
             Destroy(arrowInstance);
             NextStep();
         }
         
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (mockupClickAction) {
+            if (mockupClickAction && isActive) {
                 mockupOnClick.Invoke();
             }
+            
+            Destroy(arrowInstance);
+            NextStep();
+            isActive = false;
         }
         
         protected override void OnTutorialStep()
@@ -39,7 +45,8 @@ namespace RocketsAndGamblers.Tutorials
             if (!mockupClickAction && disabler != null) {
                 disabler.IsDisabled = false;
             }
-            
+
+            isActive = true;
             InstantiateArrow();
         }
 

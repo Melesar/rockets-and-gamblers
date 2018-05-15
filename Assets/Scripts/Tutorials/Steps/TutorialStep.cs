@@ -1,6 +1,7 @@
 ﻿using Framework.EventListeners;
 using Framework.Events;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -16,6 +17,11 @@ namespace RocketsAndGamblers.Tutorials
         {
             transition.OnOutput();
         }
+
+        protected void SetInput(UnityAction input)
+        {
+            transition.RegisterInput(input);
+        }
         
         protected virtual void Awake()
         {
@@ -24,7 +30,7 @@ namespace RocketsAndGamblers.Tutorials
                 return;
             }
             
-            transition.RegisterInput(OnTutorialStep);
+            SetInput(OnTutorialStep);
         }
     }
 }
