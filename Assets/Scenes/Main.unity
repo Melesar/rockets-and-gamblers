@@ -591,6 +591,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
   baseProvider: {fileID: 11400000, guid: ebcd8f626f27e224f9004c7fc2410966, type: 2}
   baseBuilder: {fileID: 11400000, guid: c9fbda8843c0f7e419088f45a45f821c, type: 2}
+  enableTutorial: 0
 --- !u!1 &1280097710
 GameObject:
   m_ObjectHideFlags: 0

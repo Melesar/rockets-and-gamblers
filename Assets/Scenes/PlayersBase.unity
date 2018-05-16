@@ -517,6 +517,17 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 114554300308243282, guid: f7322a5d63ebcd2419f60374a4af21bf,
+        type: 2}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 11400000, guid: 4fc501cea4768f14486fbeb370f97b76,
+        type: 2}
+    - target: {fileID: 114844584018451664, guid: f7322a5d63ebcd2419f60374a4af21bf,
+        type: 2}
+      propertyPath: textToDisplay
+      value: Let's move some objects to make your base less vulnerable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7322a5d63ebcd2419f60374a4af21bf, type: 2}
   m_IsPrefabParent: 0
@@ -626,17 +637,6 @@ Prefab:
       propertyPath: m_Name
       value: Tutorial_EditConfirmationWindow
       objectReference: {fileID: 0}
-    - target: {fileID: 114844584018451664, guid: f7322a5d63ebcd2419f60374a4af21bf,
-        type: 2}
-      propertyPath: textToDisplay
-      value: Great! Now let's try to rob somebody's base!
-      objectReference: {fileID: 0}
-    - target: {fileID: 114554300308243282, guid: f7322a5d63ebcd2419f60374a4af21bf,
-        type: 2}
-      propertyPath: transition
-      value: 
-      objectReference: {fileID: 11400000, guid: 707dea8cd13403f458cbe086282ac9f6,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7322a5d63ebcd2419f60374a4af21bf, type: 2}
   m_IsPrefabParent: 0

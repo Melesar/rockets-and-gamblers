@@ -24,13 +24,12 @@ namespace RocketsAndGamblers.Data
         {
             var fileName = string.Format(baseFileNameFormat, playerId);
             using (var stream = new MemoryStream()) {
-//                try {
-//                    await basesContainer.DownloadFile(fileName, stream);
-//                } catch (AzureException) {
-//                    //Provided player id doesn't exist, so we need to download a new base from layout
-//                    await DownloadLayout(stream);
-//                }
-                await DownloadLayout(stream);
+                try {
+                    await basesContainer.DownloadFile(fileName, stream);
+                } catch (AzureException) {
+                    //Provided player id doesn't exist, so we need to download a new base from layout
+                    await DownloadLayout(stream);
+                }
                 var json = Encoding.UTF8.GetString(stream.GetBuffer());
                 var description = JsonUtility.FromJson<BaseDescription>(json);
                 description.isAttacking = isAttacking;

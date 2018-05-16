@@ -1,4 +1,5 @@
-﻿using Framework.Events;
+﻿using System.Threading.Tasks;
+using Framework.Events;
 using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Player;
 using UnityEngine;
@@ -11,22 +12,31 @@ namespace RocketsAndGamblers
         public BaseDescriptionProvider baseProvider;
         public BaseBuilder baseBuilder;
 
+        public bool enableTutorial;
+
         private async void Start ()
         {
             await playerData.Init();
 
             var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
 
-            //If the user is new, we need to copy his layout as a new base
             if (!baseDescription.isPersistant) {
-                await baseProvider.UpdatePlayerBase(playerData.Id, baseDescription);
+                await InitNewPlayer(baseDescription);
             }
-            
-            Tutorials.TutorialUtility.SetTutorialRunning(true);
+
+            if (enableTutorial) {
+                Tutorials.TutorialUtility.SetTutorialRunning(true);
+            }
 
             await Scenes.LoadPlayerScene();
 
             await baseBuilder.BuildBase(baseDescription);
+        }
+
+        private async Task InitNewPlayer(BaseDescription baseDescription)
+        {
+            Tutorials.TutorialUtility.SetTutorialRunning(true);
+            await baseProvider.UpdatePlayerBase(playerData.Id, baseDescription);
         }
     }
 }
