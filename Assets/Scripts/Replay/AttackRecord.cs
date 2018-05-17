@@ -15,4 +15,6 @@ public class AttackRecord
     [JsonProperty(PropertyName = "replayfilename")]
     public string ReplayFileName { get; set; }
 
+    
+    public string AttackerName { get; set; }
 }

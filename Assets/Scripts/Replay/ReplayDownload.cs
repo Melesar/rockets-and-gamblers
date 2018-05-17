@@ -20,19 +20,34 @@ namespace RocketsAndGamblers
 
         private async void Start()
         {
-
             await GetAttackHistory();
         }
-
-
+        
         private async Task GetAttackHistory()
         {
-            var table = database.GetTable<AttackRecord>();
-            var entities = await table.Where(r => r.VictimId == currentPlayer.Id).ToEnumerableAsync();
-            foreach (var entity in entities)
-            {
+            var attackRecordsTable = database.GetTable<AttackRecord>();
+            var playersTable = database.GetTable<Server.Player>();
+            
+            var entities = await attackRecordsTable
+                .Where(r => r.VictimId == currentPlayer.Id)
+                .Take(5)
+                .ToEnumerableAsync();
+            
+            foreach (var entity in entities) {
+                var attackerNames = await playersTable
+                    .Where(p => p.Id == entity.AttackerId)
+                    .Select(p => p.Username)
+                    .ToListAsync();
+
+                if (attackerNames.Count == 0) {
+                    continue;
+                }
+
+                entity.AttackerName = attackerNames[0];
                 history.Add(entity);
             }
+            
+            Debug.Log("Attack history loaded");
         }
 
         //public async Task<Replay> GetReplay(string fileName)
