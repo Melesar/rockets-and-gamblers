@@ -25,7 +25,7 @@ namespace RocketsAndGamblers
             }
 
             var direction = (to - physics.Position).normalized;
-            physics.AddImpulseForce(direction * burstForce);
+            physics.AddImpulseForce(direction);
 
             Deattach();
         }

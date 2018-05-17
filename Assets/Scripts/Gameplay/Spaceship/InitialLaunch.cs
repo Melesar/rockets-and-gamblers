@@ -7,6 +7,8 @@ namespace RocketsAndGamblers
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
     public class InitialLaunch : MonoBehaviour, IAfterVFXListener, ISuccessfullAttemptListener//, IDeathListener
     {
+        public PositionEvent onLaunch;
+
         private ShipPhysics physics;
         private ShipMovement movement;
 
@@ -34,12 +36,14 @@ namespace RocketsAndGamblers
         {
             movement.Launch();
 
-            var to = (Vector2) Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var to = (Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
             var direction = (to - physics.Position).normalized;
-            physics.AddImpulseForce(direction * burstForce);
+            physics.AddImpulseForce(direction);
 
             isEnabled = false;
+
+            onLaunch.Invoke(to);
         }
 
         public void OnSuccessfullSavingAttempt ()

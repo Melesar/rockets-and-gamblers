@@ -38,3 +38,4 @@ sysinfo.txt
 
 # Local files for testing and quick prototyping
 /Assets/LocalFiles
+Assets/Prefabs/Spaceship.prefab

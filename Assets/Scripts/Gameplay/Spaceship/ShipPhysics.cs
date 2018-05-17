@@ -6,6 +6,7 @@ namespace RocketsAndGamblers
     public class ShipPhysics : MonoBehaviour, IStopListener, ILaunchListener
     {
         public float maxSpeed;
+        public float burstForce;
 
         public Vector2 Position => rb.position;
         public Vector2 ForwardDirection => rb.GetRelativeVector(Vector3.right);
@@ -23,8 +24,9 @@ namespace RocketsAndGamblers
 
         public void AddImpulseForce (Vector2 force)
         {
+            Debug.Log("Input force");
             StopImmidiate();
-            rb.AddForce(force, ForceMode2D.Impulse);
+            rb.AddForce(force * burstForce, ForceMode2D.Impulse);
         }
 
         private void CalclulateVelocity ()
