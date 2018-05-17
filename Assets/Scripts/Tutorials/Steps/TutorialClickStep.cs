@@ -52,6 +52,10 @@ namespace RocketsAndGamblers.Tutorials
 
         private void InstantiateArrow()
         {
+            if (arrowPrefab == null) {
+                return;
+            }
+            
             arrowInstance = Instantiate(arrowPrefab, transform);
             arrowInstance.transform.localPosition = arrowLocalPosition;
 

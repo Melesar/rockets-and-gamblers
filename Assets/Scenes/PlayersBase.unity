@@ -900,8 +900,8 @@ MonoBehaviour:
   mockupOnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-        m_MethodName: Inverse
+      - m_Target: {fileID: 11400000, guid: d4c5b0a488321a94b88dc578b148a180, type: 2}
+        m_MethodName: Raise
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2650,7 +2650,7 @@ Prefab:
     - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
         type: 2}
@@ -2701,26 +2701,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114129846073321094, guid: 9115f3fbd07b1f84aae7587831831c35,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114129846073321094, guid: 9115f3fbd07b1f84aae7587831831c35,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114683141243780116, guid: 9115f3fbd07b1f84aae7587831831c35,
-        type: 2}
-      propertyPath: m_havePropertiesChanged
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114683141243780116, guid: 9115f3fbd07b1f84aae7587831831c35,
-        type: 2}
-      propertyPath: m_isInputParsingRequired
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9115f3fbd07b1f84aae7587831831c35, type: 2}
