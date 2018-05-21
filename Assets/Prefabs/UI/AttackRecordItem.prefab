@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 114120365417574174}
   - component: {fileID: 114572867665718048}
   m_Layer: 5
-  m_Name: AttackRecord
+  m_Name: AttackRecordItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

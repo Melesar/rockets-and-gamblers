@@ -17,12 +17,14 @@ namespace RocketsAndGamblers
         public string TestReplay;
         private Replay replayStart;
 
+        public AzureDatabase database;
+        public AttackHistory history;
         public string connection;
         public string containerName;
 
         public PlayerData attackingPlayer;
         public StringReference attackedPlayerId;
-
+        private AttackHistoryData dataupload;
 
         private AzureBlobContainer replaysContainer;
         private float StartTime;
@@ -63,6 +65,7 @@ namespace RocketsAndGamblers
             Debug.Log("Gotowy json: " + str);
             Debug.Log(attackedPlayerId);
             await replaysContainer.UploadFile(str, fileName);
+           await dataupload.InsertTable(attackedPlayerId, attackingPlayer.Id, fileName);
 
         }
 
