@@ -12,16 +12,16 @@ public class ReplayManager : MonoBehaviour
     private ReplayMovment newReplay;
     public string replayFile;
     // Use this for initialization
-    async void Start()
+    public string connection;
+    public string containerName;
+    async void Awake()
     {
+        newReplay = new ReplayMovment();
+        replaysContainer = new AzureBlobContainer(connection, containerName);
         newReplay.SetShipOnPoint(await GetReplay(replayFile));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     public async Task<Replay> GetReplay(string fileName)
     {

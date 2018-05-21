@@ -1,5 +1,6 @@
 ﻿using Framework.UI;
 using Framework.UI.Interfaces;
+using RocketsAndGamblers.Server;
 using UnityEngine;
 
 namespace RocketsAndGamblers.UI

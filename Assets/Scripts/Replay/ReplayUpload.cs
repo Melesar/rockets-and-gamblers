@@ -24,7 +24,7 @@ namespace RocketsAndGamblers
 
         public PlayerData attackingPlayer;
         public StringReference attackedPlayerId;
-        private AttackHistoryData dataupload;
+        public AttackHistoryData dataupload;
 
         private AzureBlobContainer replaysContainer;
         private float StartTime;
@@ -32,7 +32,7 @@ namespace RocketsAndGamblers
 
         private void Awake()
         {
-
+            
             replayStart = new Replay();
             replaysContainer = new AzureBlobContainer(connection, containerName);
         }
