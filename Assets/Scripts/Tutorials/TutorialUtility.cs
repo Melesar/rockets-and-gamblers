@@ -19,5 +19,26 @@ namespace RocketsAndGamblers.Tutorials
                 PlayerPrefs.DeleteKey(TutorialPrefsKey);
             }
         }
+
+        private static bool isDebugMode;
+        
+        public static bool IsDebugMode
+        {
+            get
+            {
+                #if !UNITY_EDITOR
+                return false;
+                #else
+                return isDebugMode;
+                #endif
+            }
+
+            set
+            {
+                #if UNITY_EDITOR
+                isDebugMode = value;
+                #endif
+            }
+        }
     }
 }

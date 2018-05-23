@@ -284,6 +284,8 @@ MonoBehaviour:
   pixelTolerance: 50
   arrowPrefab: {fileID: 1114795635183692, guid: b8bef528605ebbc45a51cd9148ac0759,
     type: 2}
+  linePrefab: {fileID: 114249397107488048, guid: f68c622cdec12ca4c877ae57fc1677f0,
+    type: 2}
 --- !u!212 &212388973820154816
 SpriteRenderer:
   m_ObjectHideFlags: 1

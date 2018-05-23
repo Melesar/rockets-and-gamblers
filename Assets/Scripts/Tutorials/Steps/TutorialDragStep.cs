@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using Effects;
+using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers.Tutorials
 {
-    public class TutorialDragStep : TutorialStep, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class TutorialDragStep : TutorialStep, IDragHandler, IEndDragHandler
     {
         public Transform target;
         public Vector2 originArrowPosition;
@@ -11,17 +12,16 @@ namespace RocketsAndGamblers.Tutorials
         public float pixelTolerance;
 
         public GameObject arrowPrefab;
+        public TutorialLineRendering linePrefab;
 
         private Vector2 targetScreenPosition;        
         private TutorialDisabler disabler;
-        private GameObject arrowInstance;
-        private Transform arrowTransform;
-        private bool isOnPosition;
+        
+        private GameObject originalArrowInstance;
+        private GameObject targetArrowInstance;
+        private TutorialLineRendering lineInstance;
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
-            RepositionArrow(target, targetArrowPosition);
-        }
+        private bool isOnPosition;
 
         public void OnDrag(PointerEventData eventData)
         {
@@ -36,11 +36,14 @@ namespace RocketsAndGamblers.Tutorials
         public void OnEndDrag(PointerEventData eventData)
         {
             if (!isOnPosition) {
-                RepositionArrow(transform, originArrowPosition);
+                UpdateMarkers();
                 return;
             }
             
-            Destroy(arrowInstance);
+            Destroy(originalArrowInstance);
+            Destroy(targetArrowInstance);
+            Destroy(lineInstance.gameObject);
+            
             NextStep();
             
             if (disabler != null) {
@@ -55,21 +58,35 @@ namespace RocketsAndGamblers.Tutorials
             }
             
             target.SetParent(null);
-            
-            arrowInstance = Instantiate(arrowPrefab);
-            arrowTransform = arrowInstance.transform;
-            
-            RepositionArrow(transform, originArrowPosition);
+
+            originalArrowInstance = Instantiate(arrowPrefab);
+            targetArrowInstance = Instantiate(arrowPrefab);
+            lineInstance = Instantiate(linePrefab);
+
+            UpdateMarkers();
         }
 
-        private void RepositionArrow(Transform parent, Vector2 localPosition)
+        private void UpdateMarkers()
         {
-            arrowTransform.SetParent(parent);
+            RepositionArrow(originalArrowInstance.transform, transform, originArrowPosition);
+            RepositionArrow(targetArrowInstance.transform, target, targetArrowPosition);
+            ResetLine();
+        }
 
+        private void ResetLine()
+        {
+            var startPos = transform.position;
+            var endPos = target.position;
+
+            lineInstance.SetLinePositions(startPos, endPos);
+        }
+        
+        private void RepositionArrow(Transform arrow, Transform parent, Vector2 localPosition)
+        {
             var arrowDirection = parent.position - parent.TransformPoint(localPosition);
 
-            arrowTransform.localPosition = localPosition;
-            arrowTransform.right = arrowDirection;
+            arrow.localPosition = parent.TransformPoint(localPosition);
+            arrow.right = arrowDirection;
         }
 
         protected override void Awake()

@@ -16,16 +16,17 @@ namespace RocketsAndGamblers
 
         private async void Start ()
         {
+            if (enableTutorial) {
+                Tutorials.TutorialUtility.IsDebugMode = true;
+                Tutorials.TutorialUtility.SetTutorialRunning(true);
+            }
+            
             await playerData.Init();
 
             var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
 
             if (!baseDescription.isPersistant) {
                 await InitNewPlayer(baseDescription);
-            }
-
-            if (enableTutorial) {
-                Tutorials.TutorialUtility.SetTutorialRunning(true);
             }
 
             await Scenes.LoadPlayerScene();

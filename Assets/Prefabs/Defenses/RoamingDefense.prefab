@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1853938967065950}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 468.2428, y: -88.587494, z: 0}
+  m_LocalPosition: {x: -0.42277175, y: -0.7348803, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4036039520454984}
@@ -503,6 +503,8 @@ MonoBehaviour:
   targetArrowPosition: {x: 1.07, y: 0.99}
   pixelTolerance: 40
   arrowPrefab: {fileID: 1114795635183692, guid: b8bef528605ebbc45a51cd9148ac0759,
+    type: 2}
+  linePrefab: {fileID: 114249397107488048, guid: f68c622cdec12ca4c877ae57fc1677f0,
     type: 2}
 --- !u!114 &114943810502605702
 MonoBehaviour:

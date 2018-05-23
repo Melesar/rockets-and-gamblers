@@ -11,11 +11,6 @@ namespace Framework.EventListeners
         public UndoableGameEvent gameEvent;
         public UndoableUnityEvent unityEvent;
 
-        public void Test(IUndoable d)
-        {
-            
-        }
-
         protected override GameEvent<IUndoable> GameEvent => gameEvent;
         protected override UnityEvent<IUndoable> OnRaised => unityEvent;
     }
