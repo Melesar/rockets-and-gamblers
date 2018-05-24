@@ -14,6 +14,7 @@ public class ReplayManager : MonoBehaviour
     // Use this for initialization
     public string connection;
     public string containerName;
+    
     async void Awake()
     {
         newReplay = new ReplayMovment();

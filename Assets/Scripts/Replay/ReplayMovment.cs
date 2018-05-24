@@ -1,30 +1,27 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using RocketsAndGamblers;
 using UnityEngine;
-using Framework.References;
-using RocketsAndGamblers.Player;
-using System.Threading.Tasks;
-using RocketsAndGamblers;
 
-public class ReplayMovment : MonoBehaviour {
+public class ReplayMovment : MonoBehaviour
+{
+    private float curentTime;
     private ShipPhysics physics;
     private ReplayDownload replay;
+
     private float StartTime;
+
     // Use this for initialization
     private void Awake()
     {
-
         physics = GetComponent<ShipPhysics>();
     }
 
-    void Start() {
+    private void Start()
+    {
         StartTime = Time.time;
     }
 
     // Update is called once per frame
-    void Update() {
-
-    }
+    private void Update() { }
 
     private void Burst(Vector2 coords)
     {
@@ -32,28 +29,19 @@ public class ReplayMovment : MonoBehaviour {
         physics.AddImpulseForce(direction);
     }
 
-    private float curentTime;
-
     public async void SetShipOnPoint(Replay replay)
     {
-        
         curentTime = Time.time - StartTime;
 
-        Debug.Log("Test pobranej powtorki");
-        int count = 0;
-        while (count < replay.inputs.Count)
-        {
-            if (curentTime >= replay.inputs[count].t)
-            {
+        var count = 0;
+        while (count < replay.inputs.Count) {
+            if (curentTime >= replay.inputs[count].t) {
                 Burst(replay.inputs[count].cords);
                 count++;
             }
 
             curentTime += Time.deltaTime;
             await new WaitForEndOfFrame();
-
         }
-
     }
 }
-

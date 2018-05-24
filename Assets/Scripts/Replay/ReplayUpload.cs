@@ -15,7 +15,7 @@ namespace RocketsAndGamblers
     public class ReplayUpload : MonoBehaviour
     {
         public string TestReplay;
-        private Replay replayStart;
+        private global::Replay replayStart;
 
         public AzureDatabase database;
         public AttackHistory history;
@@ -33,7 +33,7 @@ namespace RocketsAndGamblers
         private void Awake()
         {
             
-            replayStart = new Replay();
+            replayStart = new global::Replay();
             replaysContainer = new AzureBlobContainer(connection, containerName);
         }
 
@@ -60,13 +60,11 @@ namespace RocketsAndGamblers
 
 
             string str = JsonUtility.ToJson(replayStart);
-            //string replayName = JsonConvert.SerializeObject(coords);
             var fileName = string.Format("replay_{0}_{1}", attackedPlayerId, attackingPlayer.Id);
             Debug.Log("Gotowy json: " + str);
             Debug.Log(attackedPlayerId);
             await replaysContainer.UploadFile(str, fileName);
-           await dataupload.InsertTable(attackedPlayerId, attackingPlayer.Id, fileName);
-
+            await dataupload.InsertTable(attackedPlayerId, attackingPlayer.Id, fileName);
         }
 
 
