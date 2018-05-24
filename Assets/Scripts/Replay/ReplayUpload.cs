@@ -18,7 +18,7 @@ namespace RocketsAndGamblers
         private global::Replay replayStart;
 
         public AzureDatabase database;
-        public AttackHistory history;
+        
         public string connection;
         public string containerName;
 
@@ -44,6 +44,12 @@ namespace RocketsAndGamblers
             StartTime = Time.time;
 
         }
+
+        public void OnPlayerDeath() {
+            replayStart.inputs.Clear();
+
+        }
+        
         public void OnTouch(Vector2 touchCoords)
         {
             replayStart.AddToList(new InputData(touchCoords, Time.time - StartTime));
@@ -53,18 +59,23 @@ namespace RocketsAndGamblers
 
         }
 
-        public async void OnAttackSuccessfull()
+        private async Task OnAttackSuccessfullAsync()
         {
-            Debug.Log("Successfull attack");
-            Debug.Log("Total items: " + coords.Count);
-
-
             string str = JsonUtility.ToJson(replayStart);
             var fileName = string.Format("replay_{0}_{1}", attackedPlayerId, attackingPlayer.Id);
             Debug.Log("Gotowy json: " + str);
             Debug.Log(attackedPlayerId);
             await replaysContainer.UploadFile(str, fileName);
-            await dataupload.InsertTable(attackedPlayerId, attackingPlayer.Id, fileName);
+            await dataupload.InsertTable(attackingPlayer.Id, attackedPlayerId,  fileName);
+
+        }
+
+        public  void OnAttackSuccessfull()
+        {
+            Debug.Log("Successfull attack");
+            Debug.Log("Total items: " + coords.Count);
+
+            OnAttackSuccessfullAsync().WrapErrors();
         }
 
 

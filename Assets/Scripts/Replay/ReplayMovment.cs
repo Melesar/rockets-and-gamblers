@@ -1,10 +1,12 @@
 ﻿using RocketsAndGamblers;
+using System.Threading.Tasks;
 using UnityEngine;
 
-public class ReplayMovment : MonoBehaviour
+public class ReplayMovement : MonoBehaviour
 {
     private float curentTime;
     private ShipPhysics physics;
+    private ShipMovement movement;
     private ReplayDownload replay;
 
     private float StartTime;
@@ -12,7 +14,14 @@ public class ReplayMovment : MonoBehaviour
     // Use this for initialization
     private void Awake()
     {
-        physics = GetComponent<ShipPhysics>();
+        var shipControl = GetComponent<ShipControls>();
+        var initialLaunch = GetComponent<InitialLaunch>();
+        shipControl.enabled = false;
+        initialLaunch.enabled = false;
+
+        movement = GetComponent<ShipMovement>();
+        //physics = GetComponent<ShipPhysics>();
+        //physics.Launch();
     }
 
     private void Start()
@@ -20,22 +29,22 @@ public class ReplayMovment : MonoBehaviour
         StartTime = Time.time;
     }
 
-    // Update is called once per frame
-    private void Update() { }
 
     private void Burst(Vector2 coords)
     {
-        var direction = (coords - physics.Position).normalized;
-        physics.AddImpulseForce(direction);
+        movement.Launch();
+        movement.Burst(coords);
     }
 
-    public async void SetShipOnPoint(Replay replay)
+    public async Task SetShipOnPoint(Replay replay)
     {
         curentTime = Time.time - StartTime;
 
         var count = 0;
-        while (count < replay.inputs.Count) {
-            if (curentTime >= replay.inputs[count].t) {
+        while (count < replay.inputs.Count)
+        {
+            if (curentTime >= replay.inputs[count].t)
+            {
                 Burst(replay.inputs[count].cords);
                 count++;
             }

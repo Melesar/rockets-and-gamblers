@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 114437553779108240}
   - component: {fileID: 114370277949645996}
   - component: {fileID: 114225302018743118}
+  - component: {fileID: 114766725899316668}
   m_Layer: 8
   m_Name: Spaceship
   m_TagString: Player
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TestReplay: 
+  database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
   connection: DefaultEndpointsProtocol=http;AccountName=mobilki;AccountKey=TvcydIIeud6lwFDCH3gaBI+Cdq/fzu7afPRlDLGlx0WQZokw5Jrdx/zvlQ0PnhzjVo46Ty32s+Bf2nLmMhRHIQ==;EndpointSuffix=core.windows.net
   containerName: replaysystem
   attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
@@ -183,6 +185,7 @@ MonoBehaviour:
     useConstantValue: 0
     constantValue: 
     variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
+  dataupload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
 --- !u!114 &114233148770465404
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -328,6 +331,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
+--- !u!114 &114766725899316668
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455797122737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114225302018743118}
+        m_MethodName: OnPlayerDeath
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114893811807850270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -340,6 +371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 5
+  burstForce: 15
 --- !u!114 &114906465947599026
 MonoBehaviour:
   m_ObjectHideFlags: 1

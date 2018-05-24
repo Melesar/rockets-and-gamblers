@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+[System.Serializable]
 public class InputData
 {
     public Vector2 cords;
@@ -13,7 +13,7 @@ public class InputData
         this.t = t;
     }
 }
-
+    [System.Serializable]
 public class Replay
 {
     public List<InputData> inputs = new List<InputData>();

@@ -5,26 +5,47 @@ using System.Threading.Tasks;
 using UnityEngine;
 using RocketsAndGamblers.Server;
 using System.Text;
+using Framework.References;
+using RocketsAndGamblers.Database;
+using RocketsAndGamblers;
 
 public class ReplayManager : MonoBehaviour
 {
     private AzureBlobContainer replaysContainer;
-    private ReplayMovment newReplay;
-    public string replayFile;
-    // Use this for initialization
-    public string connection;
-    public string containerName;
-    
-    async void Awake()
+
+    public StringReference connection;
+    public StringReference containerName;
+    public StringReference replayFileName;
+    public ObjectsDatabase objectsDatabase;
+    public ObjectId spawnpointid;
+    public GameObject shipPrefab;
+    void Awake()
     {
-        newReplay = new ReplayMovment();
         replaysContainer = new AzureBlobContainer(connection, containerName);
-        newReplay.SetShipOnPoint(await GetReplay(replayFile));
     }
 
+    public async Task OnReplayCliked()
+    {
+        //Download replay file
+        var downloadReplay = await GetReplay(replayFileName);
+        //Setup scene to watch replay
 
+        //Spawn player
+        var spawnPoint = objectsDatabase.GetById(spawnpointid.id)?.GetComponent<SpawnPoint>();
+        var player = spawnPoint.Spawn(shipPrefab);
+        var replay= player.AddComponent<ReplayMovement>();
+       await replay.SetShipOnPoint(downloadReplay);
+        //Add ReplayMovement component to player
+    }
 
-    public async Task<Replay> GetReplay(string fileName)
+    public void TurnOnUI(bool active)
+    {
+        if (active)
+            OnReplayCliked().WrapErrors();
+
+    }
+
+    private async Task<Replay> GetReplay(string fileName)
     {
         //fileName = string.Format("replay_{0}_{1}", attackedPlayerId, attackingPlayer);
 

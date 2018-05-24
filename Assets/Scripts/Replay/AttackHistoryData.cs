@@ -10,30 +10,17 @@ namespace RocketsAndGamblers.Player
     public class AttackHistoryData : PersistantScriptableObject
     {
         [SerializeField] private AzureDatabase database;
-
+        public PlayerData playerData;
         public string Id => id;
 
         [SerializeField, HideInInspector] private string id;
 
         public async Task InsertTable(string attackerId, string victimId, string replayname)
         {
-            var attackhistoryTable = database.GetTable<Server.AttackRecord>();
-            var attackhistoryQuery = attackhistoryTable.Where(u => u.VictimId == SystemInfo.deviceUniqueIdentifier);
-            var currentAttackHistoryEntity = (await attackhistoryTable.ReadAsync(attackhistoryQuery)).FirstOrDefault();
+            var currentAttackHistoryEntity = CreateAttackRecord(attackerId, victimId, replayname);
+            var tableInsert = database.GetTable<AttackRecord>();
+            await tableInsert.InsertAsync(currentAttackHistoryEntity);
 
-            if (currentAttackHistoryEntity != null)
-            {
-                id = currentAttackHistoryEntity.Id;
-            }
-            else
-            {
-
-                currentAttackHistoryEntity = CreateAttackRecord(attackerId,victimId,replayname);
-                await attackhistoryTable.InsertAsync(currentAttackHistoryEntity);
-                id = currentAttackHistoryEntity.Id;
-            }
-
-            database.CacheReplay(currentAttackHistoryEntity);
         }
 
 
@@ -43,8 +30,8 @@ namespace RocketsAndGamblers.Player
             {
                 AttackerId = attackerId,
                 VictimId = victimId,
-                ReplayFileName=replayname
-                
+                ReplayFileName = replayname
+
             };
         }
     }
