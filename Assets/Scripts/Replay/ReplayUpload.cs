@@ -12,15 +12,16 @@ using RocketsAndGamblers.Replay;
 
 namespace RocketsAndGamblers.Replay
 {
-    public class ReplayUpload : MonoBehaviour
+    public class ReplayUpload : MonoBehaviour, IDeathListener
     {
-
-        public string connection;
-        public string containerName;
+        public StringReference connection;
+        public StringReference containerName;
 
         public PlayerData attackingPlayer;
         public StringReference attackedPlayerId;
         public AttackHistoryData dataUpload;
+
+        public BoolReference isTryingToSaveBase;
 
         private AzureBlobContainer replaysContainer;
         private Replay replayStart;
@@ -34,17 +35,22 @@ namespace RocketsAndGamblers.Replay
 
         void Start()
         {
-            StartTime = Time.time;
+            StartTime = Time.unscaledTime;
         }
 
-        public void OnPlayerDeath()
+        public void OnDeath()
         {
             replayStart.inputs.Clear();
         }
 
         public void OnTouch(Vector2 touchCoords)
         {
-            replayStart.AddToList(new InputData(touchCoords, Time.time - StartTime));
+            if (isTryingToSaveBase) {
+                return;
+            }
+            
+            Debug.Log($"Touch coords: {touchCoords}");
+            replayStart.AddToList(new InputData(touchCoords, Time.unscaledTime - StartTime));
         }
 
         private async Task OnAttackSuccessfullAsync()
@@ -53,12 +59,17 @@ namespace RocketsAndGamblers.Replay
             var fileName = $"replay_{attackedPlayerId}_{attackingPlayer.Id}";
 
             await replaysContainer.UploadFile(str, fileName);
-            await dataUpload.InsertTable(attackingPlayer.Id, attackedPlayerId, fileName);
+            await dataUpload.InsertTable(attackingPlayer.Id, attackingPlayer.Id, fileName);
         }
 
         public void OnAttackSuccessfull()
         {
+            if (isTryingToSaveBase) {
+                return;
+            }
+            
             OnAttackSuccessfullAsync().WrapErrors();
         }
+
     }
 }

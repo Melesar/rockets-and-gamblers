@@ -1264,6 +1264,8 @@ GameObject:
   m_Component:
   - component: {fileID: 893660058}
   - component: {fileID: 893660057}
+  - component: {fileID: 893660060}
+  - component: {fileID: 893660059}
   m_Layer: 0
   m_Name: Replays
   m_TagString: Untagged
@@ -1298,6 +1300,61 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &893660059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893660056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateVariable: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 893660060}
+        m_MethodName: LaunchReplay
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &893660060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 893660056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: effe6c161fe0ebe4c81afb3bc9c2d308, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connection:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 3a2ccae5b4e2a0b4c8ddd59ffa5d5bd5, type: 2}
+  containerName:
+    useConstantValue: 0
+    constantValue: replaysystem
+    variable: {fileID: 11400000, guid: 9132ac25f872ac0489a9018d9d6c045f, type: 2}
+  objectsDatabase: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
+  replayFileName:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: e30b7446a88670a41a34194daa4605ed, type: 2}
+  shipPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968, type: 2}
+  spawnpointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
 --- !u!1 &899525341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,7 +2082,6 @@ GameObject:
   - component: {fileID: 1394457477}
   - component: {fileID: 1394457480}
   - component: {fileID: 1394457479}
-  - component: {fileID: 1394457478}
   m_Layer: 5
   m_Name: ReplayUI
   m_TagString: Untagged
@@ -2052,32 +2108,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1394457478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1394457476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: effe6c161fe0ebe4c81afb3bc9c2d308, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connection:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: 3a2ccae5b4e2a0b4c8ddd59ffa5d5bd5, type: 2}
-  containerName:
-    useConstantValue: 1
-    constantValue: replaysystem
-    variable: {fileID: 0}
-  replayFileName:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: e30b7446a88670a41a34194daa4605ed, type: 2}
-  objectsDatabase: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
-  spawnpointid: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
-  shipPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968, type: 2}
 --- !u!114 &1394457479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2107,17 +2137,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1394457479}
         m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1394457478}
-        m_MethodName: TurnOnUI
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3140,6 +3159,10 @@ MonoBehaviour:
     useConstantValue: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  isWatchingReplay:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
 --- !u!1001 &2083885462
 Prefab:
   m_ObjectHideFlags: 0

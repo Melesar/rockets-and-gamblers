@@ -19,7 +19,9 @@ namespace RocketsAndGamblers.Replay
     [System.Serializable]
     public class Replay
     {
+        //TODO Encapsulate this
         public List<InputData> inputs = new List<InputData>();
+        
         public void AddToList(InputData r)
         {
             inputs.Add(r);

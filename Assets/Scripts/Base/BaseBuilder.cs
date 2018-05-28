@@ -3,6 +3,7 @@ using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Database;
 using System.IO;
 using System.Threading.Tasks;
+using RocketsAndGamblers.Replay;
 using UnityEngine;
 
 namespace RocketsAndGamblers
@@ -65,6 +66,7 @@ namespace RocketsAndGamblers
             if (spawnPoint) {
                 spawnPoint.Spawn(playerPrefab);
             }
+
         }
     }
 }

@@ -24,7 +24,6 @@ namespace RocketsAndGamblers
 
         public void AddImpulseForce (Vector2 force)
         {
-            Debug.Log("Input force");
             StopImmidiate();
             rb.AddForce(force * burstForce, ForceMode2D.Impulse);
         }

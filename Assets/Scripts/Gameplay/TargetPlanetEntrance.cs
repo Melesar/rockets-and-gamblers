@@ -37,6 +37,7 @@ namespace RocketsAndGamblers
 
             blinkAnimation?.Reappear();
             playerMovement?.Land();
+            playerMovement?.Launch();
             
 //            var initialLaunch = playerObject.GetComponent<InitialLaunch>();
 //            initialLaunch?.Enable();

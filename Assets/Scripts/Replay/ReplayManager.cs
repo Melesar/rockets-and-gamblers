@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Framework.References;
@@ -14,9 +15,11 @@ namespace RocketsAndGamblers.Replay
         public StringReference containerName;
         public ObjectsDatabase objectsDatabase;
         public StringReference replayFileName;
-        private AzureBlobContainer replaysContainer;
         public GameObject shipPrefab;
-        public ObjectId spawnpointid;
+        public ObjectId spawnpointId;
+        
+        private AzureBlobContainer replaysContainer;
+
 
         private void Awake()
         {
@@ -27,13 +30,13 @@ namespace RocketsAndGamblers.Replay
         {
             var downloadReplay = await GetReplay(replayFileName);
 
-            var spawnPoint = objectsDatabase.GetById(spawnpointid.id)?.GetComponent<SpawnPoint>();
+            var spawnPoint = objectsDatabase.GetById(spawnpointId.id)?.GetComponent<SpawnPoint>();
             var player = spawnPoint.Spawn(shipPrefab);
             var replay = player.AddComponent<ReplayMovement>();
             await replay.SetShipOnPoint(downloadReplay);
         }
 
-        public void TurnOnUI(bool active)
+        public void LaunchReplay(bool active)
         {
             if (active) {
                 OnReplayCliked().WrapErrors();
@@ -50,6 +53,8 @@ namespace RocketsAndGamblers.Replay
                 var json = Encoding.UTF8.GetString(stream.GetBuffer());
                 var replay = JsonUtility.FromJson<Replay>(json);
 
+                Debug.Log($"Dowloaded replay: {json}");
+                
                 return replay;
             }
         }

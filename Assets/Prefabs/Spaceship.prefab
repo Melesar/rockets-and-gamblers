@@ -48,8 +48,7 @@ GameObject:
   - component: {fileID: 114117836727153304}
   - component: {fileID: 114437553779108240}
   - component: {fileID: 114370277949645996}
-  - component: {fileID: 114225302018743118}
-  - component: {fileID: 114766725899316668}
+  - component: {fileID: 114938133747985220}
   m_Layer: 8
   m_Name: Spaceship
   m_TagString: Player
@@ -163,25 +162,6 @@ MonoBehaviour:
   renderer: {fileID: 212148737278345104}
   vfxPrefab: {fileID: 1101991998849070, guid: 5e88ed395b00cf046b25808755b927ca, type: 2}
   waitTime: 1.5
---- !u!114 &114225302018743118
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455797122737826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ee563be2506134dae798b624f98c44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connection: DefaultEndpointsProtocol=http;AccountName=mobilki;AccountKey=TvcydIIeud6lwFDCH3gaBI+Cdq/fzu7afPRlDLGlx0WQZokw5Jrdx/zvlQ0PnhzjVo46Ty32s+Bf2nLmMhRHIQ==;EndpointSuffix=core.windows.net
-  containerName: replaysystem
-  attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
-  attackedPlayerId:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
-  dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
 --- !u!114 &114370277949645996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -247,7 +227,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114225302018743118}
+      - m_Target: {fileID: 0}
         m_MethodName: OnAttackSuccessfull
         m_Mode: 1
         m_Arguments:
@@ -283,34 +263,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
---- !u!114 &114766725899316668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455797122737826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEvent: {fileID: 11400000, guid: 8ad4a166201a47c41809bf122e9317b5, type: 2}
-  onRaised:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114225302018743118}
-        m_MethodName: OnPlayerDeath
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114893811807850270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -335,6 +287,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b44a743b99f34a81586578013e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114938133747985220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455797122737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ee563be2506134dae798b624f98c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connection:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 3a2ccae5b4e2a0b4c8ddd59ffa5d5bd5, type: 2}
+  containerName:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 9132ac25f872ac0489a9018d9d6c045f, type: 2}
+  attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
+  attackedPlayerId:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
+  dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
+  isTryingToSaveBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
 --- !u!114 &114989708404437634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -360,7 +341,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 114225302018743118}
+      - m_Target: {fileID: 0}
         m_MethodName: OnTouch
         m_Mode: 0
         m_Arguments:
