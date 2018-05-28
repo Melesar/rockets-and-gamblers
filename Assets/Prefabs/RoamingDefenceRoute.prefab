@@ -146,11 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c068ef77729f4693185e30786b8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
-  isEditing:
+  isEditingBase:
     useConstantValue: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+  objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
   mockupSprite: {fileID: 21300000, guid: 34b6985c58e09674ead36c3d6e7d4e8f, type: 3}
 --- !u!114 &114423909296800600
 MonoBehaviour:
@@ -163,11 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 457c068ef77729f4693185e30786b8fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
-  isEditing:
+  isEditingBase:
     useConstantValue: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+  objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
   mockupSprite: {fileID: 21300000, guid: 34b6985c58e09674ead36c3d6e7d4e8f, type: 3}
 --- !u!114 &114425405639018022
 MonoBehaviour:
@@ -193,6 +193,7 @@ LineRenderer:
   m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 96b20ff5f7ebf1941b1d1a104d8812fa, type: 2}
   m_StaticBatchInfo:
@@ -221,12 +222,15 @@ LineRenderer:
     widthCurve:
       serializedVersion: 2
       m_Curve:
-      - serializedVersion: 2
+      - serializedVersion: 3
         time: 0
         value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -279,6 +283,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
@@ -323,6 +328,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

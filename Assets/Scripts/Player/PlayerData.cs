@@ -14,7 +14,7 @@ namespace RocketsAndGamblers.Player
         
         public string Id => id;
         
-        [SerializeField, HideInInspector] private string id;
+        [SerializeField] private string id;
 
         public async Task Init()
         {

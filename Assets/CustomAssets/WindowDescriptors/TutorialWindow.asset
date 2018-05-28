@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c92852952647dca120da3a846613dc, type: 3}
+  m_Name: TutorialWindow
+  m_EditorClassIdentifier: 
+  windowPrefab: {fileID: 1201541077704876, guid: aca41c68bc3a10943907625c1abea64f,
+    type: 2}

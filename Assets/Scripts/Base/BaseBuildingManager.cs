@@ -20,6 +20,11 @@ namespace RocketsAndGamblers
         [ContextMenu("Save base")]
         public void OnFinishedEditing ()
         {
+            if (Tutorials.TutorialUtility.IsTutorialRunning() &&
+                Tutorials.TutorialUtility.IsDebugMode) {
+                return;
+            }
+            
             UpdateBaseLayout();
 
             baseProvider.UpdatePlayerBase(playerData.Id, currentBaseDescription);

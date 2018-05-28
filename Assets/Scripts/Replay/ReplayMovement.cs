@@ -5,11 +5,7 @@ using UnityEngine;
 
 public class ReplayMovement : MonoBehaviour
 {
-    private ShipPhysics physics;
     private ShipMovement movement;
-    private ReplayDownload replay;
-
-    private float startTime;
 
     private void Awake()
     {
@@ -17,11 +13,6 @@ public class ReplayMovement : MonoBehaviour
         Destroy(shipControl);
 
         movement = GetComponent<ShipMovement>();
-    }
-
-    private void Start()
-    {
-        startTime = Time.time;
     }
 
     private void Burst(Vector2 coords)

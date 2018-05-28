@@ -71,11 +71,6 @@ namespace DefaultNamespace
             return new Vector3(radius * Mathf.Cos(angle), radius * Mathf.Sin(angle));
         }
 
-//        private void OnValidate()
-//        {
-//            segmentLenght = DoublePI / segmentsCount - gapLenght;
-//        }
-
         private void Awake()
         {
             center = transform.position;

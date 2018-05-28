@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1751025558411928}
   m_IsPrefabParent: 1
+--- !u!1 &1257993825379738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4826364218631664}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1751025558411928
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,6 +44,9 @@ GameObject:
   - component: {fileID: 114358505199664562}
   - component: {fileID: 114295680183101698}
   - component: {fileID: 114588772574090360}
+  - component: {fileID: 114521470445518406}
+  - component: {fileID: 114479673449278842}
+  - component: {fileID: 114936842005635454}
   m_Layer: 0
   m_Name: MainPlanet
   m_TagString: Untagged
@@ -43,10 +61,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1751025558411928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.540038, y: -1.6691338, z: 0}
+  m_LocalPosition: {x: -4.9350452, y: -2.4084423, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4826364218631664}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4826364218631664
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1257993825379738}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.01, y: -3.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 4110062335971366}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &58118222004088032
@@ -142,6 +174,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9382827052fd06842bc8df695bf56e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114479673449278842
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6139d6e94e1748b09bd561e21d42c317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114521470445518406
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: d4c5b0a488321a94b88dc578b148a180, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114358505199664562}
+        m_MethodName: OnBaseSaved
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114588772574090360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -195,6 +266,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
   spawnPointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
+--- !u!114 &114936842005635454
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1751025558411928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcb459c4ad504c8c8a8a89e4d50bea15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transition: {fileID: 11400000, guid: d231b8182f63ffe489d070c4ddca99e0, type: 2}
+  target: {fileID: 4826364218631664}
+  originArrowPosition: {x: -1.89, y: -0.98}
+  targetArrowPosition: {x: 0.81, y: -1.01}
+  pixelTolerance: 50
+  arrowPrefab: {fileID: 1114795635183692, guid: b8bef528605ebbc45a51cd9148ac0759,
+    type: 2}
+  linePrefab: {fileID: 114249397107488048, guid: f68c622cdec12ca4c877ae57fc1677f0,
+    type: 2}
 --- !u!212 &212388973820154816
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -45,10 +45,11 @@ GameObject:
   - component: {fileID: 114725726620624582}
   - component: {fileID: 114989708404437634}
   - component: {fileID: 114893811807850270}
+  - component: {fileID: 114233148770465404}
   - component: {fileID: 114117836727153304}
   - component: {fileID: 114437553779108240}
   - component: {fileID: 114370277949645996}
-  - component: {fileID: 114938133747985220}
+  - component: {fileID: 114027945749618496}
   m_Layer: 8
   m_Name: Spaceship
   m_TagString: Player
@@ -76,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455797122737826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 325.49667, y: 375.2984, z: 0}
+  m_LocalPosition: {x: 55.840992, y: -27.702412, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4348703082755822}
@@ -136,6 +137,35 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114027945749618496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455797122737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2ee563be2506134dae798b624f98c44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connection:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 3a2ccae5b4e2a0b4c8ddd59ffa5d5bd5, type: 2}
+  containerName:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 9132ac25f872ac0489a9018d9d6c045f, type: 2}
+  attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
+  attackedPlayerId:
+    useConstantValue: 0
+    constantValue: 
+    variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
+  dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
+  isTryingToSaveBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
 --- !u!114 &114117836727153304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -162,6 +192,17 @@ MonoBehaviour:
   renderer: {fileID: 212148737278345104}
   vfxPrefab: {fileID: 1101991998849070, guid: 5e88ed395b00cf046b25808755b927ca, type: 2}
   waitTime: 1.5
+--- !u!114 &114233148770465404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1455797122737826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c5440ef61b50a24d8e871ef1cca0236, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114370277949645996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -227,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114027945749618496}
         m_MethodName: OnAttackSuccessfull
         m_Mode: 1
         m_Arguments:
@@ -287,35 +328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2b44a743b99f34a81586578013e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114938133747985220
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455797122737826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c2ee563be2506134dae798b624f98c44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  connection:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: 3a2ccae5b4e2a0b4c8ddd59ffa5d5bd5, type: 2}
-  containerName:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: 9132ac25f872ac0489a9018d9d6c045f, type: 2}
-  attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
-  attackedPlayerId:
-    useConstantValue: 0
-    constantValue: 
-    variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
-  dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
-  isTryingToSaveBase:
-    useConstantValue: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
 --- !u!114 &114989708404437634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -341,7 +353,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 114027945749618496}
         m_MethodName: OnTouch
         m_Mode: 0
         m_Arguments:

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Name: CurrentPlayerData
   m_EditorClassIdentifier: 
   database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
-  id: 1dc7d315-d886-408d-9485-6195dd29672a
+  id: 

@@ -10,12 +10,18 @@ using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
-    public class PlayerDeath : MonoBehaviour
+    public class PlayerDeath : MonoBehaviour, IStopListener, ILaunchListener
     {
         public GameEvent deathEvent;
+
+        private bool isVulnerable;
         
         public void Die ()
         {
+            if (!isVulnerable) {
+                return;
+            }
+            
             deathEvent.Raise();
             SendDeathMessage();
         }
@@ -27,6 +33,16 @@ namespace RocketsAndGamblers
                 new BaseEventData(EventSystem.current),
                 (handler, data) => handler.OnDeath()                
             );
+        }
+
+        public void Stop()
+        {
+            isVulnerable = false;
+        }
+
+        public void Launch()
+        {
+            isVulnerable = true;
         }
     }
 }

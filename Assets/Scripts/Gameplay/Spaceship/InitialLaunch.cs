@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipMovement), typeof(ShipPhysics))]
-    public class InitialLaunch : MonoBehaviour, IAfterVFXListener, ISuccessfullAttemptListener
+    public class InitialLaunch : MonoBehaviour, IAfterVFXListener
     {
         public PositionEvent onLaunch;
 
@@ -43,11 +43,6 @@ namespace RocketsAndGamblers
             isEnabled = false;
 
             onLaunch.Invoke(to);
-        }
-
-        public void OnSuccessfullSavingAttempt ()
-        {
-            Enable();
         }
 
         private void Awake()
