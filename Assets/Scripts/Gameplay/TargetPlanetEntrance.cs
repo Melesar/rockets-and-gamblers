@@ -36,9 +36,10 @@ namespace RocketsAndGamblers
             RepositionPlayer(playerObject);
 
             blinkAnimation?.Reappear();
-
-            var initialLaunch = playerObject.GetComponent<InitialLaunch>();
-            initialLaunch?.Enable();
+            playerMovement?.Land();
+            
+//            var initialLaunch = playerObject.GetComponent<InitialLaunch>();
+//            initialLaunch?.Enable();
         }
 
         private void RepositionPlayer(GameObject playerObject)

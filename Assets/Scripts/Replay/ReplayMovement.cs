@@ -1,5 +1,6 @@
 ﻿using RocketsAndGamblers;
 using System.Threading.Tasks;
+using RocketsAndGamblers.Replay;
 using UnityEngine;
 
 public class ReplayMovement : MonoBehaviour
@@ -9,7 +10,7 @@ public class ReplayMovement : MonoBehaviour
     private ShipMovement movement;
     private ReplayDownload replay;
 
-    private float StartTime;
+    private float startTime;
 
     // Use this for initialization
     private void Awake()
@@ -20,13 +21,11 @@ public class ReplayMovement : MonoBehaviour
         initialLaunch.enabled = false;
 
         movement = GetComponent<ShipMovement>();
-        //physics = GetComponent<ShipPhysics>();
-        //physics.Launch();
     }
 
     private void Start()
     {
-        StartTime = Time.time;
+        startTime = Time.time;
     }
 
 
@@ -36,15 +35,13 @@ public class ReplayMovement : MonoBehaviour
         movement.Burst(coords);
     }
 
-    public async Task SetShipOnPoint(Replay replay)
+    public async Task SetShipOnPoint(RocketsAndGamblers.Replay.Replay replay)
     {
-        curentTime = Time.time - StartTime;
+        curentTime = Time.time - startTime;
 
         var count = 0;
-        while (count < replay.inputs.Count)
-        {
-            if (curentTime >= replay.inputs[count].t)
-            {
+        while (count < replay.inputs.Count) {
+            if (curentTime >= replay.inputs[count].t) {
                 Burst(replay.inputs[count].cords);
                 count++;
             }

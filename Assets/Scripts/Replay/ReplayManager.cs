@@ -1,71 +1,57 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-using UnityEngine;
-using RocketsAndGamblers.Server;
+﻿using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 using Framework.References;
 using RocketsAndGamblers.Database;
-using RocketsAndGamblers;
+using RocketsAndGamblers.Server;
+using UnityEngine;
 
-public class ReplayManager : MonoBehaviour
+namespace RocketsAndGamblers.Replay
 {
-    private AzureBlobContainer replaysContainer;
-
-    public StringReference connection;
-    public StringReference containerName;
-    public StringReference replayFileName;
-    public ObjectsDatabase objectsDatabase;
-    public ObjectId spawnpointid;
-    public GameObject shipPrefab;
-    void Awake()
+    public class ReplayManager : MonoBehaviour
     {
-        replaysContainer = new AzureBlobContainer(connection, containerName);
-    }
+        public StringReference connection;
+        public StringReference containerName;
+        public ObjectsDatabase objectsDatabase;
+        public StringReference replayFileName;
+        private AzureBlobContainer replaysContainer;
+        public GameObject shipPrefab;
+        public ObjectId spawnpointid;
 
-    public async Task OnReplayCliked()
-    {
-        //Download replay file
-        var downloadReplay = await GetReplay(replayFileName);
-        //Setup scene to watch replay
-
-        //Spawn player
-        var spawnPoint = objectsDatabase.GetById(spawnpointid.id)?.GetComponent<SpawnPoint>();
-        var player = spawnPoint.Spawn(shipPrefab);
-        var replay= player.AddComponent<ReplayMovement>();
-       await replay.SetShipOnPoint(downloadReplay);
-        //Add ReplayMovement component to player
-    }
-
-    public void TurnOnUI(bool active)
-    {
-        if (active)
-            OnReplayCliked().WrapErrors();
-
-    }
-
-    private async Task<Replay> GetReplay(string fileName)
-    {
-        //fileName = string.Format("replay_{0}_{1}", attackedPlayerId, attackingPlayer);
-
-        using (var stream = new MemoryStream())
+        private void Awake()
         {
-            try
-            {
-                await replaysContainer.DownloadFile(fileName, stream);
-            }
-            catch (AzureException)
-            {
-                //Provided player id doesn't exist, so we need to download a new base from layout
+            replaysContainer = new AzureBlobContainer(connection, containerName);
+        }
 
-            }
-            var json = Encoding.UTF8.GetString(stream.GetBuffer());
-            var replay = JsonUtility.FromJson<Replay>(json);
+        public async Task OnReplayCliked()
+        {
+            var downloadReplay = await GetReplay(replayFileName);
 
-            return replay;
+            var spawnPoint = objectsDatabase.GetById(spawnpointid.id)?.GetComponent<SpawnPoint>();
+            var player = spawnPoint.Spawn(shipPrefab);
+            var replay = player.AddComponent<ReplayMovement>();
+            await replay.SetShipOnPoint(downloadReplay);
+        }
+
+        public void TurnOnUI(bool active)
+        {
+            if (active) {
+                OnReplayCliked().WrapErrors();
+            }
+        }
+
+        private async Task<Replay> GetReplay(string fileName)
+        {
+            using (var stream = new MemoryStream()) {
+                try {
+                    await replaysContainer.DownloadFile(fileName, stream);
+                } catch (AzureException) { }
+
+                var json = Encoding.UTF8.GetString(stream.GetBuffer());
+                var replay = JsonUtility.FromJson<Replay>(json);
+
+                return replay;
+            }
         }
     }
-
-
 }

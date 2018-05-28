@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Collections;
+using RocketsAndGamblers.Effects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(ShipPhysics))]
-    public class ShipMovement : MonoBehaviour, IDeathListener
+    public class ShipMovement : MonoBehaviour, IDeathListener, IAfterVFXListener, ISuccessfullAttemptListener
     {
-        public float burstForce;
-
-        public PlanetOrbit CurrentOrbit
+        public IOrbit CurrentOrbit
         {
             get; set;
         }
@@ -35,6 +34,11 @@ namespace RocketsAndGamblers
             Burst(physics.Position + physics.ForwardDirection * 2f);
         }
 
+        public void Land()
+        {
+            CurrentOrbit = new IntermediateOrbit();
+        }
+
         private void FixedUpdate ()
         {
             if (isStopped) {
@@ -46,7 +50,7 @@ namespace RocketsAndGamblers
 
         private void Start()
         {
-            Stop();
+            Land();
         }
 
         private void Awake ()
@@ -78,6 +82,18 @@ namespace RocketsAndGamblers
             isStopped = true;
 
             ExecuteEvents.Execute<IStopListener>(gameObject, null, (handler, data) => handler.Stop());
+        }
+
+        public void AfterVFX()
+        {
+            Land();
+            Launch();
+        }
+
+        public void OnSuccessfullSavingAttempt()
+        {
+            Land();
+            Launch();
         }
     }
 

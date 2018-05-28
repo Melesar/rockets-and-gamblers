@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RocketsAndGamblers
 {
     [RequireComponent(typeof(PlanetGravityField))]
-    public class PlanetOrbit : MonoBehaviour
+    public class PlanetOrbit : MonoBehaviour, IOrbit
     {
         private DistanceJoint2D joint;
         private Rigidbody2D rb;

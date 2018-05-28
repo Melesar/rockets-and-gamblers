@@ -44,9 +44,7 @@ GameObject:
   - component: {fileID: 114906465947599026}
   - component: {fileID: 114725726620624582}
   - component: {fileID: 114989708404437634}
-  - component: {fileID: 114659235495075386}
   - component: {fileID: 114893811807850270}
-  - component: {fileID: 114233148770465404}
   - component: {fileID: 114117836727153304}
   - component: {fileID: 114437553779108240}
   - component: {fileID: 114370277949645996}
@@ -79,7 +77,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1455797122737826}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.9735909, y: 7.357292, z: 0}
+  m_LocalPosition: {x: 325.49667, y: 375.2984, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4348703082755822}
@@ -176,8 +174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2ee563be2506134dae798b624f98c44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestReplay: 
-  database: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
   connection: DefaultEndpointsProtocol=http;AccountName=mobilki;AccountKey=TvcydIIeud6lwFDCH3gaBI+Cdq/fzu7afPRlDLGlx0WQZokw5Jrdx/zvlQ0PnhzjVo46Ty32s+Bf2nLmMhRHIQ==;EndpointSuffix=core.windows.net
   containerName: replaysystem
   attackingPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
@@ -185,23 +181,7 @@ MonoBehaviour:
     useConstantValue: 0
     constantValue: 
     variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
-  dataupload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
---- !u!114 &114233148770465404
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455797122737826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c5440ef61b50a24d8e871ef1cca0236, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flashAnimator: {fileID: 95359899026087868}
-  animatorTriggerParameter:
-    useConstantValue: 1
-    constantValue: blink
-    variable: {fileID: 0}
+  dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
 --- !u!114 &114370277949645996
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -291,34 +271,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 412f1fbeea8418949967de94b2abec29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  burstForce: 15
---- !u!114 &114659235495075386
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1455797122737826}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d368c3d37f5f8824482a90b7b737cec9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onLaunch:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114225302018743118}
-        m_MethodName: OnTouch
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: RocketsAndGamblers.PositionEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114725726620624582
 MonoBehaviour:
   m_ObjectHideFlags: 1

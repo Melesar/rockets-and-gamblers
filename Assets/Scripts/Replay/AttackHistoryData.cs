@@ -1,17 +1,14 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Framework.Data;
 using RocketsAndGamblers.Server;
 using UnityEngine;
-namespace RocketsAndGamblers.Player
+
+namespace RocketsAndGamblers.Replay
 {
     [CreateAssetMenu(menuName = "R&G/AttackHistory data")]
-    public class AttackHistoryData : PersistantScriptableObject
+    public class AttackHistoryData : ScriptableObject
     {
         [SerializeField] private AzureDatabase database;
-        public PlayerData playerData;
-        public string Id => id;
 
         [SerializeField, HideInInspector] private string id;
 
@@ -24,9 +21,9 @@ namespace RocketsAndGamblers.Player
         }
 
 
-        private Server.AttackRecord CreateAttackRecord(string attackerId, string victimId, string replayname)
+        private AttackRecord CreateAttackRecord(string attackerId, string victimId, string replayname)
         {
-            return new Server.AttackRecord
+            return new AttackRecord
             {
                 AttackerId = attackerId,
                 VictimId = victimId,
