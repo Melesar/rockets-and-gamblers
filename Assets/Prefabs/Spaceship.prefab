@@ -162,10 +162,7 @@ MonoBehaviour:
     constantValue: 
     variable: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
   dataUpload: {fileID: 11400000, guid: cf4d327552bb69047bf08509eacc6ed4, type: 2}
-  isTryingToSaveBase:
-    useConstantValue: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  attackState: {fileID: 11400000, guid: e06a79e9ceb0e2743807a6fbbd83dd7a, type: 2}
 --- !u!114 &114117836727153304
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -177,7 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68cdd3646b3448346b30fe44c1f40996, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTryingToSaveBase: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  stateToOperateIn: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
 --- !u!114 &114177163267466026
 MonoBehaviour:
   m_ObjectHideFlags: 1

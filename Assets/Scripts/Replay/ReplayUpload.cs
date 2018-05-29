@@ -8,6 +8,7 @@ using RocketsAndGamblers.Server;
 using Framework.References;
 using RocketsAndGamblers.Player;
 using System.Threading.Tasks;
+using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Replay;
 
 namespace RocketsAndGamblers.Replay
@@ -21,7 +22,7 @@ namespace RocketsAndGamblers.Replay
         public StringReference attackedPlayerId;
         public AttackHistoryData dataUpload;
 
-        public BoolReference isTryingToSaveBase;
+        public GameState attackState;
 
         private AzureBlobContainer replaysContainer;
         private Replay replayStart;
@@ -45,10 +46,11 @@ namespace RocketsAndGamblers.Replay
 
         public void OnTouch(Vector2 touchCoords)
         {
-            if (isTryingToSaveBase) {
+            if (!attackState.IsCurrent) {
                 return;
             }
             
+            Debug.Log("Replay recording is going on");
             replayStart.AddToList(new InputData(touchCoords, Time.unscaledTime - StartTime));
         }
 
@@ -58,12 +60,12 @@ namespace RocketsAndGamblers.Replay
             var fileName = $"replay_{attackedPlayerId}_{attackingPlayer.Id}";
 
             await replaysContainer.UploadFile(str, fileName);
-            await dataUpload.InsertTable(attackingPlayer.Id, attackingPlayer.Id, fileName);
+            await dataUpload.InsertTable(attackingPlayer.Id, attackedPlayerId, fileName);
         }
 
         public void OnAttackSuccessfull()
         {
-            if (isTryingToSaveBase) {
+            if (!attackState.IsCurrent) {
                 return;
             }
             

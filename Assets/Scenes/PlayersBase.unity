@@ -122,8 +122,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3731728}
   - component: {fileID: 3731730}
-  - component: {fileID: 3731729}
   - component: {fileID: 3731731}
+  - component: {fileID: 3731729}
   m_Layer: 5
   m_Name: TryToSaveBaseUI
   m_TagString: Untagged
@@ -143,7 +143,6 @@ RectTransform:
   m_Children:
   - {fileID: 1719923222}
   - {fileID: 1365152748}
-  - {fileID: 1909990137}
   m_Father: {fileID: 1697413345}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -160,10 +159,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3731727}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
   inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
@@ -260,6 +263,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1855729370}
+  - {fileID: 1909990137}
   m_Father: {fileID: 1697413345}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -276,10 +280,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 12706556}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
   inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
@@ -539,10 +547,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 445458711}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 1c5ae4e8082042545a413f3637a10b0d, type: 2}
   inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
@@ -807,6 +819,7 @@ GameObject:
   - component: {fileID: 623518976}
   - component: {fileID: 623518975}
   - component: {fileID: 623518974}
+  - component: {fileID: 623518978}
   m_Layer: 0
   m_Name: Base building
   m_TagString: Untagged
@@ -898,6 +911,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623518978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623518973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 1c5ae4e8082042545a413f3637a10b0d, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &688662290
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,23 +1021,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RocketsAndGamblers.Data.GameState, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1309,8 +1345,8 @@ GameObject:
   - component: {fileID: 848885493}
   - component: {fileID: 848885497}
   - component: {fileID: 848885499}
-  - component: {fileID: 848885498}
   - component: {fileID: 848885500}
+  - component: {fileID: 848885498}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1404,15 +1440,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 848885492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-  inverseValue: 0
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
+  inverseValue: 1
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 848885499}
+      - m_Target: {fileID: 848885497}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -1445,15 +1485,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 848885492}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-  inverseValue: 1
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
+  inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 848885497}
+      - m_Target: {fileID: 848885499}
         m_MethodName: set_enabled
         m_Mode: 0
         m_Arguments:
@@ -1603,8 +1647,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-        m_MethodName: Inverse
+      - m_Target: {fileID: 899525347}
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1614,12 +1658,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 899525347}
-        m_MethodName: OnClick
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1c5ae4e8082042545a413f3637a10b0d,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RocketsAndGamblers.Data.GameState, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1941,12 +1986,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: be67643e616e0ce4b9fab4003deb3f4a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RocketsAndGamblers.Data.GameState, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2173,23 +2219,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 1c5ae4e8082042545a413f3637a10b0d,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RocketsAndGamblers.Data.GameState, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2450,6 +2486,7 @@ GameObject:
   - component: {fileID: 1633412434}
   - component: {fileID: 1633412433}
   - component: {fileID: 1633412432}
+  - component: {fileID: 1633412436}
   m_Layer: 0
   m_Name: Replays
   m_TagString: Untagged
@@ -2465,16 +2502,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1633412431}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
   inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1633412433}
-        m_MethodName: LaunchReplay
+        m_MethodName: OnReplayStateChanged
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2512,6 +2553,9 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: e30b7446a88670a41a34194daa4605ed, type: 2}
   shipPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968, type: 2}
   spawnpointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
+  replayState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
+  replayConfirmationWindow: {fileID: 11400000, guid: a0020157244fedf45826158899bb0ca1,
+    type: 2}
 --- !u!114 &1633412434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2539,6 +2583,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1633412436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633412431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: cfc681577b87239459d0ef3baafac2ad, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1633412433}
+        m_MethodName: OnAttackSuccessfull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1697413341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,11 +2843,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1755048138}
   - component: {fileID: 1755048143}
-  - component: {fileID: 1755048142}
   - component: {fileID: 1755048141}
   - component: {fileID: 1755048140}
   - component: {fileID: 1755048139}
   - component: {fileID: 1755048144}
+  - component: {fileID: 1755048142}
   m_Layer: 0
   m_Name: Trying to save base
   m_TagString: Untagged
@@ -2881,10 +2953,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1755048137}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
   inverseValue: 0
   onStateChanged:
     m_PersistentCalls:
@@ -3228,104 +3304,108 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 3731728}
+    m_TransformParent: {fileID: 12706557}
     m_Modifications:
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchorMin.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchorMax.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_Pivot.x
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+    - target: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1810604289069068, guid: 6f3aaa5cbab498e4b9479654c9f8cb03, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 9115f3fbd07b1f84aae7587831831c35, type: 2}
+  m_ParentPrefab: {fileID: 100100000, guid: 6f3aaa5cbab498e4b9479654c9f8cb03, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1909990137 stripped
 RectTransform:
-  m_PrefabParentObject: {fileID: 224392762204051026, guid: 9115f3fbd07b1f84aae7587831831c35,
+  m_PrefabParentObject: {fileID: 224804919374984152, guid: 6f3aaa5cbab498e4b9479654c9f8cb03,
     type: 2}
   m_PrefabInternal: {fileID: 1909990136}
 --- !u!1 &1938752050
@@ -3336,6 +3416,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1938752051}
+  - component: {fileID: 1938752053}
   - component: {fileID: 1938752052}
   m_Layer: 5
   m_Name: DefaultUI
@@ -3373,21 +3454,42 @@ MonoBehaviour:
   m_GameObject: {fileID: 1938752050}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a9783403e2be6c49b1c383246f1f795, type: 3}
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isEditingBase:
+  gameState:
     useConstantValue: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-  isTryingToSaveBase:
-    useConstantValue: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-  isWatchingReplay:
-    useConstantValue: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: be67643e616e0ce4b9fab4003deb3f4a, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1938752053}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1938752053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938752050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6acbdc23d22444f41a7317675308904c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2077828024
 Prefab:
   m_ObjectHideFlags: 0
@@ -3492,9 +3594,10 @@ Prefab:
     - target: {fileID: 224213363837807346, guid: d2993c67134c6a94197bb96b00cacc3d,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0000040775926
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114538834486489318, guid: d2993c67134c6a94197bb96b00cacc3d, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d2993c67134c6a94197bb96b00cacc3d, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &2077828025 stripped
@@ -3502,3 +3605,47 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224074457683936388, guid: d2993c67134c6a94197bb96b00cacc3d,
     type: 2}
   m_PrefabInternal: {fileID: 2077828024}
+--- !u!1 &2077828026 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1884170064790106, guid: d2993c67134c6a94197bb96b00cacc3d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077828024}
+--- !u!114 &2077828027 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114525446784949620, guid: d2993c67134c6a94197bb96b00cacc3d,
+    type: 2}
+  m_PrefabInternal: {fileID: 2077828024}
+  m_Script: {fileID: 11500000, guid: 7578d021e244424f9db77017e920be5b, type: 3}
+--- !u!114 &2077828028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2077828026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2077828027}
+        m_MethodName: OnWatchStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null

@@ -3,12 +3,17 @@ using UnityEngine;
 
 namespace RocketsAndGamblers.Data
 {
-    [CreateAssetMenu(menuName = "R&G/Game state")]
+    [CreateAssetMenu(menuName = "R&G/Game state variable")]
     public class GameStateVariable : Variable<GameState>
     {
-        public void Set(GameState newState)
+        protected override void OnValueChanged(GameState oldValue, GameState newValue)
         {
-            Value = newState;
+            if (oldValue != null) {
+                oldValue.IsCurrent = false;
+            }
+            
+            newValue.IsCurrent = true;
+            base.OnValueChanged(oldValue, newValue);
         }
     }
 }

@@ -9,7 +9,7 @@ namespace RocketsAndGamblers
     {
         [SerializeField] private StringReference targetId;
 
-        public override async Task<string> GetAttackTargetId()
+        protected override async Task<string> GetTargetId()
         {
             return targetId;
         }

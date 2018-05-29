@@ -10,6 +10,14 @@ namespace RocketsAndGamblers
 {
     public abstract class AttackTargetProvider : ScriptableObject
     {
-        public abstract Task<string> GetAttackTargetId ();
+        public StringVariable attackedPlayerId;
+        
+        public async Task<string> GetAttackTargetId()
+        {
+            attackedPlayerId.Value = await GetTargetId();
+            return attackedPlayerId;
+        }
+
+        protected abstract Task<string> GetTargetId();
     }
 }

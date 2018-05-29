@@ -1,7 +1,10 @@
-﻿namespace RocketsAndGamblers.Data
+﻿using UnityEngine;
+
+namespace RocketsAndGamblers.Data
 {
-    public enum GameState
+    [CreateAssetMenu(menuName = "R&G/Game state")]
+    public class GameState : ScriptableObject
     {
-        Default, EditingBase, TryingToSaveBase, WatchingReplay, Attacking
+        public bool IsCurrent { get; set; }
     }
 }

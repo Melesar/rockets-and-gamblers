@@ -13,6 +13,7 @@ namespace RocketsAndGamblers
     [CreateAssetMenu(menuName = "R&G/Attack system")]
     public class AttackSystem : ScriptableObject
     {
+        [Header("Attack settings")]
         public AttackTargetProvider targetProvider;
 
         public PlayerData playerData;
@@ -20,9 +21,15 @@ namespace RocketsAndGamblers
 
         public BaseBuilder baseBuilder;
 
+        [Header("Events")]
         public GameEvent attackStarted;
         public GameEvent attackFinished;
 
+        [Header("Game state")] 
+        public GameStateVariable currentGameState;
+        public GameState attackState;
+        public GameState defaultState;
+        
         public void Attack ()
         {
             AttackAsync()
@@ -46,6 +53,8 @@ namespace RocketsAndGamblers
 
             await Scenes.LoadAttackScene();
 
+            currentGameState.Value = attackState;
+
             await baseBuilder.BuildBase(baseDescription);
 
             attackFinished.Raise();
@@ -60,6 +69,8 @@ namespace RocketsAndGamblers
             await Scenes.UnloadScenes();
 
             await Scenes.LoadPlayerScene();
+
+            currentGameState.Value = defaultState;
 
             await baseBuilder.BuildBase(baseDescription);
 

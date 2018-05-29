@@ -11,6 +11,8 @@ namespace RocketsAndGamblers
         public PlayerData playerData;
         public BaseDescriptionProvider baseProvider;
         public BaseBuilder baseBuilder;
+        public GameStateVariable currentGameState;
+        public GameState defaultGameState;
 
         public bool enableTutorial;
 
@@ -30,6 +32,8 @@ namespace RocketsAndGamblers
             }
 
             await Scenes.LoadPlayerScene();
+
+            currentGameState.Value = defaultGameState;
 
             await baseBuilder.BuildBase(baseDescription);
         }

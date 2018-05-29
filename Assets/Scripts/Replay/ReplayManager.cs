@@ -3,6 +3,8 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Framework.References;
+using Framework.UI;
+using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Database;
 using RocketsAndGamblers.Server;
 using UnityEngine;
@@ -17,30 +19,39 @@ namespace RocketsAndGamblers.Replay
         public StringReference replayFileName;
         public GameObject shipPrefab;
         public ObjectId spawnpointId;
+
+        public GameState replayState;
+        public WindowDescriptor replayConfirmationWindow;
         
         private AzureBlobContainer replaysContainer;
-
-
-        private void Awake()
+        private GameObject playerInstance;
+        
+        public void OnReplayStateChanged(bool active)
         {
-            replaysContainer = new AzureBlobContainer(connection, containerName);
+            if (active) {
+                OnReplayCliked().WrapErrors();
+            } else {
+                Destroy(playerInstance);
+            }
         }
 
-        public async Task OnReplayCliked()
+        public void OnAttackSuccessfull()
+        {
+            if (replayState.IsCurrent) {
+                replayConfirmationWindow.Invoke();
+            }
+        }
+        
+        private async Task OnReplayCliked()
         {
             var downloadReplay = await GetReplay(replayFileName);
 
             var spawnPoint = objectsDatabase.GetById(spawnpointId.id)?.GetComponent<SpawnPoint>();
-            var player = spawnPoint.Spawn(shipPrefab);
-            var replay = player.AddComponent<ReplayMovement>();
-            await replay.SetShipOnPoint(downloadReplay);
-        }
-
-        public void LaunchReplay(bool active)
-        {
-            if (active) {
-                OnReplayCliked().WrapErrors();
-            }
+            
+            playerInstance = spawnPoint.Spawn(shipPrefab);
+            
+            var replayMovement = playerInstance.AddComponent<ReplayMovement>();
+            await replayMovement.Lauch(downloadReplay);
         }
 
         private async Task<Replay> GetReplay(string fileName)
@@ -55,6 +66,11 @@ namespace RocketsAndGamblers.Replay
 
                 return replay;
             }
+        }
+        
+        private void Awake()
+        {
+            replaysContainer = new AzureBlobContainer(connection, containerName);
         }
     }
 }

@@ -10,11 +10,10 @@ namespace RocketsAndGamblers
     [CreateAssetMenu(menuName = "R&G/Attack taget provider/Random from database")]
     public class RandomAttackTargetProvider : AttackTargetProvider
     {
-        [SerializeField] private StringVariable attackedPlayerId;
         [SerializeField] private AzureDatabase database;
         [SerializeField] private PlayerData playerData;
 
-        public override async Task<string> GetAttackTargetId()
+        protected override async Task<string> GetTargetId()
         {
             var playerId = playerData.Id;
             var usersTable = database.GetTable<Server.Player>();
@@ -25,7 +24,6 @@ namespace RocketsAndGamblers
             var result = otherPlayers[Random.Range(0, otherPlayers.Count)];
 
             database.CachePlayer(result);
-            attackedPlayerId.Value = result.Id;
             
             return result.Id;
         }

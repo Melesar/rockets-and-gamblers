@@ -86,8 +86,8 @@ GameObject:
   - component: {fileID: 114484695916495442}
   - component: {fileID: 114548037431627032}
   - component: {fileID: 114575438668850018}
-  - component: {fileID: 114366865012717870}
   - component: {fileID: 114625887609228712}
+  - component: {fileID: 114186794410948296}
   m_Layer: 0
   m_Name: RoamingDefense
   m_TagString: Untagged
@@ -279,6 +279,50 @@ MonoBehaviour:
     variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
   objectsToSnap: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
   mockupSprite: {fileID: 21300000, guid: 34b6985c58e09674ead36c3d6e7d4e8f, type: 3}
+--- !u!114 &114186794410948296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1853938967065950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 1c5ae4e8082042545a413f3637a10b0d, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114548037431627032}
+        m_MethodName: OnEditStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114970192886855578}
+        m_MethodName: OnEditStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114195170981875164
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -318,46 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6139d6e94e1748b09bd561e21d42c317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114366865012717870
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1853938967065950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
-  inverseValue: 0
-  onStateChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114548037431627032}
-        m_MethodName: OnEditStateChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 114970192886855578}
-        m_MethodName: OnEditStateChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114484695916495442
 MonoBehaviour:
   m_ObjectHideFlags: 1

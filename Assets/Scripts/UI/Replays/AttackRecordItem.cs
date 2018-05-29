@@ -1,5 +1,6 @@
 ﻿using Framework.Data;
 using Framework.UI;
+using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Server;
 using TMPro;
 using UnityEngine;
@@ -11,7 +12,8 @@ namespace RocketsAndGamblers.UI
         [SerializeField] private TMP_Text playerNameText;
         
         [SerializeField] private StringVariable recordFileName;
-        [SerializeField] private BoolVariable isWatchingReplay;
+        [SerializeField] private GameStateVariable currentGameState;
+        [SerializeField] private GameState replayState;
         
         private AttackRecord Record { get; set; }
         
@@ -24,7 +26,7 @@ namespace RocketsAndGamblers.UI
         public void OnReplayButtonClicked()
         {
             recordFileName.Value = Record.ReplayFileName;
-            isWatchingReplay.Value = true;
+            currentGameState.Value = replayState;
         }
 
         

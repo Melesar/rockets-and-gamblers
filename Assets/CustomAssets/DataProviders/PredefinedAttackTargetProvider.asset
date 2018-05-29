@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c695bacbffd348308674feece92d5d2a, type: 3}
   m_Name: PredefinedAttackTargetProvider
   m_EditorClassIdentifier: 
-  lastTargetId: {fileID: 0}
+  attackedPlayerId: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
   targetId:
     useConstantValue: 1
-    constantValue: e83adad3-251f-4ba2-975d-d29cf12a1aa6
+    constantValue: 320fd203-01f2-4f81-b0c8-71f4b73769cf
     variable: {fileID: 0}

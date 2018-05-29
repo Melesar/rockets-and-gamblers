@@ -11,9 +11,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80949c1d93ba4a41bfeb9ede11e324c, type: 3}
   m_Name: AttackSystem
   m_EditorClassIdentifier: 
-  targetProvider: {fileID: 11400000, guid: bce9c3e418c19a84f9c3ab2d32432a50, type: 2}
+  targetProvider: {fileID: 11400000, guid: f6fed98bc0d76084499b8c042c5d6277, type: 2}
   playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
   baseProvider: {fileID: 11400000, guid: ebcd8f626f27e224f9004c7fc2410966, type: 2}
   baseBuilder: {fileID: 11400000, guid: c9fbda8843c0f7e419088f45a45f821c, type: 2}
   attackStarted: {fileID: 11400000, guid: a1fad88fbdd615f45abc754083fe606e, type: 2}
   attackFinished: {fileID: 11400000, guid: ba10ca00ea62cd64abc5ca77f10f5615, type: 2}
+  currentGameState: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  attackState: {fileID: 11400000, guid: e06a79e9ceb0e2743807a6fbbd83dd7a, type: 2}
+  defaultState: {fileID: 11400000, guid: be67643e616e0ce4b9fab4003deb3f4a, type: 2}

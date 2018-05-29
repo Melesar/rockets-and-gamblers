@@ -20,7 +20,7 @@ public class ReplayMovement : MonoBehaviour
         movement.Burst(coords);
     }
 
-    public async Task SetShipOnPoint(Replay replay)
+    public async Task Lauch(Replay replay)
     {
         var curentTime = 0f;
 

@@ -77,11 +77,11 @@ GameObject:
   - component: {fileID: 114674030492871222}
   - component: {fileID: 114387212323506956}
   - component: {fileID: 114701478676649602}
-  - component: {fileID: 114111641138716134}
   - component: {fileID: 114330658978855582}
   - component: {fileID: 114360164010937878}
   - component: {fileID: 114565817188889428}
   - component: {fileID: 114496807303547496}
+  - component: {fileID: 114518970138999864}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -180,35 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4b155a6e0aa6e743a719cc4ba42ee8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114111641138716134
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1857933707240470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c570be8616d002843b58b47c67159105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stateVariable: {fileID: 11400000, guid: 7c57cb4abcd1a8b4e994d3f524017e93, type: 2}
-  inverseValue: 0
-  onStateChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114701478676649602}
-        m_MethodName: OnSavingStateChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114142560665070444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,6 +313,39 @@ MonoBehaviour:
           m_BoolArgument: 1
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &114518970138999864
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1857933707240470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 957ad93c8fcf408d89a9342a3a09cc15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameState:
+    useConstantValue: 0
+    constantValue: {fileID: 0}
+    state: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  trackedState: {fileID: 11400000, guid: 7f05ee1538df6e248a782e99d61e87b1, type: 2}
+  inverseValue: 0
+  onStateChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114701478676649602}
+        m_MethodName: OnSavingStateChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Framework.EventListeners.BoolUnityEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114565817188889428
 MonoBehaviour:

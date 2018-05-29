@@ -1,4 +1,5 @@
 ﻿using Framework.Data;
+using RocketsAndGamblers.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -6,11 +7,11 @@ namespace RocketsAndGamblers
 {
     public class SuccessfullAttemptHandler : MonoBehaviour
     {
-        public BoolVariable isTryingToSaveBase;
+        public GameState stateToOperateIn;
 
         public void OnAttackSuccessfull()
         {
-            if (!isTryingToSaveBase) {
+            if (!stateToOperateIn.IsCurrent) {
                 return;
             }
 

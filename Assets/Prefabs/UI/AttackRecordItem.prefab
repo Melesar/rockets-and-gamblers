@@ -508,7 +508,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNameText: {fileID: 114643823059220264}
   recordFileName: {fileID: 11400000, guid: e30b7446a88670a41a34194daa4605ed, type: 2}
-  isWatchingReplay: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
+  currentGameState: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+  replayState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
 --- !u!222 &222024653507333494
 CanvasRenderer:
   m_ObjectHideFlags: 1
