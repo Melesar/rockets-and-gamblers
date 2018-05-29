@@ -53,8 +53,6 @@ namespace RocketsAndGamblers.Replay
                 var json = Encoding.UTF8.GetString(stream.GetBuffer());
                 var replay = JsonUtility.FromJson<Replay>(json);
 
-                Debug.Log($"Dowloaded replay: {json}");
-                
                 return replay;
             }
         }

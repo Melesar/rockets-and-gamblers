@@ -51,6 +51,7 @@ namespace RocketsAndGamblers
         private void Start()
         {
             Land();
+            Launch();
         }
 
         private void Awake ()

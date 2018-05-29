@@ -30,7 +30,7 @@ namespace RocketsAndGamblers
         {
             ExecuteEvents.Execute<IDeathListener>(
                 gameObject,
-                new BaseEventData(EventSystem.current),
+                null,
                 (handler, data) => handler.OnDeath()                
             );
         }

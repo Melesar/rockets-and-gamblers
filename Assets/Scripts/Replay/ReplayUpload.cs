@@ -49,7 +49,6 @@ namespace RocketsAndGamblers.Replay
                 return;
             }
             
-            Debug.Log($"Touch coords: {touchCoords}");
             replayStart.AddToList(new InputData(touchCoords, Time.unscaledTime - StartTime));
         }
 
