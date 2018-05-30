@@ -2487,6 +2487,7 @@ GameObject:
   - component: {fileID: 1633412433}
   - component: {fileID: 1633412432}
   - component: {fileID: 1633412436}
+  - component: {fileID: 1633412437}
   m_Layer: 0
   m_Name: Replays
   m_TagString: Untagged
@@ -2546,12 +2547,14 @@ MonoBehaviour:
     useConstantValue: 0
     constantValue: 
     variable: {fileID: 11400000, guid: 9132ac25f872ac0489a9018d9d6c045f, type: 2}
-  objectsDatabase: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
   replayFileName:
     useConstantValue: 0
     constantValue: 
     variable: {fileID: 11400000, guid: e30b7446a88670a41a34194daa4605ed, type: 2}
-  shipPrefab: {fileID: 1455797122737826, guid: 177ed6983fa41d3479ec0a6fb8489968, type: 2}
+  azureDatabase: {fileID: 11400000, guid: 3367df67438d2914787305da58daef50, type: 2}
+  currentPlayer: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
+  objectsDatabase: {fileID: 11400000, guid: 207770632bff50747a94d641da1f1a47, type: 2}
+  shipPrefab: {fileID: 1257976560772600, guid: def2a9488d329da4f8d84ef0278240bf, type: 2}
   spawnpointId: {fileID: 11400000, guid: bbc4314273faaab4782339bdb4d07621, type: 2}
   replayState: {fileID: 11400000, guid: 0794829747e7c374bb0bcac22e2ce35d, type: 2}
   replayConfirmationWindow: {fileID: 11400000, guid: a0020157244fedf45826158899bb0ca1,
@@ -2600,6 +2603,34 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1633412433}
         m_MethodName: OnAttackSuccessfull
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &1633412437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1633412431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0eb2511d46a1bea4786a59b1218d0b7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameEvent: {fileID: 11400000, guid: d4c5b0a488321a94b88dc578b148a180, type: 2}
+  onRaised:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1633412433}
+        m_MethodName: OnSavingSuccessfull
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3253,12 +3284,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 53670dd357ef485429d958802d115937, type: 2}
-        m_MethodName: Inverse
-        m_Mode: 1
+      - m_Target: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
+        m_MethodName: set_Value
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: be67643e616e0ce4b9fab4003deb3f4a,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RocketsAndGamblers.Data.GameState, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

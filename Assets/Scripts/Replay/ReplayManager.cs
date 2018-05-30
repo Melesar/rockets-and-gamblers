@@ -6,6 +6,7 @@ using Framework.References;
 using Framework.UI;
 using RocketsAndGamblers.Data;
 using RocketsAndGamblers.Database;
+using RocketsAndGamblers.Player;
 using RocketsAndGamblers.Server;
 using UnityEngine;
 
@@ -13,13 +14,22 @@ namespace RocketsAndGamblers.Replay
 {
     public class ReplayManager : MonoBehaviour
     {
+        [Header("Blob storage settings")]
         public StringReference connection;
         public StringReference containerName;
-        public ObjectsDatabase objectsDatabase;
         public StringReference replayFileName;
+        
+        [Header("Database settings")]
+        public AzureDatabase azureDatabase;
+        public PlayerData currentPlayer;
+        
+        [Header("Replay installment")]
+        public ObjectsDatabase objectsDatabase;
         public GameObject shipPrefab;
         public ObjectId spawnpointId;
 
+        [Space]
+        
         public GameState replayState;
         public WindowDescriptor replayConfirmationWindow;
         
@@ -41,13 +51,28 @@ namespace RocketsAndGamblers.Replay
                 replayConfirmationWindow.Invoke();
             }
         }
+
+        public void OnSavingSuccessfull()
+        {
+            DeleteOldReplays().WrapErrors();
+        }
+
+        private async Task DeleteOldReplays()
+        {
+            var replaysTable = azureDatabase.GetTable<AttackRecord>();
+            var replaysToBeDeleted = await replaysTable.Where(r => r.VictimId == currentPlayer.Id).ToEnumerableAsync();
+
+            foreach (var record in replaysToBeDeleted) {
+                await replaysTable.DeleteAsync(record);
+            }
+        }
         
         private async Task OnReplayCliked()
         {
             var downloadReplay = await GetReplay(replayFileName);
 
             var spawnPoint = objectsDatabase.GetById(spawnpointId.id)?.GetComponent<SpawnPoint>();
-            
+           
             playerInstance = spawnPoint.Spawn(shipPrefab);
             
             var replayMovement = playerInstance.AddComponent<ReplayMovement>();

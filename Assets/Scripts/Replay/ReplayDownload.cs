@@ -18,6 +18,8 @@ namespace RocketsAndGamblers.Replay
 
         private async Task GetAttackHistory()
         {
+            history.Clear();
+            
             var attackRecordsTable = database.GetTable<AttackRecord>();
             var playersTable = database.GetTable<Server.Player>();
 
@@ -39,8 +41,6 @@ namespace RocketsAndGamblers.Replay
                 entity.AttackerName = attackerNames[0];
                 history.Add(entity);
             }
-
-            Debug.Log("Attack history loaded");
         }
     }
 }

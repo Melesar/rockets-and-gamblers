@@ -14,5 +14,5 @@ MonoBehaviour:
   attackedPlayerId: {fileID: 11400000, guid: 2a3448c6a78f6b848867503b3d17b8ae, type: 2}
   targetId:
     useConstantValue: 1
-    constantValue: 320fd203-01f2-4f81-b0c8-71f4b73769cf
+    constantValue: 42f7d7f4-652e-4d22-b359-bc73f2c7b025
     variable: {fileID: 0}
