@@ -24,7 +24,7 @@ namespace RocketsAndGamblers.Edior
 
             baseDescription.bundleName = bundleName;
 
-            //baseProperties.provider.UpdatePlayerBase(baseProperties.playerId, baseDescription);
+            baseProperties.provider.UpdatePlayerBase(baseProperties.playerId.ToString(), baseDescription);
         }
 
         public static void WriteDefensesLayout (BaseDescription baseDesription)

@@ -107,7 +107,10 @@ namespace RocketsAndGamblers
 
         private void SetActiveObjects (bool isActive)
         {
-            var deactivators = objectsToSnap.Select(o => o.GetComponent<EditTimeDeactivator>());
+            var deactivators = objectsToSnap
+                .Select(o => o.GetComponent<EditTimeDeactivator>())
+                .Where(d => d != null);
+            
             foreach (var item in deactivators) {
                 item.SetActive(isActive);
             }

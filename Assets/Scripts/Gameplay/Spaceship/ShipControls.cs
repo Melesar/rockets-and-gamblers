@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
@@ -33,12 +34,23 @@ namespace RocketsAndGamblers
                 return;
             }
 
-            if (eventSystem.IsPointerOverGameObject()) {
+            if (IsPointerOverUIObject()) {
                 return;
             }
 
             var touchCoords = mainCamera.ScreenToWorldPoint(Input.mousePosition);
             onTouch.Invoke(touchCoords);
+        }
+        
+        private bool IsPointerOverUIObject() 
+        {
+            var eventDataCurrentPosition = new PointerEventData(eventSystem) {
+                position = new Vector2(Input.mousePosition.x, Input.mousePosition.y)
+            };
+            
+            var results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            return results.Count > 0;
         }
 
         private void Awake ()

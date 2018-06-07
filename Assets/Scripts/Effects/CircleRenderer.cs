@@ -24,7 +24,6 @@ namespace DefaultNamespace
 
         private float segmentLenght;
         private float currentAngle;
-        private Vector3 center;
 
         private const float DoublePI = 2f * Mathf.PI;
         
@@ -55,6 +54,7 @@ namespace DefaultNamespace
 
         private void DrawCircleSegment(float angle)
         {
+            var center = transform.position;
             var v1 = center + GetOffset(radius, angle);
             var v2 = center + GetOffset(radius + thickness, angle);
             var v3 = center + GetOffset(radius + thickness, angle + angleStep);
@@ -73,7 +73,6 @@ namespace DefaultNamespace
 
         private void Awake()
         {
-            center = transform.position;
             segmentLenght = DoublePI / segmentsCount - gapLenght;
 
             set.Add(this);

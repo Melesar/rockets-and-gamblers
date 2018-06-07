@@ -26,13 +26,13 @@ GameObject:
   - component: {fileID: 232435298170976862}
   - component: {fileID: 114294503598412374}
   - component: {fileID: 114750784230846834}
-  - component: {fileID: 114577503597457026}
   - component: {fileID: 114810086005837874}
   - component: {fileID: 114306473209743072}
   - component: {fileID: 58077586955632554}
   - component: {fileID: 114058015166495432}
   - component: {fileID: 114733619445897140}
   - component: {fileID: 114988813942886228}
+  - component: {fileID: 114805850529752608}
   m_Layer: 0
   m_Name: planet
   m_TagString: Untagged
@@ -151,18 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   set: {fileID: 11400000, guid: b69fc1f0eaec047469590750861afb70, type: 2}
---- !u!114 &114577503597457026
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1508053455170482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 327bddfd9256e9a46a4f52bec6b3379d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  disabledRendererAlfa: 0.5
 --- !u!114 &114733619445897140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,6 +173,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9382827052fd06842bc8df695bf56e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114805850529752608
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1508053455170482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe0396ee98425474eb717f638b6ee73a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isEditingBase:
+    useConstantValue: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 105f6a378c0fb59469b4263de1f4c360, type: 2}
 --- !u!114 &114810086005837874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -201,7 +204,7 @@ MonoBehaviour:
   onStateChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114577503597457026}
+      - m_Target: {fileID: 0}
         m_MethodName: OnEditingStateChanged
         m_Mode: 0
         m_Arguments:
