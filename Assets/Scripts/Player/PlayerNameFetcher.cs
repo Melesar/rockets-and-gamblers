@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Framework.Data;
 using Framework.References;
 using RocketsAndGamblers.Server;
@@ -10,6 +8,9 @@ namespace RocketsAndGamblers.Player
 {
     public class PlayerNameFetcher : MonoBehaviour
     {
+        //TODO local storage stub
+        [SerializeField] private string[] playerNames;
+        
         [SerializeField] private StringReference playerId;
         [SerializeField] private StringVariable playerName;
 
@@ -22,8 +23,10 @@ namespace RocketsAndGamblers.Player
 
         private async Task StartAsync()
         {
-            var player = await database.GetPlayerAsync(playerId);
-            playerName.Value = player?.Username ?? "Unknown";
+            //TODO local storage stub
+            playerName.Value = playerNames[Random.Range(0, playerNames.Length)];
+//            var player = await database.GetPlayerAsync(playerId);
+//            playerName.Value = player?.Username ?? "Unknown";
         }
     }
 }

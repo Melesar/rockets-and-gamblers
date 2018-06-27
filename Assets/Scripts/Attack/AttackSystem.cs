@@ -17,7 +17,9 @@ namespace RocketsAndGamblers
         public AttackTargetProvider targetProvider;
 
         public PlayerData playerData;
-        public BaseDescriptionProvider baseProvider;
+        //TODO local storage stub
+        public BaseDescriptionProvider enemyBaseProvider;
+        public BaseDescriptionProvider playerBaseProvider;
 
         public BaseBuilder baseBuilder;
 
@@ -47,7 +49,7 @@ namespace RocketsAndGamblers
 
             var targetId = await targetProvider.GetAttackTargetId();
 
-            var baseDescription = await baseProvider.GetPlayerBase(targetId, true);
+            var baseDescription = await enemyBaseProvider.GetPlayerBase(targetId, true);
 
             await Scenes.UnloadScenes();
 
@@ -64,7 +66,7 @@ namespace RocketsAndGamblers
         {
             attackStarted.Raise();
 
-            var baseDescription = await baseProvider.GetPlayerBase(playerData.Id, false);
+            var baseDescription = await playerBaseProvider.GetPlayerBase(playerData.Id, false);
 
             await Scenes.UnloadScenes();
 

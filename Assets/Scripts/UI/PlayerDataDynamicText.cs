@@ -14,10 +14,12 @@ namespace RocketsAndGamblers.UI
         
         private async Task Start()
         {
+            //TODO local storage stub
             var dynamicText = GetComponent<DynamicText>();
-            var player = await database.GetPlayerAsync(playerData.Id);
-
-            dynamicText.Text = player.Username;
+            dynamicText.Text = playerData.PlayerName;
+//            var player = await database.GetPlayerAsync(playerData.Id);
+//
+//            dynamicText.Text = player.Username;
         }
     }
 }

@@ -13,15 +13,34 @@ namespace RocketsAndGamblers.Player
         [SerializeField] private AzureDatabase database;
         
         public string Id => id;
+
+        public string PlayerName =>
+            PlayerPrefs.HasKey(PlayerNameKey) ? PlayerPrefs.GetString(PlayerNameKey) : "Unknown";
         
         [SerializeField] private string id;
 
+        private const string PlayerNameKey = "PlayerName"; 
+
         public async Task Init()
+        {
+            //TODO local storage stub
+            //await AzureInit();
+
+            if (PlayerPrefs.HasKey(PlayerNameKey)) {
+                return;
+            }
+
+            var playerName = await GetPlayerNameInput();
+            PlayerPrefs.SetString(PlayerNameKey, playerName);
+            PlayerPrefs.Save();
+        }
+
+        private async Task AzureInit()
         {
             var playersTable = database.GetTable<Server.Player>();
             var playerQuery = playersTable.Where(u => u.DeviceId == SystemInfo.deviceUniqueIdentifier);
             var currentPlayerEntity = (await playersTable.ReadAsync(playerQuery)).FirstOrDefault();
-            
+
             if (currentPlayerEntity != null) {
                 id = currentPlayerEntity.Id;
             } else {
@@ -30,7 +49,7 @@ namespace RocketsAndGamblers.Player
                 await playersTable.InsertAsync(currentPlayerEntity);
                 id = currentPlayerEntity.Id;
             }
-            
+
             database.CachePlayer(currentPlayerEntity);
         }
 

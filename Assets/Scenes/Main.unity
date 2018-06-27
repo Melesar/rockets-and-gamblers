@@ -589,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 5aaa3adf65222814e96f036ed642eb68, type: 2}
-  baseProvider: {fileID: 11400000, guid: ebcd8f626f27e224f9004c7fc2410966, type: 2}
+  baseProvider: {fileID: 11400000, guid: 1df52b76dc25d1c44b7459b528e3984e, type: 2}
   baseBuilder: {fileID: 11400000, guid: c9fbda8843c0f7e419088f45a45f821c, type: 2}
   currentGameState: {fileID: 11400000, guid: 0b6166ddacc2342468930738efa83265, type: 2}
   defaultGameState: {fileID: 11400000, guid: be67643e616e0ce4b9fab4003deb3f4a, type: 2}

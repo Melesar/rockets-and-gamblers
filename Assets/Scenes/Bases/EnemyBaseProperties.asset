@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e561cfba2006b409ce1e68f6772cc5, type: 3}
   m_Name: EnemyBaseProperties
   m_EditorClassIdentifier: 
-  playerId: 2
+  playerId: 4
   goldMiningLimit: 4000
   omoniumVeinsMax: 3
   availableDefenses: d1070000d2070000d3070000
